@@ -1,22 +1,8 @@
-# Rezigco Landing Page
-
-This is the landing page for Rezigco, an AI-powered real estate solutions company.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-First, install the dependencies:
-
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
-```
-
-Then, run the development server:
+First, run the development server:
 
 ```bash
 npm run dev
@@ -30,17 +16,7 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Project Structure
-
-- `src/app` - Contains the main page and layout files
-- `src/components` - Contains reusable UI components
-- `public` - Contains static assets like images and fonts
-
-## Technologies Used
-
-- Next.js (App Router)
-- TypeScript
-- Tailwind CSS
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
