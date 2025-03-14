@@ -1,201 +1,163 @@
 "use client";
 
-import Image from "next/image";
-import { Tabs } from "@/components/ui/tabs";
-import { FlipWords } from "@/components/ui/flip-words";
-import { TextAnimate } from "@/registry/magicui/text-animate";
+import { motion } from "framer-motion";
+import { HoverEffect } from "@/components/ui/card-hover-effect";
+import React from "react";
 
 export default function Features() {
-  const tabs = [
+  const features = [
     {
       title: "Chat Engager",
-      value: "chat-engager",
-      content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-4 pl-10 pr-10 pb-8 text-gray-800 bg-white border-2 border-[#922ea4] font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-          <div className="space-y-4 text-sm md:text-base pt-4">
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Seamless Integration</h4>
-              <span>
-                Embed the chat on your site effortlessly.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Custom Design</h4>
-              <span>
-                Match the chat's style to your branding and colors.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">24/7 Engagement</h4>
-              <span>
-                Always available to answer queries and book calls.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Chat Analytics</h4>
-              <span>
-                Monitor chats, track trends, and analyze performance.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Tailored Responses</h4>
-              <span>
-                Deliver accurate answers using your custom business knowledge base.
-              </span>
-            </div>
-          </div>
-        </div>
-      ),
+      description: "Embeddable website widget or standalone page with tailored responses, property filtering, branded tone and styling, and 24/7 lead capture.",
+      emoji: "💬"
     },
     {
       title: "Inbound Automator",
-      value: "inbound-automator",
-      content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-4 pl-10 pr-10 pb-8 text-gray-800 bg-white border-2 border-[#922ea4] font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-          <div className="space-y-4 text-sm md:text-base pt-4">
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Message Analysis</h4>
-              <span>
-                Understand inquiries with intelligent AI-driven insights.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Lead Qualification</h4>
-              <span>
-                Identify high-intent leads that meet your criteria to move to the next stage.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Personalized Replies</h4>
-              <span>
-                Tailor responses to inquiries in your tone using info from your business knowledge base.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Lead Profiling</h4>
-              <span>
-                Build detailed profiles for better follow-up.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Inquiry Analytics</h4>
-              <span>
-                Track inquiries, conversions, and engagement trends.
-              </span>
-            </div>
-          </div>
-        </div>
-      ),
+      description: "Analyze inquiries, qualify leads, and deliver personalized replies using AI-driven insights from your business knowledge base.",
+      emoji: "✉️"
     },
     {
       title: "Data Organiser",
-      value: "data-organiser",
-      content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-4 pl-10 pr-10 pb-8 text-gray-800 bg-white border-2 border-[#922ea4] font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-          <div className="space-y-4 text-sm md:text-base pt-4">
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Data Import</h4>
-              <span>
-                Seamlessly upload files and integrate with databases and MLS systems.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Data Export</h4>
-              <span>
-                Extract organized data for use in databases and MLS systems.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Document Summarization</h4>
-              <span>
-                Always available to answer queries and book calls.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Interactive Documents</h4>
-              <span>
-                Ask questions directly about your documents for instant answers.
-              </span>
-            </div>
-          </div>
-        </div>
-      ),
+      description: "Seamlessly import and export data, generate document summaries, and interact with your documents for instant answers.",
+      emoji: "📁"
     },
     {
       title: "Insights",
-      value: "insights",
-      content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-4 pl-10 pr-10 pb-8 text-gray-800 bg-white border-2 border-[#922ea4] font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-          <div className="space-y-4 text-sm md:text-base pt-4">
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Comprehensive Area Insights</h4>
-              <span>
-                Deliver detailed neighborhood analytics, such demographics, services, and environmental data.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Smart Lead Matching</h4>
-              <span>
-                Enable leads to discover listings that align with their needs using intelligent filtering.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Enhanced Listings</h4>
-              <span>
-                Add valuable area insights to elevate your property profiles.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Automated Data Generation</h4>
-              <span>
-                Instantly create area insights and conduct neighborhood research with minimal effort.
-              </span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#922ea4]">Embeddable Widgets</h4>
-              <span>
-                Integrate area insights section seamlessly into your website.
-              </span>
-            </div>
-          </div>
-        </div>
-      ),
+      description: "Deliver detailed neighborhood analytics, match leads with listings, and enhance property profiles with valuable area insights.",
+      emoji: "💡"
     },
   ];
 
+  // The text content with highlighted words
+  const text = "Time wasted on leads that go nowhere, irrelevant data, and disconnected tools that lack intelligence slows you, works for you, choose the capabilities you need to get real results.";
+  
+  // Words to highlight in purple
+  const highlightedWords = ['leads', 'intelligence', 'works for you', 'you,', 'real results'];
+
   return (
-    <section className="relative bg-white pt-20 pb-20 font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+    <section className="relative bg-white pt-4 pb-20 font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-6">
-          <div className="flex flex-col items-center justify-center">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
-              Put Ziggy To Work,
-            </h2>
-            <div className="h-[60px] flex items-center justify-center mt-1">
-              <FlipWords 
-                words={["Your Way", "24/7", "Seamlessly"]} 
-                duration={800} 
-                className="text-[#922ea4] font-bold text-3xl md:text-5xl" 
-              />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+          <div className="lg:col-span-5 lg:flex lg:items-center lg:justify-end lg:pr-8">
+            <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-6 max-w-xl">
+              {/* Split the text into parts and highlight specific words */}
+              {text.split(' ').map((word, index, array) => {
+                // Create a properly typed copy of the array for manipulation
+                const processedArray = [...array] as (string | null)[];
+                
+                // Check if this word or a phrase starting with this word should be highlighted
+                const matchedPhrase = highlightedWords.find(phrase => {
+                  const words = phrase.split(' ');
+                  if (words.length === 1) {
+                    // For single words, check exact match (including punctuation)
+                    return word === phrase || word === phrase + ',' || word === phrase + '.';
+                  } else {
+                    // For phrases, check if this is the start of the phrase
+                    const potentialPhrase = array.slice(index, index + words.length).join(' ');
+                    return potentialPhrase === phrase || potentialPhrase === phrase + ',' || potentialPhrase === phrase + '.';
+                  }
+                });
+
+                // Skip if this word has been marked as part of a processed phrase
+                if (processedArray[index] === null) {
+                  return null;
+                }
+
+                if (matchedPhrase) {
+                  const words = matchedPhrase.split(' ');
+                  if (words.length === 1) {
+                    // Single word highlight
+                    return (
+                      <motion.span 
+                        key={index}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1 + (index * 0.03) }}
+                        className="text-[#922ea4] font-bold"
+                      >
+                        {word}{' '}
+                      </motion.span>
+                    );
+                  } else {
+                    // Skip the next n-1 words as they're part of this phrase
+                    const phraseWithSpace = array.slice(index, index + words.length).join(' ');
+                    // Mark words as processed in our copy
+                    for (let i = 1; i < words.length; i++) {
+                      if (index + i < processedArray.length) {
+                        processedArray[index + i] = null;
+                      }
+                    }
+                    return (
+                      <motion.span 
+                        key={index}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1 + (index * 0.03) }}
+                        className="text-[#922ea4] font-bold"
+                      >
+                        {phraseWithSpace}{' '}
+                      </motion.span>
+                    );
+                  }
+                } else {
+                  // Regular word
+                  return (
+                    <motion.span 
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.1 + (index * 0.03) }}
+                    >
+                      {word}{' '}
+                    </motion.span>
+                  );
+                }
+              })}
             </div>
           </div>
-          <div className="mt-4">
-            <span className="text-xl text-gray-600 max-w-3xl mx-auto block">
-              Select the capabilities of your hired AI agent, letting Ziggy handle the tedious work while unlocking new opportunities for success in real estate:
-            </span>
+          
+          <div className="lg:col-span-7">
+            <HoverEffect items={features} className="h-full" />
           </div>
         </div>
-        
-        <div className="h-[24rem] md:h-[28rem] [perspective:1000px] relative flex flex-col max-w-4xl mx-auto w-full items-center justify-start mb-16">
-          <Tabs 
-            tabs={tabs} 
-            contentClassName="mt-16" 
-            containerClassName="justify-center"
-            activeTabClassName="bg-[#922ea4] text-white font-semibold !important"
-            tabClassName="font-medium"
-          />
-        </div>
       </div>
+
+      {/* Add keyframe animations for the shine effect */}
+      <style jsx global>{`
+        @keyframes shineRight {
+          0% { right: 100%; }
+          15% { right: -50%; }
+          100% { right: -50%; }
+        }
+        @keyframes shineDown {
+          0% { top: -100%; }
+          15% { top: 100%; }
+          100% { top: 100%; }
+        }
+        @keyframes shineLeft {
+          0% { left: 100%; }
+          15% { left: -50%; }
+          100% { left: -50%; }
+        }
+        @keyframes shineUp {
+          0% { bottom: -100%; }
+          15% { bottom: 100%; }
+          100% { bottom: 100%; }
+        }
+        
+        .shine-right {
+          animation: shineRight 2.5s infinite;
+        }
+        .shine-down {
+          animation: shineDown 2.5s 0.6s infinite;
+        }
+        .shine-left {
+          animation: shineLeft 2.5s 1.2s infinite;
+        }
+        .shine-up {
+          animation: shineUp 2.5s 1.8s infinite;
+        }
+      `}</style>
     </section>
   );
 } 

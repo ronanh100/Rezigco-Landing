@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export type TextAnimateProps = {
-  children: string;
+  children: React.ReactNode;
   animation: "fadeIn" | "blurInUp" | "typewriter" | "slideUp";
   by?: "character" | "word" | "line";
   delay?: number;
@@ -25,11 +25,32 @@ export function TextAnimate({
   as = "div",
 }: TextAnimateProps) {
   const containerRef = useRef<HTMLDivElement | HTMLSpanElement>(null);
-  const [elements, setElements] = useState<HTMLElement[]>([]);
   const [isVisible, setIsVisible] = useState(false);
 
+  // If children is not a simple string, render it directly with animation wrapper
+  if (typeof children !== 'string') {
+    const Component = as === 'span' ? 'span' : 'div';
+    
+    return (
+      <Component
+        ref={containerRef as any}
+        className={cn("inline", className)}
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? "translateY(0) scale(1) blur(0)" : getInitialTransform(animation),
+          transition: `opacity ${duration}s ease, transform ${duration}s ease`,
+        }}
+      >
+        {children}
+      </Component>
+    );
+  }
+
+  // Original implementation for string children
+  const [elements, setElements] = useState<HTMLElement[]>([]);
+
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || typeof children !== 'string') return;
 
     const container = containerRef.current;
     const text = children;
@@ -116,12 +137,39 @@ export function TextAnimate({
     });
   }, [elements, isVisible, animation, delay, duration]);
 
+  // Add intersection observer for the simple case too
+  useEffect(() => {
+    if (!containerRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            if (once) {
+              observer.disconnect();
+            }
+          } else if (!once) {
+            setIsVisible(false);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [once]);
+
   if (as === "span") {
     return (
       <span
         ref={containerRef as React.RefObject<HTMLSpanElement>}
         className={cn("inline", className)}
-        aria-label={children}
+        aria-label={typeof children === 'string' ? children : undefined}
       />
     );
   }
@@ -130,7 +178,7 @@ export function TextAnimate({
     <div
       ref={containerRef as React.RefObject<HTMLDivElement>}
       className={cn("inline", className)}
-      aria-label={children}
+      aria-label={typeof children === 'string' ? children : undefined}
     />
   );
 }
