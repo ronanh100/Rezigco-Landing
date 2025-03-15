@@ -14,7 +14,7 @@ interface WordRotateProps {
 export function WordRotate({
   words,
   className,
-  duration = 2000,
+  duration = 1800,
   staticText,
 }: WordRotateProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,8 +57,8 @@ export function WordRotate({
     <div className={cn("flex flex-col items-center text-center", className)}>
       {staticText && <div className="mb-4 text-black">{staticText}</div>}
       <div style={{ 
-        width: maxWidth > 0 ? `${maxWidth}px` : 'auto', 
-        height: '1.2em', 
+        width: '100%', 
+        minHeight: '1.5em', 
         position: 'relative',
         display: 'flex',
         justifyContent: 'center'
@@ -66,11 +66,11 @@ export function WordRotate({
         <AnimatePresence mode="wait">
           <motion.span
             key={currentIndex}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.2 }}
-            className="text-purple-600"
+            className="text-purple-600 text-center max-w-full px-2"
             style={{ position: 'absolute' }}
           >
             {words[currentIndex]}

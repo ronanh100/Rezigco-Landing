@@ -1,8 +1,7 @@
 "use client";
 
-import { motion, useAnimation, useInView } from "framer-motion";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 export default function Features() {
   const features = [
@@ -28,35 +27,8 @@ export default function Features() {
     },
   ];
 
-  // The text content with highlighted words
-  const text = "Managing leads, sorting through data, and disconnected tools that lack intelligence slow you down. With Ziggy, choose the capabilities you need to put your growth on autopilot.";
-  
-  // Words to highlight in purple
-  const highlightedWords = ['leads', 'intelligence', 'choose the capabilities', 'growth on autopilot'];
-
-  // Animation controls for the text
-  const controls = useAnimation();
-  
-  // Use Framer Motion's useInView hook instead of react-intersection-observer
-  const ref = useRef(null);
-  const inView = useInView(ref, {
-    once: false,
-    amount: 0.2,
-    margin: "-100px 0px 0px 0px"
-  });
-  
-  // Trigger animation when section is in view
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    } else {
-      controls.start("hidden");
-    }
-  }, [inView, controls]);
-
   return (
     <section 
-      ref={ref}
       className="relative bg-white pt-0 pb-12 font-bricolage -mt-24" 
       style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
     >
@@ -64,128 +36,9 @@ export default function Features() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-8">
           <div className="lg:col-span-5 lg:flex lg:items-center lg:justify-end lg:pr-8">
             <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 max-w-xl">
-              {/* Render text with highlighted words using a more reliable approach */}
-              <motion.p
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 }
-                }}
-                initial="hidden"
-                animate={controls}
-                transition={{ duration: 0.5 }}
-              >
-                <motion.span
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                  Managing{' '}
-                </motion.span>
-                
-                <motion.span
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{ duration: 0.5, delay: 0.13 }}
-                  className="text-[#922ea4] font-bold"
-                >
-                  leads
-                </motion.span>
-                
-                <motion.span
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{ duration: 0.5, delay: 0.16 }}
-                >
-                  , sorting through data, and disconnected tools that lack{' '}
-                </motion.span>
-                
-                <motion.span
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{ duration: 0.5, delay: 0.19 }}
-                  className="text-[#922ea4] font-bold"
-                >
-                  intelligence
-                </motion.span>
-                
-                <motion.span
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{ duration: 0.5, delay: 0.22 }}
-                >
-                  {' '}slow you down. With Ziggy, {' '}
-                </motion.span>
-                
-                <motion.span
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{ duration: 0.5, delay: 0.25 }}
-                  className="text-[#922ea4] font-bold"
-                >
-                  choose the capabilities
-                </motion.span>
-                
-                <motion.span
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{ duration: 0.5, delay: 0.28 }}
-                >
-                  {' '}you need to put your{' '}
-                </motion.span>
-                
-                <motion.span
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{ duration: 0.5, delay: 0.31 }}
-                  className="text-[#922ea4] font-bold"
-                >
-                  growth on autopilot
-                </motion.span>
-                
-                <motion.span
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{ duration: 0.5, delay: 0.34 }}
-                >
-                  .
-                </motion.span>
-              </motion.p>
+              <p>
+                Managing <span className="text-[#922ea4] font-bold">leads</span>, sorting through data, and disconnected tools that lack <span className="text-[#922ea4] font-bold">intelligence</span> slow you down. With Ziggy, <span className="text-[#922ea4] font-bold">choose the capabilities</span> you need to put your <span className="text-[#922ea4] font-bold">growth on autopilot</span>.
+              </p>
             </div>
           </div>
           

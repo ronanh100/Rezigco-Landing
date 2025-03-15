@@ -15,14 +15,14 @@ export default function RotatingWords() {
   ];
 
   return (
-    <section className="bg-white py-16 font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+    <section className="bg-white py-8 md:py-16 font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
       <div className="container mx-auto px-4">
         <div className="flex justify-center items-center">
           <WordRotate
             staticText="A real estate agent deserves"
             words={rotatingWords}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold"
-            duration={2000}
+            className="text-2xl md:text-3xl lg:text-5xl font-bold px-2"
+            duration={1800}
           />
         </div>
       </div>
