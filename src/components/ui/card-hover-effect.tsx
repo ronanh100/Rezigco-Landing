@@ -52,9 +52,12 @@ export function HoverEffect({
           <Card isHovered={hoveredIndex === idx}>
             <div className="flex flex-col h-full">
               {/* Animation or Image Container */}
-              <div className="h-[160px] w-full overflow-hidden rounded-t-xl bg-white">
+              <div className={cn(
+                "h-[160px] w-full overflow-hidden rounded-t-xl",
+                idx === 1 ? "bg-white" : "bg-gradient-to-b from-gray-50 to-gray-100"
+              )}>
                 {idx === 1 ? (
-                  <div className="h-full">
+                  <div className="h-full bg-white">
                     {cardAnimations[1]}
                   </div>
                 ) : (
@@ -66,7 +69,10 @@ export function HoverEffect({
               </div>
               
               {/* Card Content */}
-              <div className="flex-1 p-3 bg-white">
+              <div className={cn(
+                "flex-1 p-3",
+                idx === 1 ? "bg-white" : "bg-gradient-to-b from-gray-100 to-white"
+              )}>
                 {idx === 0 ? (
                   <div className="mb-2">
                     <Link 

@@ -109,7 +109,7 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
       className={cn(
         "relative w-full overflow-hidden rounded-lg p-2 bg-white",
         "transition-all duration-500 ease-out hover:bg-gray-50/50",
-        "border border-gray-100"
+        "border border-gray-100/70"
       )}
     >
       <div className="flex flex-row items-center gap-2">
@@ -154,8 +154,8 @@ export function AnimatedListDemo({ className }: { className?: string }) {
       <div 
         className="absolute bottom-0 left-0 right-0 pointer-events-none"
         style={{
-          height: '40px',
-          background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 60%, rgba(255,255,255,1) 100%)',
+          height: '25px',
+          background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.95) 85%, rgba(255,255,255,1) 100%)',
           zIndex: 100,
         }}
       />

@@ -113,8 +113,8 @@ export function AnimatedList({
                   zIndex: 10 - index,
                   transform: `perspective(800px) rotateX(${index * 1}deg) translateZ(${-index * 3}px)`,
                   boxShadow: index === 0 
-                    ? '0 3px 15px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.05)' 
-                    : '0 2px 8px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)',
+                    ? '0 3px 15px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04)' 
+                    : '0 2px 8px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.02)',
                   borderRadius: '8px',
                   border: 'none',
                   padding: '0px',
@@ -141,8 +141,8 @@ export function AnimatedList({
       <div 
         className="absolute bottom-0 left-0 right-0 pointer-events-none"
         style={{
-          height: '40px',
-          background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 60%, rgba(255,255,255,1) 100%)',
+          height: '25px',
+          background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.95) 85%, rgba(255,255,255,1) 100%)',
           zIndex: 50,
         }}
       />
