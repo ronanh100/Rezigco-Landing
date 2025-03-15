@@ -29,10 +29,10 @@ export default function Features() {
   ];
 
   // The text content with highlighted words
-  const text = "Managing leads, sorting through data, and disconnected tools that lack intelligence slow you down. With Ziggy, you choose the capabilities you need to put your growth on autopilot.";
+  const text = "Managing leads, sorting through data, and disconnected tools that lack intelligence slow you down. With Ziggy, choose the capabilities you need to put your growth on autopilot.";
   
   // Words to highlight in purple
-  const highlightedWords = ['leads', 'intelligence', 'growth on autopilot'];
+  const highlightedWords = ['leads', 'intelligence', 'choose the capabilities', 'growth on autopilot'];
 
   // Animation controls for the text
   const controls = useAnimation();
@@ -77,91 +77,128 @@ export default function Features() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
           <div className="lg:col-span-5 lg:flex lg:items-center lg:justify-end lg:pr-8">
             <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-6 max-w-xl">
-              {/* Split the text into parts and highlight specific words */}
-              {text.split(' ').map((word, index, array) => {
-                // Create a properly typed copy of the array for manipulation
-                const processedArray = [...array] as (string | null)[];
+              {/* Render text with highlighted words using a more reliable approach */}
+              <motion.p
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 }
+                }}
+                initial="hidden"
+                animate={controls}
+                transition={{ duration: 0.5 }}
+              >
+                <motion.span
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  initial="hidden"
+                  animate={controls}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                  Managing{' '}
+                </motion.span>
                 
-                // Check if this word or a phrase starting with this word should be highlighted
-                const matchedPhrase = highlightedWords.find(phrase => {
-                  const words = phrase.split(' ');
-                  if (words.length === 1) {
-                    // For single words, check exact match (including punctuation)
-                    return word === phrase || word === phrase + ',' || word === phrase + '.';
-                  } else {
-                    // For phrases, check if this is the start of the phrase
-                    const potentialPhrase = array.slice(index, index + words.length).join(' ');
-                    return potentialPhrase === phrase || potentialPhrase === phrase + ',' || potentialPhrase === phrase + '.';
-                  }
-                });
-
-                // Skip if this word has been marked as part of a processed phrase
-                if (processedArray[index] === null) {
-                  return null;
-                }
-
-                if (matchedPhrase) {
-                  const words = matchedPhrase.split(' ');
-                  if (words.length === 1) {
-                    // Single word highlight
-                    return (
-                      <motion.span 
-                        key={index}
-                        variants={{
-                          hidden: { opacity: 0, y: 10 },
-                          visible: { opacity: 1, y: 0 }
-                        }}
-                        initial="hidden"
-                        animate={controls}
-                        transition={{ duration: 0.5, delay: 0.1 + (index * 0.03) }}
-                        className="text-[#922ea4] font-bold"
-                      >
-                        {word}{' '}
-                      </motion.span>
-                    );
-                  } else {
-                    // Skip the next n-1 words as they're part of this phrase
-                    const phraseWithSpace = array.slice(index, index + words.length).join(' ');
-                    // Mark words as processed in our copy
-                    for (let i = 1; i < words.length; i++) {
-                      if (index + i < processedArray.length) {
-                        processedArray[index + i] = null;
-                      }
-                    }
-                    return (
-                      <motion.span 
-                        key={index}
-                        variants={{
-                          hidden: { opacity: 0, y: 10 },
-                          visible: { opacity: 1, y: 0 }
-                        }}
-                        initial="hidden"
-                        animate={controls}
-                        transition={{ duration: 0.5, delay: 0.1 + (index * 0.03) }}
-                        className="text-[#922ea4] font-bold"
-                      >
-                        {phraseWithSpace}{' '}
-                      </motion.span>
-                    );
-                  }
-                } else {
-                  // Regular word
-                  return (
-                    <motion.span 
-                      key={index}
-                      variants={{
-                        hidden: { opacity: 0, y: 10 },
-                        visible: { opacity: 1, y: 0 }
-                      }}
-                      initial="hidden"
-                      animate={controls}
-                      transition={{ duration: 0.5, delay: 0.1 + (index * 0.03) }}
-                    >
-                      {word}{' '}
-                    </motion.span>
-                  );
-                }
-              })}
+                <motion.span
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  initial="hidden"
+                  animate={controls}
+                  transition={{ duration: 0.5, delay: 0.13 }}
+                  className="text-[#922ea4] font-bold"
+                >
+                  leads
+                </motion.span>
+                
+                <motion.span
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  initial="hidden"
+                  animate={controls}
+                  transition={{ duration: 0.5, delay: 0.16 }}
+                >
+                  , sorting through data, and disconnected tools that lack{' '}
+                </motion.span>
+                
+                <motion.span
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  initial="hidden"
+                  animate={controls}
+                  transition={{ duration: 0.5, delay: 0.19 }}
+                  className="text-[#922ea4] font-bold"
+                >
+                  intelligence
+                </motion.span>
+                
+                <motion.span
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  initial="hidden"
+                  animate={controls}
+                  transition={{ duration: 0.5, delay: 0.22 }}
+                >
+                  {' '}slow you down. With Ziggy, {' '}
+                </motion.span>
+                
+                <motion.span
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  initial="hidden"
+                  animate={controls}
+                  transition={{ duration: 0.5, delay: 0.25 }}
+                  className="text-[#922ea4] font-bold"
+                >
+                  choose the capabilities
+                </motion.span>
+                
+                <motion.span
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  initial="hidden"
+                  animate={controls}
+                  transition={{ duration: 0.5, delay: 0.28 }}
+                >
+                  {' '}you need to put your{' '}
+                </motion.span>
+                
+                <motion.span
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  initial="hidden"
+                  animate={controls}
+                  transition={{ duration: 0.5, delay: 0.31 }}
+                  className="text-[#922ea4] font-bold"
+                >
+                  growth on autopilot
+                </motion.span>
+                
+                <motion.span
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  initial="hidden"
+                  animate={controls}
+                  transition={{ duration: 0.5, delay: 0.34 }}
+                >
+                  .
+                </motion.span>
+              </motion.p>
             </div>
           </div>
           
