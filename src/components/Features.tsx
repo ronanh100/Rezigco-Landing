@@ -32,7 +32,7 @@ export default function Features() {
   const text = "Managing leads, sorting through data, and disconnected tools that lack intelligence slow you down. With Ziggy, you choose the capabilities you need to put your growth on autopilot.";
   
   // Words to highlight in purple
-  const highlightedWords = ['leads', 'intelligence', 'you choose the capabilities', 'growth on autopilot'];
+  const highlightedWords = ['leads', 'intelligence', 'growth on autopilot'];
 
   // Animation controls for the text
   const controls = useAnimation();
