@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { AnimatedListDemo } from "./animated-list-demo";
+import { ChatEngagerDemo } from "./chat-engager-demo";
 import Link from "next/link";
 
 // Add keyframe animation for shimmer
@@ -29,7 +30,7 @@ export function HoverEffect({
 
   // Define animations for each card
   const cardAnimations = [
-    null, // Placeholder for Chat Engager animation
+    <ChatEngagerDemo key="chat-engager" />, // Chat Engager animation
     <AnimatedListDemo key="inbound-automator" />, // Inbound Automator animation
     null, // Placeholder for Data Organiser animation
     null, // Placeholder for Insights animation
@@ -54,9 +55,13 @@ export function HoverEffect({
               {/* Animation or Image Container */}
               <div className={cn(
                 "h-[160px] w-full overflow-hidden rounded-t-xl",
-                idx === 1 ? "bg-white" : "bg-gradient-to-b from-gray-50 to-gray-100"
+                idx === 0 || idx === 1 ? "bg-white" : "bg-gradient-to-b from-gray-50 to-gray-100"
               )}>
-                {idx === 1 ? (
+                {idx === 0 ? (
+                  <div className="h-full bg-white">
+                    {cardAnimations[0]}
+                  </div>
+                ) : idx === 1 ? (
                   <div className="h-full bg-white">
                     {cardAnimations[1]}
                   </div>
@@ -71,7 +76,7 @@ export function HoverEffect({
               {/* Card Content */}
               <div className={cn(
                 "flex-1 p-3",
-                idx === 1 ? "bg-white" : "bg-gradient-to-b from-gray-100 to-white"
+                idx === 0 || idx === 1 ? "bg-white" : "bg-gradient-to-b from-gray-100 to-white"
               )}>
                 {idx === 0 ? (
                   <div className="mb-2">
@@ -82,7 +87,7 @@ export function HoverEffect({
                       <button 
                         className="relative inline-flex h-8 overflow-hidden rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-slate-50 transition-all duration-300 hover:scale-105"
                         aria-label="Learn more about Chat Engager"
-                        style={{ backgroundColor: '#922ea4' }}
+                        style={{ backgroundColor: '#8a3ab9' }}
                       >
                         <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md px-3 py-0 font-bold text-white">
                           {item.title} <span className="ml-1">→</span>
