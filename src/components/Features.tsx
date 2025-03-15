@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function Features() {
   const features = [
@@ -29,13 +29,50 @@ export default function Features() {
   ];
 
   // The text content with highlighted words
-  const text = "Time wasted on leads that go nowhere, irrelevant data, and disconnected tools that lack intelligence slows you, works for you, choose the capabilities you need to get real results.";
+  const text = "Managing leads, sorting through data, and disconnected tools that lack intelligence slow you down. With Ziggy, you choose the capabilities you need to put your growth on autopilot.";
   
   // Words to highlight in purple
-  const highlightedWords = ['leads', 'intelligence', 'works for you', 'you,', 'real results'];
+  const highlightedWords = ['leads', 'intelligence', 'you choose the capabilities', 'growth on autopilot'];
+
+  // Animation controls for the text
+  const controls = useAnimation();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  // Set up intersection observer to trigger animation when section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          controls.start("visible");
+        } else {
+          controls.start("hidden");
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.2, // Trigger when 20% of the section is visible
+      }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [controls]);
 
   return (
-    <section className="relative bg-white pt-4 pb-20 font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+    <section 
+      ref={sectionRef}
+      className="relative bg-white pt-4 pb-20 font-bricolage" 
+      style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+    >
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
           <div className="lg:col-span-5 lg:flex lg:items-center lg:justify-end lg:pr-8">
@@ -70,8 +107,12 @@ export default function Features() {
                     return (
                       <motion.span 
                         key={index}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        variants={{
+                          hidden: { opacity: 0, y: 10 },
+                          visible: { opacity: 1, y: 0 }
+                        }}
+                        initial="hidden"
+                        animate={controls}
                         transition={{ duration: 0.5, delay: 0.1 + (index * 0.03) }}
                         className="text-[#922ea4] font-bold"
                       >
@@ -90,8 +131,12 @@ export default function Features() {
                     return (
                       <motion.span 
                         key={index}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        variants={{
+                          hidden: { opacity: 0, y: 10 },
+                          visible: { opacity: 1, y: 0 }
+                        }}
+                        initial="hidden"
+                        animate={controls}
                         transition={{ duration: 0.5, delay: 0.1 + (index * 0.03) }}
                         className="text-[#922ea4] font-bold"
                       >
@@ -104,8 +149,12 @@ export default function Features() {
                   return (
                     <motion.span 
                       key={index}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      variants={{
+                        hidden: { opacity: 0, y: 10 },
+                        visible: { opacity: 1, y: 0 }
+                      }}
+                      initial="hidden"
+                      animate={controls}
                       transition={{ duration: 0.5, delay: 0.1 + (index * 0.03) }}
                     >
                       {word}{' '}
