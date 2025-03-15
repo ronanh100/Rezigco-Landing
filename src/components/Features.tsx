@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import React, { useEffect, useRef } from "react";
 
@@ -36,40 +36,27 @@ export default function Features() {
 
   // Animation controls for the text
   const controls = useAnimation();
-  const sectionRef = useRef<HTMLDivElement>(null);
   
-  // Set up intersection observer to trigger animation when section is in view
+  // Use Framer Motion's useInView hook instead of react-intersection-observer
+  const ref = useRef(null);
+  const inView = useInView(ref, {
+    once: false,
+    amount: 0.2,
+    margin: "-100px 0px 0px 0px"
+  });
+  
+  // Trigger animation when section is in view
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          controls.start("visible");
-        } else {
-          controls.start("hidden");
-        }
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.2, // Trigger when 20% of the section is visible
-      }
-    );
-    
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
     }
-    
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, [controls]);
+  }, [inView, controls]);
 
   return (
     <section 
-      ref={sectionRef}
+      ref={ref}
       className="relative bg-white pt-4 pb-20 font-bricolage" 
       style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
     >
