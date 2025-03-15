@@ -8,7 +8,7 @@ export default function Features() {
   const features = [
     {
       title: "Chat Engager",
-      description: "Embeddable website widget or standalone page with tailored responses, property filtering, branded tone and styling, and 24/7 lead capture.",
+      description: "Start engaging with your website visitors today! Our AI-powered chat widget captures leads 24/7 with tailored responses, property filtering, and your brand's unique tone.",
       emoji: "💬"
     },
     {
@@ -57,13 +57,13 @@ export default function Features() {
   return (
     <section 
       ref={ref}
-      className="relative bg-white pt-4 pb-20 font-bricolage" 
+      className="relative bg-white pt-0 pb-12 font-bricolage" 
       style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
     >
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-8">
           <div className="lg:col-span-5 lg:flex lg:items-center lg:justify-end lg:pr-8">
-            <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-6 max-w-xl">
+            <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 max-w-xl">
               {/* Render text with highlighted words using a more reliable approach */}
               <motion.p
                 variants={{

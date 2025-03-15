@@ -27,12 +27,12 @@ export function AnimatedList({
   useEffect(() => {
     if (childrenArrayRef.current.length === 0) return;
     
-    // Start with the first 4 items in the original order
-    const initialItems = childrenArrayRef.current.slice(0, 4);
+    // Start with the first 5 items in the original order
+    const initialItems = childrenArrayRef.current.slice(0, 5);
     setVisibleItems(initialItems);
     
     // Set the next index to add (after the initial items)
-    setNextIndexToAdd(4 % childrenArrayRef.current.length);
+    setNextIndexToAdd(5 % childrenArrayRef.current.length);
   }, []);
 
   // Handle notification cycling
@@ -50,7 +50,7 @@ export function AnimatedList({
         const nextItem = childrenArrayRef.current[nextIndexToAdd];
         
         // Create new array with the next item at the top and remove the last item
-        return [nextItem, ...prev.slice(0, 3)];
+        return [nextItem, ...prev.slice(0, 4)];
       });
       
       // Update the next index to add (cycling through the array)
@@ -78,7 +78,7 @@ export function AnimatedList({
       }}
     >
       {/* Main content container with relative positioning */}
-      <div className="flex flex-col gap-2 py-2 relative">
+      <div className="flex flex-col gap-1.5 py-1.5 px-3 relative">
         <AnimatePresence mode="popLayout" initial={false}>
           {visibleItems.map((item, index) => {
             // Generate a stable key based on the item's position in the original array
@@ -111,22 +111,22 @@ export function AnimatedList({
                 style={{
                   position: "relative",
                   zIndex: 10 - index,
-                  transform: `perspective(800px) rotateX(${index * 1}deg) translateZ(${-index * 4}px)`,
+                  transform: `perspective(800px) rotateX(${index * 1}deg) translateZ(${-index * 3}px)`,
                   boxShadow: index === 0 
-                    ? '0 4px 20px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05)' 
-                    : '0 2px 10px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.03)',
-                  borderRadius: '12px',
+                    ? '0 3px 15px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.05)' 
+                    : '0 2px 8px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)',
+                  borderRadius: '8px',
                   border: 'none',
                   padding: '0px',
                   background: 'white',
-                  // Apply opacity directly to the last item
-                  opacity: index === 3 ? 0.5 : 1,
+                  // Apply opacity based on position
+                  opacity: index === 4 ? 0.3 : index === 3 ? 0.6 : 1,
                 }}
               >
                 <div style={{ 
                   position: 'relative',
                   zIndex: 2,
-                  borderRadius: '12px',
+                  borderRadius: '8px',
                   overflow: 'hidden'
                 }}>
                   {item}
@@ -141,9 +141,9 @@ export function AnimatedList({
       <div 
         className="absolute bottom-0 left-0 right-0 pointer-events-none"
         style={{
-          height: '20px',
-          background: 'linear-gradient(to bottom, rgba(243,244,246,0) 0%, rgba(243,244,246,0.4) 40%, rgba(243,244,246,0.8) 70%, rgba(243,244,246,1) 100%)',
-          zIndex: 30,
+          height: '40px',
+          background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 60%, rgba(255,255,255,1) 100%)',
+          zIndex: 50,
         }}
       />
     </div>

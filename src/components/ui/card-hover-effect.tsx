@@ -4,6 +4,15 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { AnimatedListDemo } from "./animated-list-demo";
+import Link from "next/link";
+
+// Add keyframe animation for shimmer
+const shimmerAnimation = `
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+`;
 
 export function HoverEffect({
   items,
@@ -29,7 +38,7 @@ export function HoverEffect({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 py-6",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 py-3",
         className
       )}
     >
@@ -43,9 +52,9 @@ export function HoverEffect({
           <Card isHovered={hoveredIndex === idx}>
             <div className="flex flex-col h-full">
               {/* Animation or Image Container */}
-              <div className="h-[180px] w-full overflow-hidden rounded-t-xl bg-gradient-to-b from-gray-50 to-gray-100">
+              <div className="h-[160px] w-full overflow-hidden rounded-t-xl bg-white">
                 {idx === 1 ? (
-                  <div className="h-full p-2">
+                  <div className="h-full">
                     {cardAnimations[1]}
                   </div>
                 ) : (
@@ -57,8 +66,35 @@ export function HoverEffect({
               </div>
               
               {/* Card Content */}
-              <div className="flex-1 p-3 bg-gradient-to-b from-gray-100 to-white">
-                <CardTitle>{item.title}</CardTitle>
+              <div className="flex-1 p-3 bg-white">
+                {idx === 0 ? (
+                  <div className="mb-2">
+                    <Link 
+                      href="/chat-engager" 
+                      className="inline-block"
+                    >
+                      <button 
+                        className="relative inline-flex h-8 overflow-hidden rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-slate-50 transition-all duration-300 hover:scale-105"
+                        aria-label="Learn more about Chat Engager"
+                        style={{ backgroundColor: '#922ea4' }}
+                      >
+                        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md px-3 py-0 font-bold text-white">
+                          {item.title} <span className="ml-1">→</span>
+                        </span>
+                        <span 
+                          className="absolute inset-0 pointer-events-none"
+                          style={{
+                            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
+                            animation: 'shimmer 2s infinite',
+                          }}
+                        />
+                      </button>
+                      <style jsx>{shimmerAnimation}</style>
+                    </Link>
+                  </div>
+                ) : (
+                  <CardTitle>{item.title}</CardTitle>
+                )}
                 <CardDescription>{item.description}</CardDescription>
               </div>
             </div>
@@ -102,13 +138,13 @@ export function Card({
       }}
     >
       <div 
-        className="relative z-50 rounded-lg overflow-hidden"
+        className="relative z-50 rounded-lg overflow-hidden h-full"
         style={{
           boxShadow: 'inset 0 0 0 1px rgba(146,46,164,0.1)',
           background: 'white',
         }}
       >
-        <div className="p-2">{children}</div>
+        <div className="h-full">{children}</div>
       </div>
       
       {/* Permanent subtle shine effect */}

@@ -107,19 +107,20 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden rounded-xl p-2.5 bg-white",
+        "relative w-full overflow-hidden rounded-lg p-2 bg-white",
         "transition-all duration-500 ease-out hover:bg-gray-50/50",
+        "border border-gray-100"
       )}
     >
-      <div className="flex flex-row items-center gap-3">
+      <div className="flex flex-row items-center gap-2">
         <div
-          className="flex size-7 flex-shrink-0 items-center justify-center rounded-lg"
+          className="flex size-6 flex-shrink-0 items-center justify-center rounded-md"
           style={{ backgroundColor: color }}
         >
           {icon}
         </div>
         <div className="flex flex-col overflow-hidden">
-          <div className="flex flex-row items-center text-sm font-medium">
+          <div className="flex flex-row items-center text-xs font-medium">
             <span className="truncate">{name}</span>
             <span className="mx-1 text-xs opacity-50">·</span>
             <span className="text-xs text-gray-500 whitespace-nowrap">{time}</span>
@@ -137,17 +138,27 @@ export function AnimatedListDemo({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative flex h-full w-full flex-col overflow-hidden p-1 bg-gray-100 rounded-lg",
+        "relative flex h-full w-full flex-col overflow-hidden",
         className
       )}
     >
-      <div style={{ paddingBottom: '2px', height: '100%' }}>
+      <div style={{ height: '100%' }}>
         <AnimatedList speed={700}>
           {notifications.map((item, idx) => (
             <Notification {...item} key={`notification-item-${idx}`} />
           ))}
         </AnimatedList>
       </div>
+      
+      {/* Additional gradient overlay specific to this component */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 pointer-events-none"
+        style={{
+          height: '40px',
+          background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 60%, rgba(255,255,255,1) 100%)',
+          zIndex: 100,
+        }}
+      />
     </div>
   );
 } 
