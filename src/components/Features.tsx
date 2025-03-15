@@ -57,7 +57,7 @@ export default function Features() {
   return (
     <section 
       ref={ref}
-      className="relative bg-white pt-0 pb-12 font-bricolage" 
+      className="relative bg-white pt-0 pb-12 font-bricolage -mt-24" 
       style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
     >
       <div className="container mx-auto px-4 relative z-10">

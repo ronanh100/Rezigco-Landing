@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import FloatingNavbar from '@/components/FloatingNavbar';
+import RotatingWords from '@/components/RotatingWords';
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <FloatingNavbar />
       <Hero />
       <Features />
+      <RotatingWords />
     </main>
   );
 }
