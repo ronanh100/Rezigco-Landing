@@ -3,6 +3,7 @@ import Features from '@/components/Features';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import RotatingWords from '@/components/RotatingWords';
 import Setup from '@/components/Setup';
+import AIIntelligence from '@/components/AIIntelligence';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Features />
       <RotatingWords />
       <Setup />
+      <AIIntelligence />
     </main>
   );
 }

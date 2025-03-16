@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/registry/magicui/animated-beam";
 import { FaEnvelope, FaFileAlt, FaWhatsapp } from "react-icons/fa";
 import { BsGlobe } from "react-icons/bs";
+import Image from "next/image";
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -65,8 +66,8 @@ export function SetupDemo() {
           <Circle ref={div2Ref}>
             <Icons.crm />
           </Circle>
-          <Circle ref={div4Ref} className="size-16 p-1">
-            <Icons.ziggy />
+          <Circle ref={div4Ref} className="size-16 p-1 bg-white">
+            <Icons.rezigco />
           </Circle>
           <Circle ref={div6Ref}>
             <Icons.files />
@@ -138,9 +139,15 @@ const Icons = {
       <span className="text-[12px] font-semibold text-purple-700">CRM</span>
     </div>
   ),
-  ziggy: () => (
-    <div className="flex items-center justify-center bg-purple-500 rounded-full w-full h-full">
-      <span className="text-[12px] font-bold text-white">Ziggy</span>
+  rezigco: () => (
+    <div className="flex items-center justify-center w-full h-full">
+      <Image 
+        src="/rezigco_logo.png" 
+        alt="Rezigco Logo" 
+        width={40} 
+        height={40}
+        className="object-contain"
+      />
     </div>
   ),
   whatsapp: () => (
