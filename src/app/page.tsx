@@ -5,6 +5,7 @@ import RotatingWords from '@/components/RotatingWords';
 import Setup from '@/components/Setup';
 import AIIntelligence from '@/components/AIIntelligence';
 import ChatEngagerBenefits from '@/components/ChatEngagerBenefits';
+import InboundAutomatorBenefits from '@/components/InboundAutomatorBenefits';
 
 export default function Home() {
   return (
@@ -17,6 +18,9 @@ export default function Home() {
       <AIIntelligence />
       <div className="container mx-auto px-4 py-24">
         <ChatEngagerBenefits />
+      </div>
+      <div className="container mx-auto px-4 pt-0 pb-24">
+        <InboundAutomatorBenefits />
       </div>
     </main>
   );
