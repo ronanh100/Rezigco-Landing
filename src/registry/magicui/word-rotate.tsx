@@ -70,7 +70,7 @@ export function WordRotate({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.2 }}
-            className="text-purple-600 text-center max-w-full px-2"
+            className="text-[#922ea4] text-center max-w-full px-2"
             style={{ position: 'absolute' }}
           >
             {words[currentIndex]}

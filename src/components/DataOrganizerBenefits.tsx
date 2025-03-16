@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaClock, FaChartBar, FaHourglass } from "react-icons/fa";
+import { FaFileAlt, FaRocket, FaCog } from "react-icons/fa";
 
 interface BenefitProps {
   icon: React.ReactNode;
@@ -22,7 +22,7 @@ const Benefit = ({ icon, title, description, iconClassName = "" }: BenefitProps)
   );
 };
 
-export default function InboundAutomatorBenefits() {
+export default function DataOrganizerBenefits() {
   const [isHovered, setIsHovered] = React.useState(false);
   
   return (
@@ -48,7 +48,7 @@ export default function InboundAutomatorBenefits() {
             {/* Left side: Heading */}
             <div className="md:col-span-1 flex flex-col items-center md:items-start">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center md:text-left leading-tight">
-                Inbound Automator
+                Data Organizer
               </h2>
               
               {/* Releasing Soon text */}
@@ -61,19 +61,19 @@ export default function InboundAutomatorBenefits() {
             <div className="md:col-span-3">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <Benefit 
-                  icon={<FaHourglass className="text-2xl" />}
-                  title="Save Time"
-                  description="Ziggy automates initial inquiries, pre-qualifies leads, and manages repetitive tasks, so you can focus on meaningful opportunities before the first call or meeting."
+                  icon={<FaFileAlt className="text-2xl" />}
+                  title="Smarter Documents"
+                  description="Turn any file into a searchable resource, instantly retrieve information, and get actionable insights."
                 />
                 <Benefit 
-                  icon={<FaChartBar className="text-2xl" />}
-                  title="Smarter Follow Ups"
-                  description="Get detailed insights and analytics to refine your strategy and boost conversion rates."
+                  icon={<FaRocket className="text-2xl" />}
+                  title="Effortless Data"
+                  description="Seamlessly transform and format data across platforms without manual input."
                 />
                 <Benefit 
-                  icon={<FaClock className="text-2xl" />}
-                  title="24/7 Availability"
-                  description="Ensure every inquiry is managed promptly, even when you're unavailable."
+                  icon={<FaCog className="text-2xl" />}
+                  title="No More Manual Work"
+                  description="Replace workflows with digitization and automation, streamlining data entry and organization."
                 />
               </div>
             </div>

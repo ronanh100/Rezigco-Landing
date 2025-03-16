@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaClock, FaChartBar, FaHourglass } from "react-icons/fa";
+import { FaDollarSign, FaBolt, FaHome } from "react-icons/fa";
 
 interface BenefitProps {
   icon: React.ReactNode;
@@ -22,7 +22,7 @@ const Benefit = ({ icon, title, description, iconClassName = "" }: BenefitProps)
   );
 };
 
-export default function InboundAutomatorBenefits() {
+export default function InsightsBenefits() {
   const [isHovered, setIsHovered] = React.useState(false);
   
   return (
@@ -48,7 +48,7 @@ export default function InboundAutomatorBenefits() {
             {/* Left side: Heading */}
             <div className="md:col-span-1 flex flex-col items-center md:items-start">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center md:text-left leading-tight">
-                Inbound Automator
+                Insights
               </h2>
               
               {/* Releasing Soon text */}
@@ -61,19 +61,19 @@ export default function InboundAutomatorBenefits() {
             <div className="md:col-span-3">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <Benefit 
-                  icon={<FaHourglass className="text-2xl" />}
-                  title="Save Time"
-                  description="Ziggy automates initial inquiries, pre-qualifies leads, and manages repetitive tasks, so you can focus on meaningful opportunities before the first call or meeting."
+                  icon={<FaDollarSign className="text-2xl" />}
+                  title="More Insights, More Deals"
+                  description="Give buyers and sellers the data they need to make confident decisions, keeping them engaged and ready to act."
                 />
                 <Benefit 
-                  icon={<FaChartBar className="text-2xl" />}
-                  title="Smarter Follow Ups"
-                  description="Get detailed insights and analytics to refine your strategy and boost conversion rates."
+                  icon={<FaBolt className="text-2xl" />}
+                  title="Instant Research"
+                  description="Generate area insights in seconds, eliminating hours of manual research and helping you focus on closing more deals."
                 />
                 <Benefit 
-                  icon={<FaClock className="text-2xl" />}
-                  title="24/7 Availability"
-                  description="Ensure every inquiry is managed promptly, even when you're unavailable."
+                  icon={<FaHome className="text-2xl" />}
+                  title="Stronger Listing Engagement"
+                  description="Provide rich neighborhood details that keep buyers interested, increase engagement, and make your listings stand out."
                 />
               </div>
             </div>

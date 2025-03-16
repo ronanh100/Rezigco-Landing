@@ -6,6 +6,8 @@ import Setup from '@/components/Setup';
 import AIIntelligence from '@/components/AIIntelligence';
 import ChatEngagerBenefits from '@/components/ChatEngagerBenefits';
 import InboundAutomatorBenefits from '@/components/InboundAutomatorBenefits';
+import DataOrganizerBenefits from '@/components/DataOrganizerBenefits';
+import InsightsBenefits from '@/components/InsightsBenefits';
 
 export default function Home() {
   return (
@@ -21,6 +23,12 @@ export default function Home() {
       </div>
       <div className="container mx-auto px-4 pt-0 pb-24">
         <InboundAutomatorBenefits />
+      </div>
+      <div className="container mx-auto px-4 pt-0 pb-24">
+        <DataOrganizerBenefits />
+      </div>
+      <div className="container mx-auto px-4 pt-0 pb-24">
+        <InsightsBenefits />
       </div>
     </main>
   );
