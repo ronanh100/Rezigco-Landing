@@ -8,6 +8,8 @@ import ChatEngagerBenefits from '@/components/ChatEngagerBenefits';
 import InboundAutomatorBenefits from '@/components/InboundAutomatorBenefits';
 import DataOrganizerBenefits from '@/components/DataOrganizerBenefits';
 import InsightsBenefits from '@/components/InsightsBenefits';
+import ZiggySetupTimeline from '@/components/ZiggySetupTimeline';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -30,6 +32,8 @@ export default function Home() {
       <div className="container mx-auto px-4 pt-0 pb-24">
         <InsightsBenefits />
       </div>
+      <ZiggySetupTimeline />
+      <Footer />
     </main>
   );
 }
