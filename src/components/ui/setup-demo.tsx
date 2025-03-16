@@ -131,12 +131,12 @@ export function SetupDemo() {
 const Icons = {
   website: () => (
     <div className="flex items-center justify-center w-full h-full">
-      <BsGlobe className="text-purple-700 w-6 h-6" />
+      <BsGlobe className="text-[#922ea4] w-6 h-6" />
     </div>
   ),
   crm: () => (
     <div className="flex items-center justify-center w-full h-full">
-      <span className="text-[12px] font-semibold text-purple-700">CRM</span>
+      <span className="text-[12px] font-semibold text-[#922ea4]">CRM</span>
     </div>
   ),
   rezigco: () => (
@@ -161,7 +161,7 @@ const Icons = {
   ),
   mls: () => (
     <div className="flex items-center justify-center w-full h-full">
-      <span className="text-[12px] font-semibold text-purple-700">MLS</span>
+      <span className="text-[12px] font-semibold text-[#922ea4]">MLS</span>
     </div>
   ),
 }; 

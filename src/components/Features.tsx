@@ -29,7 +29,7 @@ export default function Features() {
 
   return (
     <section 
-      className="relative bg-white pt-0 pb-12 font-bricolage -mt-24" 
+      className="relative bg-white pt-0 pb-12 font-bricolage -mt-12" 
       style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
     >
       <div className="container mx-auto px-4 relative z-10">
