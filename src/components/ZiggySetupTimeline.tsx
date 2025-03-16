@@ -6,34 +6,28 @@ export default function ZiggySetupTimeline() {
     {
       title: "Set Up Your Account",
       content: (
-        <div className="max-w-2xl">
-          <p className="text-black text-base md:text-lg leading-relaxed">
-            Create your Rezigco account, connect your calendar, and upload key documents, links, and videos. 
-            Ziggy learns from your materials to align with your brand, ensuring seamless interactions.
-          </p>
-        </div>
+        <p className="text-black text-base md:text-lg leading-relaxed mt-0">
+          Create your Rezigco account, connect your calendar, and upload key documents, links, and videos. 
+          Ziggy learns from your materials to align with your brand, ensuring seamless interactions.
+        </p>
       ),
     },
     {
       title: "Select Ziggy's Capabilities",
       content: (
-        <div className="max-w-2xl">
-          <p className="text-black text-base md:text-lg leading-relaxed">
-            Choose the tools that best support your business. Chat Engager, Inbound Automator, 
-            Data Organizer, or Insights, Ziggy adapts to your needs and you only use what you need.
-          </p>
-        </div>
+        <p className="text-black text-base md:text-lg leading-relaxed mt-0">
+          Choose the tools that best support your business. Chat Engager, Inbound Automator, 
+          Data Organizer, or Insights, Ziggy adapts to your needs and you only use what you need.
+        </p>
       ),
     },
     {
       title: "Ziggy is Live!",
       content: (
-        <div className="max-w-2xl">
-          <p className="text-black text-base md:text-lg leading-relaxed">
-            Your AI agent is ready to streamline your real estate workflow. 
-            Eliminate manual work, get more high intent leads and enhance your overall productivity.
-          </p>
-        </div>
+        <p className="text-black text-base md:text-lg leading-relaxed mt-0">
+          Your AI agent is ready to streamline your real estate workflow. 
+          Eliminate manual work, get more high intent leads and enhance your overall productivity.
+        </p>
       ),
     },
   ];

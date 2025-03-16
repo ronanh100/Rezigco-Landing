@@ -1,6 +1,5 @@
 "use client";
 import {
-  useMotionValueEvent,
   useScroll,
   useTransform,
   motion,
@@ -26,11 +25,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 40%", "end 60%"],
+    offset: ["start 60%", "end 80%"],
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
-  const opacityTransform = useTransform(scrollYProgress, [0, 0.05], [0.8, 1]);
+  const opacityTransform = useTransform(scrollYProgress, [0, 0.05], [0.9, 1]);
 
   return (
     <div
@@ -41,41 +40,46 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10"></div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-16 pt-6">
-        {data.map((item, index) => (
-          <div
-            key={index}
-            className="flex justify-start pt-8 md:pt-32 md:gap-10"
-          >
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-              <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white flex items-center justify-center">
-                <div className="h-5 w-5 rounded-full bg-[#922ea4] flex items-center justify-center" />
-              </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-3xl font-bold text-[#922ea4]">
-                {item.title}
-              </h3>
-            </div>
-
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-[#922ea4]">
-                {item.title}
-              </h3>
-              {item.content}{" "}
-            </div>
-          </div>
-        ))}
-        <div
-          style={{
-            height: height + "px",
-          }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
-        >
+        {/* Progress line - positioned outside the timeline items */}
+        <div className="absolute left-[19px] top-0 w-[2px] h-full bg-neutral-200 z-0">
           <motion.div
             style={{
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0 w-[2px] bg-[#922ea4] rounded-full"
+            className="absolute inset-x-0 top-0 w-full bg-[#922ea4]"
           />
+        </div>
+
+        <div className="flex flex-col space-y-8 md:space-y-24">
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-row md:gap-10"
+            >
+              <div className="relative min-w-[40px] md:min-w-[200px]">
+                <div className="sticky top-24 flex flex-col md:flex-row items-center">
+                  <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center z-10">
+                    <div className="h-5 w-5 rounded-full bg-[#922ea4]" />
+                  </div>
+                  <div className="hidden md:block md:w-[300px]">
+                    <h3 className="text-xl md:text-3xl font-bold text-[#922ea4] md:pl-6">
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex-1 pl-6 md:pl-0">
+                <h3 className="md:hidden text-2xl mb-4 text-left font-bold text-[#922ea4]">
+                  {item.title}
+                </h3>
+                <div className="max-w-2xl">
+                  {item.content}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
