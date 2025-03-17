@@ -27,8 +27,8 @@ export default function Hero() {
                 <Image
                   src="/ziggy_new.png"
                   alt="Ziggy"
-                  width={180}
-                  height={180}
+                  width={220}
+                  height={220}
                   className="object-contain"
                   priority
                 />
@@ -67,22 +67,7 @@ export default function Hero() {
               </motion.div>
               
               <div className="flex justify-center items-center mt-4 md:mt-6 relative">
-                {/* Ziggy Image - Mobile */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="absolute -left-7 top-1/2 -translate-y-1/2 lg:hidden"
-                >
-                  <Image
-                    src="/ziggy_new.png"
-                    alt="Ziggy"
-                    width={85}
-                    height={85}
-                    className="object-contain"
-                    priority
-                  />
-                </motion.div>
+                {/* Ziggy Image - Mobile (Left of Button) - REMOVED */}
                 
                 <div className="max-w-[200px] w-full relative z-10">
                   <ShinyButton 
@@ -94,6 +79,23 @@ export default function Hero() {
                   </ShinyButton>
                 </div>
               </div>
+              
+              {/* Ziggy Image - Mobile (Under Button) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+                className="mt-6 lg:hidden flex justify-center"
+              >
+                <Image
+                  src="/ziggy_new.png"
+                  alt="Ziggy"
+                  width={120}
+                  height={120}
+                  className="object-contain"
+                  priority
+                />
+              </motion.div>
             </div>
           </div>
         </HeroHighlight>
