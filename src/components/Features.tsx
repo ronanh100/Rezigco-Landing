@@ -12,17 +12,17 @@ export default function Features() {
     },
     {
       title: "Inbound Automator",
-      description: "Analyze inquiries, qualify leads, and deliver personalized replies using AI-driven insights from your business knowledge base.",
+      description: "Ziggy manages inquiries, pre-qualifies leads, and delivers instant, intelligent responses tailored to your business. Engage prospects efficiently and ensure no opportunity is missed, even when you're unavailable.",
       emoji: "✉️"
     },
     {
       title: "Data Organiser",
-      description: "Seamlessly import and export data, generate document summaries, and interact with your documents for instant answers.",
+      description: "Ziggy makes your data instantly searchable, structured, and easy to retrieve, turning documents into interactive resources. Say goodbye to scattered information and gain smarter, more connected insights effortlessly.",
       emoji: "📁"
     },
     {
       title: "Insights",
-      description: "Deliver detailed neighborhood analytics, match leads with listings, and enhance property profiles with valuable area insights.",
+      description: "Ziggy instantly compiles rich area insights and listing data, making property profiles more informative and engaging. Provide buyers and sellers with meaningful information in seconds, enhancing their experience and keeping them focused on the right opportunities.",
       emoji: "💡"
     },
   ];
@@ -36,8 +36,11 @@ export default function Features() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-8">
           <div className="lg:col-span-5 lg:flex lg:items-center lg:justify-end lg:pr-8">
             <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 max-w-xl">
-              <p>
-                Managing <span className="text-[#922ea4] font-bold">leads</span>, sorting through data and disconnected tools that lack <span className="text-[#922ea4] font-bold">intelligence</span>, slow you down. With Ziggy, <span className="text-[#922ea4] font-bold whitespace-nowrap">choose the capabilities</span> you need to put your <span className="text-[#922ea4] font-bold">growth on autopilot</span>.
+              <p className="leading-tight">
+                Managing <span className="text-[#922ea4] font-bold">leads</span>, sorting through data and disconnected tools that lack <span className="text-[#922ea4] font-bold">intelligence</span>, slow you down.
+              </p>
+              <p className="leading-tight mt-1">
+                <span className="text-[#922ea4] font-bold whitespace-nowrap">With Ziggy, choose the capabilities</span> you need to put your <span className="text-[#922ea4] font-bold">growth on autopilot</span>.
               </p>
             </div>
           </div>

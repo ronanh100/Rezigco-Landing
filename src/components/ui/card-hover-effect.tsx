@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AnimatedListDemo } from "./animated-list-demo";
 import { ChatEngagerDemo } from "./chat-engager-demo";
 import { DataOrganizerDemo } from "./data-organizer-demo";
+import { InsightsDemo } from "./insights-demo";
 import Link from "next/link";
 
 // Add keyframe animation for shimmer
@@ -34,7 +35,7 @@ export function HoverEffect({
     <ChatEngagerDemo key="chat-engager" />, // Chat Engager animation
     <AnimatedListDemo key="inbound-automator" />, // Inbound Automator animation
     <DataOrganizerDemo key="data-organizer" />, // Data Organizer animation
-    null, // Placeholder for Insights animation
+    <InsightsDemo key="insights" />, // Insights animation
   ];
 
   return (
@@ -56,7 +57,7 @@ export function HoverEffect({
               {/* Animation or Image Container */}
               <div className={cn(
                 "h-[160px] w-full overflow-hidden rounded-t-xl",
-                idx === 0 || idx === 1 || idx === 2 ? "bg-white" : "bg-gradient-to-b from-gray-50 to-gray-100"
+                idx === 0 || idx === 1 || idx === 2 || idx === 3 ? "bg-white" : "bg-gradient-to-b from-gray-50 to-gray-100"
               )}>
                 {idx === 0 ? (
                   <div className="h-full bg-white">
@@ -70,6 +71,10 @@ export function HoverEffect({
                   <div className="h-full bg-white">
                     {cardAnimations[2]}
                   </div>
+                ) : idx === 3 ? (
+                  <div className="h-full bg-white">
+                    {cardAnimations[3]}
+                  </div>
                 ) : (
                   <div className="flex items-center justify-center h-full">
                     {/* Placeholder for future animations */}
@@ -81,7 +86,7 @@ export function HoverEffect({
               {/* Card Content */}
               <div className={cn(
                 "flex-1 p-3",
-                idx === 0 || idx === 1 || idx === 2 ? "bg-white" : "bg-gradient-to-b from-gray-100 to-white"
+                idx === 0 || idx === 1 || idx === 2 || idx === 3 ? "bg-white" : "bg-gradient-to-b from-gray-100 to-white"
               )}>
                 {idx === 0 ? (
                   <div className="mb-2">

@@ -9,6 +9,7 @@ import InboundAutomatorBenefits from '@/components/InboundAutomatorBenefits';
 import DataOrganizerBenefits from '@/components/DataOrganizerBenefits';
 import InsightsBenefits from '@/components/InsightsBenefits';
 import ZiggySetupTimeline from '@/components/ZiggySetupTimeline';
+import GetDemo from '@/components/GetDemo';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
         <InsightsBenefits />
       </div>
       <ZiggySetupTimeline />
+      <GetDemo />
       <Footer />
     </main>
   );
