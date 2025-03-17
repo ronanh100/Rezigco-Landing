@@ -37,7 +37,7 @@ export default function Features() {
           <div className="lg:col-span-5 lg:flex lg:items-center lg:justify-end lg:pr-8">
             <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 max-w-xl">
               <p>
-                Managing <span className="text-[#922ea4] font-bold">leads</span>, sorting through data, and disconnected tools that lack <span className="text-[#922ea4] font-bold">intelligence</span> slow you down. With Ziggy, <span className="text-[#922ea4] font-bold">choose the capabilities</span> you need to put your <span className="text-[#922ea4] font-bold">growth on autopilot</span>.
+                Managing <span className="text-[#922ea4] font-bold">leads</span>, sorting through data and disconnected tools that lack <span className="text-[#922ea4] font-bold">intelligence</span>, slow you down. With Ziggy, <span className="text-[#922ea4] font-bold whitespace-nowrap">choose the capabilities</span> you need to put your <span className="text-[#922ea4] font-bold">growth on autopilot</span>.
               </p>
             </div>
           </div>

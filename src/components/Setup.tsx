@@ -12,12 +12,12 @@ export default function Setup() {
             {/* Left side: Subheading */}
             <div className="order-2 md:order-1">
               <p className="text-xl md:text-2xl text-black font-medium">
-                <span className="text-[#922ea4]">For teams and individual agents,</span> Ziggy works alongside your tools and is easily setup in minutes.
+                <span className="text-[#922ea4]">For teams and individual agents,</span> Ziggy works alongside your tools and is easily set up in minutes.
               </p>
             </div>
             
             {/* Right side: SetupDemo */}
-            <div className="order-1 md:order-2">
+            <div className="order-1 md:order-2 px-4">
               <SetupDemo />
             </div>
           </div>

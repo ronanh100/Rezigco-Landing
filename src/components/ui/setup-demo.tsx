@@ -15,7 +15,7 @@ const Circle = forwardRef<
     <div     
       ref={ref}
       className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-2 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
+        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-2 shadow-[0_0_15px_-5px_rgba(0,0,0,0.6)]",
         className,
       )}
     >
@@ -50,10 +50,10 @@ export function SetupDemo() {
 
   return (
     <div
-      className="relative flex h-[220px] w-full items-center justify-center overflow-hidden"
+      className="relative flex h-[240px] w-full items-center justify-center"
       ref={containerRef}
     >
-      <div className="flex size-full max-h-[180px] max-w-lg flex-col items-stretch justify-between gap-5">
+      <div className="flex size-full max-h-[200px] max-w-lg flex-col items-stretch justify-between gap-5 px-6">
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div1Ref}>
             <Icons.website />

@@ -14,8 +14,19 @@ export default function Footer() {
               <span className="text-2xl font-bold text-[#922ea4]">Rezigco</span>
             </Link>
             <p className="mt-2 text-gray-600 max-w-md">
-              The AI agent to streamline the real estate workflow.
+              Your AI agent to streamline the real estate workflow.
             </p>
+          </div>
+          
+          <div className="hidden md:flex justify-center items-center mb-6 md:mb-0">
+            <Image
+              src="/ziggy_new.png"
+              alt="Ziggy"
+              width={80}
+              height={80}
+              className="object-contain"
+              priority
+            />
           </div>
           
           <div className="flex flex-col md:flex-row gap-8">
