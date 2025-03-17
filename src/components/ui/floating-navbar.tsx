@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -17,12 +17,45 @@ export const FloatingNav = ({
   logo?: React.ReactNode;
 }) => {
   const [hovering, setHovering] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    // Set initial state
+    setVisible(true);
+    setLastScrollY(window.scrollY);
+    
+    // Define the scroll handler
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show navbar when scrolling up or at the top
+      if (currentScrollY < lastScrollY || currentScrollY <= 10) {
+        setVisible(true);
+      } else {
+        // Hide navbar when scrolling down (but not at the top)
+        setVisible(false);
+      }
+      
+      // Update last scroll position AFTER the comparison
+      setLastScrollY(currentScrollY);
+    };
+    
+    // Add event listener
+    window.addEventListener("scroll", handleScroll);
+    
+    // Clean up
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); // Empty dependency array to run only once on mount
   
   return (
     <div 
       className={cn(
-        "flex w-full fixed top-4 sm:top-4 inset-x-0 max-w-[calc(100%-2rem)] sm:max-w-2xl mx-auto bg-[#922ea4] shadow-xl z-[5000] px-3 sm:px-4 md:px-8 py-2 sm:py-4 items-center justify-between rounded-full relative overflow-hidden backdrop-blur-sm transition-all duration-300",
+        "flex w-full fixed top-4 sm:top-4 inset-x-0 max-w-[calc(100%-2rem)] sm:max-w-2xl mx-auto bg-[#922ea4] shadow-xl z-[5000] px-3 sm:px-4 md:px-8 py-2 sm:py-4 items-center justify-between rounded-full relative overflow-hidden backdrop-blur-sm transition-all duration-300 ease-in-out",
         hovering ? "shadow-2xl translate-y-[2px]" : "shadow-xl",
+        visible ? "translate-y-0 opacity-100" : "translate-y-[-150%] opacity-0",
         className
       )}
       onMouseEnter={() => setHovering(true)}
