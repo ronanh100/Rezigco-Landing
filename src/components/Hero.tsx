@@ -72,19 +72,19 @@ export default function Hero() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="absolute -left-20 top-1/2 -translate-y-1/2 lg:hidden"
+                  className="absolute -left-7 top-1/2 -translate-y-1/2 lg:hidden"
                 >
                   <Image
                     src="/ziggy_new.png"
                     alt="Ziggy"
-                    width={100}
-                    height={100}
+                    width={85}
+                    height={85}
                     className="object-contain"
                     priority
                   />
                 </motion.div>
                 
-                <div className="max-w-[200px] w-full">
+                <div className="max-w-[200px] w-full relative z-10">
                   <ShinyButton 
                     className="font-bricolage text-base uppercase tracking-wider font-bold"
                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}

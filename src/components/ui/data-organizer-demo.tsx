@@ -4,6 +4,7 @@ import React, { forwardRef, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/registry/magicui/animated-beam";
 import { BsFolderFill, BsFileEarmarkTextFill } from "react-icons/bs";
+import Image from "next/image";
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -105,8 +106,14 @@ const Icons = {
     </div>
   ),
   rezigco: () => (
-    <div className="flex items-center justify-center bg-purple-500 rounded-full w-full h-full">
-      <span className="text-[10px] font-bold text-white">RZ</span>
+    <div className="flex items-center justify-center w-full h-full">
+      <Image 
+        src="/ziggy_new.png" 
+        alt="Ziggy" 
+        width={30} 
+        height={30}
+        className="object-contain"
+      />
     </div>
   ),
   user: () => (

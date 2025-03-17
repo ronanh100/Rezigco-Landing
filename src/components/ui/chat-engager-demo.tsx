@@ -31,11 +31,6 @@ const chatMessages: ChatMessage[] = [
     content: "Okay perfect, I've found three properties that you might like.",
     sender: "agent",
     id: 4
-  },
-  {
-    content: "Of course! I'll send them right away. Would you like to schedule a viewing?",
-    sender: "agent",
-    id: 6
   }
 ];
 
@@ -137,8 +132,14 @@ export function ChatEngagerDemo({ className }: { className?: string }) {
                         JD
                       </div>
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-[10px] font-bold text-gray-700">
-                        AI
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Image
+                          src="/ziggy_profile.png"
+                          alt="Ziggy"
+                          width={20}
+                          height={20}
+                          className="object-contain"
+                        />
                       </div>
                     )}
                   </div>

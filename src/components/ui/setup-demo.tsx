@@ -66,7 +66,7 @@ export function SetupDemo() {
           <Circle ref={div2Ref}>
             <Icons.crm />
           </Circle>
-          <Circle ref={div4Ref} className="size-16 p-1 bg-white">
+          <Circle ref={div4Ref} className="size-16 p-1">
             <Icons.rezigco />
           </Circle>
           <Circle ref={div6Ref}>
@@ -142,11 +142,12 @@ const Icons = {
   rezigco: () => (
     <div className="flex items-center justify-center w-full h-full">
       <Image 
-        src="/rezigco_logo.png" 
-        alt="Rezigco Logo" 
-        width={40} 
-        height={40}
-        className="object-contain"
+        src="/ziggy_new.png" 
+        alt="Ziggy" 
+        width={48} 
+        height={48}
+        className="object-contain mix-blend-multiply"
+        style={{ background: 'transparent' }}
       />
     </div>
   ),
