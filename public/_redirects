@@ -1,0 +1,8 @@
+# Redirect domain aliases to primary domain
+https://www.rezigco.com/* https://rezigco.com/:splat 301!
+
+# Handle trailing slashes
+https://rezigco.com/* https://rezigco.com/:splat 301
+
+# Optional: Redirect for SPA routing (single page application)
+/* /index.html 200 

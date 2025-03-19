@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { ShinyButton } from "@/registry/magicui/shiny-button";
 import { motion } from "framer-motion";
+import { ShimmerButton } from "@/registry/magicui/shimmer-button";
 
 export default function GetDemo() {
   return (
@@ -31,13 +31,15 @@ export default function GetDemo() {
             className="w-full flex justify-center"
           >
             <div className="max-w-[200px] w-full">
-              <ShinyButton 
-                className="font-bricolage text-base uppercase tracking-wider font-bold"
+              <ShimmerButton 
+                href="/demo"
+                shimmerColor="rgba(146, 46, 164, 0.4)"
+                shimmerDuration="2s"
+                className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                onClick={() => window.location.href = '/demo'}
               >
                 GET DEMO
-              </ShinyButton>
+              </ShimmerButton>
             </div>
           </motion.div>
         </div>

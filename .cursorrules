@@ -1,6 +1,6 @@
 Start all chats with 🤖
 
-🔹 Use **Next.js (App Router)** and **TypeScript** best practices.
+🔹 Use **Next.js (Pages Router)** and **TypeScript** best practices.
 🔹 Default to **Tailwind CSS** for styling.
 🔹 Ensure **all UI components are fully responsive** (desktop & mobile).
 🔹 Keep components modular, reusable, and accessible.

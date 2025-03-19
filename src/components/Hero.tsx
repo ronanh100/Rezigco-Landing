@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { useState } from 'react';
-import { ShinyButton } from "@/registry/magicui/shiny-button";
+import { ShimmerButton } from "@/registry/magicui/shimmer-button";
 
 export default function Hero() {
   const [hovering, setHovering] = useState(false);
@@ -13,27 +13,32 @@ export default function Hero() {
     <section className="relative bg-white text-black min-h-[85vh] font-bricolage pb-0" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
       {/* Hero content */}
       <div className="container mx-auto px-4 pt-12 md:pt-16 pb-0 relative z-10">
+        {/* Ziggy Image - Desktop - Positioned far left */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="absolute left-0 top-[35%] -translate-x-[500%] hidden lg:block"
+          style={{ zIndex: 30 }}
+        >
+          <Image
+            src="/ziggy_new.png"
+            alt="Ziggy"
+            width={200}
+            height={200}
+            className="object-contain"
+            style={{ 
+              background: 'transparent', 
+              mixBlendMode: 'darken',
+            }}
+            priority
+          />
+        </motion.div>
+          
         <HeroHighlight containerClassName="h-auto py-8 md:py-10 bg-transparent">
           <div className="flex flex-col items-center">
             {/* Text content */}
-            <div className="relative text-center max-w-4xl mx-auto">
-              {/* Ziggy Image - Desktop */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[90%] hidden lg:block"
-              >
-                <Image
-                  src="/ziggy_new.png"
-                  alt="Ziggy"
-                  width={220}
-                  height={220}
-                  className="object-contain"
-                  priority
-                />
-              </motion.div>
-              
+            <div className="relative text-center max-w-4xl mx-auto">              
               <motion.h1
                 initial={{
                   opacity: 0,
@@ -67,16 +72,18 @@ export default function Hero() {
               </motion.div>
               
               <div className="flex justify-center items-center mt-4 md:mt-6 relative">
-                {/* Ziggy Image - Mobile (Left of Button) - REMOVED */}
-                
-                <div className="max-w-[200px] w-full relative z-10">
-                  <ShinyButton 
-                    className="font-bricolage text-base uppercase tracking-wider font-bold"
-                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                    onClick={() => window.location.href = '/demo'}
+                <div className="max-w-[200px] w-full">
+                  <ShimmerButton 
+                    href="/demo"
+                    shimmerColor="rgba(146, 46, 164, 0.4)"
+                    shimmerDuration="2s"
+                    className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md"
+                    style={{ 
+                      fontFamily: "'Bricolage Grotesque', sans-serif",
+                    }}
                   >
                     GET STARTED
-                  </ShinyButton>
+                  </ShimmerButton>
                 </div>
               </div>
               
@@ -93,6 +100,10 @@ export default function Hero() {
                   width={120}
                   height={120}
                   className="object-contain"
+                  style={{ 
+                    background: 'transparent', 
+                    mixBlendMode: 'darken',
+                  }}
                   priority
                 />
               </motion.div>

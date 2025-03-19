@@ -1,9 +1,9 @@
 "use client";
 
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useRef, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/registry/magicui/animated-beam";
-import { BsFolderFill, BsFileEarmarkTextFill } from "react-icons/bs";
+import { FaFolder, FaFileAlt, FaUser } from "react-icons/fa";
 import Image from "next/image";
 
 const Circle = forwardRef<
@@ -14,8 +14,8 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-8 items-center justify-center rounded-full border border-gray-200 bg-white p-1 shadow-sm",
-        className
+        "z-10 flex size-9 items-center justify-center rounded-full border-2 border-border bg-white p-2 shadow-[0_0_15px_-10px_rgba(0,0,0,0.7)]",
+        className,
       )}
     >
       {children}
@@ -25,109 +25,93 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle";
 
-export function DataOrganizerDemo({
-  className,
-}: {
-  className?: string;
-}) {
+export function DataOrganizerDemo() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const div1Ref = useRef<HTMLDivElement>(null);
-  const div2Ref = useRef<HTMLDivElement>(null);
-  const div3Ref = useRef<HTMLDivElement>(null);
-  const div4Ref = useRef<HTMLDivElement>(null);
-  const div5Ref = useRef<HTMLDivElement>(null);
+  const fileRef = useRef<HTMLDivElement>(null);
+  const documentRef = useRef<HTMLDivElement>(null);
+  const crmRef = useRef<HTMLDivElement>(null);
+  const ziggyRef = useRef<HTMLDivElement>(null);
+  const userRef = useRef<HTMLDivElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // Mark as mounted after a short delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      setIsMounted(true);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
-      className={cn(
-        "relative flex h-full w-full items-center justify-center overflow-hidden",
-        className
-      )}
+      className="relative flex h-[160px] w-full items-center justify-center overflow-hidden"
       ref={containerRef}
     >
-      <div className="flex size-full flex-row items-stretch justify-between px-6">
-        <div className="flex flex-col justify-center gap-6">
-          <Circle ref={div1Ref}>
-            <Icons.crm />
+      <div className="absolute inset-0 flex items-center justify-between px-4">
+        {/* Left side - Input sources - moved further left with more space between items */}
+        <div className="flex flex-col space-y-4 pl-2">
+          <Circle ref={fileRef} className="size-9 flex items-center justify-center">
+            <FaFolder className="text-amber-500 w-4 h-4" />
           </Circle>
-          <Circle ref={div2Ref}>
-            <Icons.folder />
+          <Circle ref={documentRef} className="size-9 flex items-center justify-center">
+            <FaFileAlt className="text-blue-500 w-4 h-4" />
           </Circle>
-          <Circle ref={div3Ref}>
-            <Icons.document />
-          </Circle>
-        </div>
-        <div className="flex flex-col justify-center">
-          <Circle ref={div4Ref} className="size-12 p-2">
-            <Icons.rezigco />
+          <Circle ref={crmRef} className="size-9 flex items-center justify-center">
+            <span className="text-xs font-semibold text-[#922ea4]">CRM</span>
           </Circle>
         </div>
-        <div className="flex flex-col justify-center">
-          <Circle ref={div5Ref}>
-            <Icons.user />
+        
+        {/* Middle - Ziggy */}
+        <div className="flex justify-center">
+          <Circle ref={ziggyRef} className="size-12">
+            <Image 
+              src="/ziggy_new.png" 
+              alt="Ziggy" 
+              width={28} 
+              height={28}
+              className="object-contain"
+              style={{ background: 'transparent', mixBlendMode: 'darken' }}
+            />
+          </Circle>
+        </div>
+        
+        {/* Right side - User - moved further right */}
+        <div className="flex justify-end pr-2">
+          <Circle ref={userRef} className="size-9 flex items-center justify-center">
+            <FaUser className="text-[#922ea4] w-4 h-4" />
           </Circle>
         </div>
       </div>
 
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div1Ref}
-        toRef={div4Ref}
-        duration={1200}
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div2Ref}
-        toRef={div4Ref}
-        duration={1500}
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div3Ref}
-        toRef={div4Ref}
-        duration={1800}
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div4Ref}
-        toRef={div5Ref}
-        duration={1000}
-      />
+      {isMounted && (
+        <>
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={fileRef}
+            toRef={ziggyRef}
+            curvature={0}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={documentRef}
+            toRef={ziggyRef}
+            curvature={0}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={crmRef}
+            toRef={ziggyRef}
+            curvature={0}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={ziggyRef}
+            toRef={userRef}
+            curvature={0}
+          />
+        </>
+      )}
     </div>
   );
-}
-
-const Icons = {
-  folder: () => <BsFolderFill className="text-amber-400 w-5 h-5" />,
-  document: () => <BsFileEarmarkTextFill className="text-sky-500 w-5 h-5" />,
-  crm: () => (
-    <div className="flex items-center justify-center w-full h-full">
-      <span className="text-[10px] font-semibold text-purple-700">CRM</span>
-    </div>
-  ),
-  rezigco: () => (
-    <div className="flex items-center justify-center w-full h-full">
-      <Image 
-        src="/ziggy_new.png" 
-        alt="Ziggy" 
-        width={30} 
-        height={30}
-        className="object-contain"
-      />
-    </div>
-  ),
-  user: () => (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#000000"
-      strokeWidth="2"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </svg>
-  ),
-}; 
+} 

@@ -54,39 +54,20 @@ export function HoverEffect({
         >
           <Card isHovered={hoveredIndex === idx}>
             <div className="flex flex-col h-full">
-              {/* Animation or Image Container */}
+              {/* Animation container - fixed height for all cards */}
               <div className={cn(
-                "h-[160px] w-full overflow-hidden rounded-t-xl",
-                idx === 0 || idx === 1 || idx === 2 || idx === 3 ? "bg-white" : "bg-gradient-to-b from-gray-50 to-gray-100"
+                "h-[160px] w-full overflow-hidden rounded-t-xl flex items-center justify-center",
+                "bg-white"
               )}>
-                {idx === 0 ? (
-                  <div className="h-full bg-white">
-                    {cardAnimations[0]}
-                  </div>
-                ) : idx === 1 ? (
-                  <div className="h-full bg-white">
-                    {cardAnimations[1]}
-                  </div>
-                ) : idx === 2 ? (
-                  <div className="h-full bg-white">
-                    {cardAnimations[2]}
-                  </div>
-                ) : idx === 3 ? (
-                  <div className="h-full bg-white">
-                    {cardAnimations[3]}
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center h-full">
-                    {/* Placeholder for future animations */}
-                    <div className="text-gray-400 text-lg">Animation coming soon</div>
-                  </div>
-                )}
+                <div className="h-full w-full flex items-center justify-center">
+                  {cardAnimations[idx % cardAnimations.length]}
+                </div>
               </div>
               
-              {/* Card Content */}
+              {/* Card content - ensure fixed height for all cards */}
               <div className={cn(
-                "flex-1 p-3",
-                idx === 0 || idx === 1 || idx === 2 || idx === 3 ? "bg-white" : "bg-gradient-to-b from-gray-100 to-white"
+                "flex-1 p-3 min-h-[125px] flex flex-col",
+                "bg-white"
               )}>
                 {idx === 0 ? (
                   <div className="mb-2">
@@ -116,7 +97,7 @@ export function HoverEffect({
                 ) : (
                   <CardTitle>{item.title}</CardTitle>
                 )}
-                <CardDescription>{item.description}</CardDescription>
+                <CardDescription className="flex-1">{item.description}</CardDescription>
               </div>
             </div>
           </Card>

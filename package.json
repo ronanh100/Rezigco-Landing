@@ -2,8 +2,11 @@
   "name": "rezigco-landing-page",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -28,13 +31,16 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.0.14",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.14",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
-    "tailwindcss": "^4",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { ShinyButton } from "@/registry/magicui/shiny-button";
 import { motion } from "framer-motion";
+import { ShimmerButton } from "@/registry/magicui/shimmer-button";
 
 export default function AIIntelligence() {
   return (
@@ -25,13 +25,15 @@ export default function AIIntelligence() {
             className="flex justify-center items-center mt-8"
           >
             <div className="max-w-[200px] w-full">
-              <ShinyButton 
-                className="font-bricolage text-base uppercase tracking-wider font-bold"
+              <ShimmerButton 
+                href="/demo"
+                shimmerColor="rgba(146, 46, 164, 0.4)"
+                shimmerDuration="2s"
+                className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                onClick={() => window.location.href = '/demo'}
               >
                 GET STARTED
-              </ShinyButton>
+              </ShimmerButton>
             </div>
           </motion.div>
         </div>

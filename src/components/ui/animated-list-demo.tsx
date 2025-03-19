@@ -114,10 +114,12 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
     >
       <div className="flex flex-row items-center gap-2">
         <div
-          className="flex size-6 flex-shrink-0 items-center justify-center rounded-md"
+          className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md"
           style={{ backgroundColor: color }}
         >
-          {icon}
+          <div className="flex items-center justify-center">
+            {icon}
+          </div>
         </div>
         <div className="flex flex-col overflow-hidden">
           <div className="flex flex-row items-center text-xs font-medium">

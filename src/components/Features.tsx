@@ -17,12 +17,12 @@ export default function Features() {
     },
     {
       title: "Data Organiser",
-      description: "Ziggy makes your data instantly searchable, structured, and easy to retrieve, turning documents into interactive resources. Say goodbye to scattered information and gain smarter, more connected insights effortlessly.",
+      description: "Ziggy makes data instantly searchable, structured, and retrievable, turning documents into interactive resources. Remove scattered information and gain smarter data insights effortlessly.",
       emoji: "📁"
     },
     {
       title: "Insights",
-      description: "Ziggy instantly compiles rich area insights and listing data, making property profiles more informative and engaging. Provide buyers and sellers with meaningful information in seconds, enhancing their experience and keeping them focused on the right opportunities.",
+      description: "Ziggy instantly compiles rich area insights and listing data, making property profiles more informative and engaging, providing buyers and sellers with meaningful information.",
       emoji: "💡"
     },
   ];

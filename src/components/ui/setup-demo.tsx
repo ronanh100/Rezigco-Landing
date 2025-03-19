@@ -15,7 +15,7 @@ const Circle = forwardRef<
     <div     
       ref={ref}
       className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-2 shadow-[0_0_15px_-5px_rgba(0,0,0,0.6)]",
+        "z-10 flex size-9 items-center justify-center rounded-full border-2 border-border bg-white p-2 shadow-[0_0_15px_-10px_rgba(0,0,0,0.7)]",
         className,
       )}
     >
@@ -28,15 +28,13 @@ Circle.displayName = "Circle";
 
 export function SetupDemo() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const div1Ref = useRef<HTMLDivElement>(null);
-  const div2Ref = useRef<HTMLDivElement>(null);
-  const div3Ref = useRef<HTMLDivElement>(null);
-  const div4Ref = useRef<HTMLDivElement>(null);
-  const div5Ref = useRef<HTMLDivElement>(null);
-  const div6Ref = useRef<HTMLDivElement>(null);
-  const div7Ref = useRef<HTMLDivElement>(null);
-
-  // For tracking if the component is mounted
+  const websiteRef = useRef<HTMLDivElement>(null);
+  const whatsappRef = useRef<HTMLDivElement>(null);
+  const filesRef = useRef<HTMLDivElement>(null);
+  const ziggyRef = useRef<HTMLDivElement>(null);
+  const crmRef = useRef<HTMLDivElement>(null);
+  const emailRef = useRef<HTMLDivElement>(null);
+  const mlsRef = useRef<HTMLDivElement>(null);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -50,35 +48,47 @@ export function SetupDemo() {
 
   return (
     <div
-      className="relative flex h-[240px] w-full items-center justify-center"
+      className="relative flex h-[160px] w-full items-center justify-center overflow-hidden"
       ref={containerRef}
     >
-      <div className="flex size-full max-h-[200px] max-w-lg flex-col items-stretch justify-between gap-5 px-6">
-        <div className="flex flex-row items-center justify-between">
-          <Circle ref={div1Ref}>
-            <Icons.website />
+      <div className="absolute inset-0 flex items-center justify-between px-4">
+        {/* Left side - Input sources */}
+        <div className="flex flex-col space-y-4">
+          <Circle ref={websiteRef}>
+            <BsGlobe className="text-[#922ea4] w-4 h-4" />
           </Circle>
-          <Circle ref={div5Ref}>
-            <Icons.gmail />
+          <Circle ref={whatsappRef}>
+            <FaWhatsapp className="text-green-500 w-4 h-4" />
           </Circle>
-        </div>
-        <div className="flex flex-row items-center justify-between">
-          <Circle ref={div2Ref}>
-            <Icons.crm />
-          </Circle>
-          <Circle ref={div4Ref} className="size-16 p-1">
-            <Icons.rezigco />
-          </Circle>
-          <Circle ref={div6Ref}>
-            <Icons.files />
+          <Circle ref={filesRef}>
+            <FaFileAlt className="text-blue-500 w-4 h-4" />
           </Circle>
         </div>
-        <div className="flex flex-row items-center justify-between">
-          <Circle ref={div3Ref}>
-            <Icons.whatsapp />
+        
+        {/* Middle - Ziggy */}
+        <div className="flex justify-center">
+          <Circle ref={ziggyRef} className="size-12">
+            <Image 
+              src="/ziggy_new.png" 
+              alt="Ziggy" 
+              width={28} 
+              height={28}
+              className="object-contain"
+              style={{ background: 'transparent', mixBlendMode: 'darken' }}
+            />
           </Circle>
-          <Circle ref={div7Ref}>
-            <Icons.mls />
+        </div>
+        
+        {/* Right side - Output sources */}
+        <div className="flex flex-col space-y-4">
+          <Circle ref={crmRef}>
+            <span className="text-xs font-semibold text-[#922ea4]">CRM</span>
+          </Circle>
+          <Circle ref={emailRef}>
+            <FaEnvelope className="text-red-600 w-4 h-4" />
+          </Circle>
+          <Circle ref={mlsRef}>
+            <span className="text-xs font-semibold text-[#922ea4]">MLS</span>
           </Circle>
         </div>
       </div>
@@ -86,83 +96,47 @@ export function SetupDemo() {
       {/* Animated beams */}
       {isMounted && (
         <>
+          {/* Input to Ziggy */}
           <AnimatedBeam
             containerRef={containerRef}
-            fromRef={div1Ref}
-            toRef={div4Ref}
-            duration={1200}
+            fromRef={websiteRef}
+            toRef={ziggyRef}
+            curvature={0}
           />
           <AnimatedBeam
             containerRef={containerRef}
-            fromRef={div2Ref}
-            toRef={div4Ref}
-            duration={1500}
+            fromRef={whatsappRef}
+            toRef={ziggyRef}
+            curvature={0}
           />
           <AnimatedBeam
             containerRef={containerRef}
-            fromRef={div3Ref}
-            toRef={div4Ref}
-            duration={1800}
+            fromRef={filesRef}
+            toRef={ziggyRef}
+            curvature={0}
+          />
+          
+          {/* Ziggy to Output */}
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={ziggyRef}
+            toRef={crmRef}
+            curvature={0}
           />
           <AnimatedBeam
             containerRef={containerRef}
-            fromRef={div5Ref}
-            toRef={div4Ref}
-            duration={1200}
+            fromRef={ziggyRef}
+            toRef={emailRef}
+            curvature={0}
           />
           <AnimatedBeam
             containerRef={containerRef}
-            fromRef={div6Ref}
-            toRef={div4Ref}
-            duration={1500}
-          />
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={div7Ref}
-            toRef={div4Ref}
-            duration={1800}
+            fromRef={ziggyRef}
+            toRef={mlsRef}
+            curvature={0}
           />
         </>
       )}
     </div>
   );
-}
-
-const Icons = {
-  website: () => (
-    <div className="flex items-center justify-center w-full h-full">
-      <BsGlobe className="text-[#922ea4] w-6 h-6" />
-    </div>
-  ),
-  crm: () => (
-    <div className="flex items-center justify-center w-full h-full">
-      <span className="text-[12px] font-semibold text-[#922ea4]">CRM</span>
-    </div>
-  ),
-  rezigco: () => (
-    <div className="flex items-center justify-center w-full h-full">
-      <Image 
-        src="/ziggy_new.png" 
-        alt="Ziggy" 
-        width={48} 
-        height={48}
-        className="object-contain mix-blend-multiply"
-        style={{ background: 'transparent' }}
-      />
-    </div>
-  ),
-  whatsapp: () => (
-    <FaWhatsapp className="text-green-500 w-6 h-6" />
-  ),
-  gmail: () => (
-    <FaEnvelope className="text-red-600 w-6 h-6" />
-  ),
-  files: () => (
-    <FaFileAlt className="text-blue-500 w-6 h-6" />
-  ),
-  mls: () => (
-    <div className="flex items-center justify-center w-full h-full">
-      <span className="text-[12px] font-semibold text-[#922ea4]">MLS</span>
-    </div>
-  ),
-}; 
+} 

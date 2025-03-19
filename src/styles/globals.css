@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: white;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --background: 255 255 255;
+  --foreground: 37 37 37;
+  --card: 255 255 255;
+  --card-foreground: 37 37 37;
+  --popover: 255 255 255;
+  --popover-foreground: 37 37 37;
+  --primary: 146 46 164;
+  --primary-foreground: 255 255 255;
+  --secondary: 248 248 248;
+  --secondary-foreground: 37 37 37;
+  --muted: 248 248 248;
+  --muted-foreground: 142 142 142;
+  --accent: 248 248 248;
+  --accent-foreground: 37 37 37;
+  --destructive: 220 53 69;
+  --destructive-foreground: 255 255 255;
+  --border: 230 230 230;
+  --input: 230 230 230;
+  --ring: 146 46 164;
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+.dark {
+  --background: 20 20 20;
+  --foreground: 255 255 255;
+  --card: 20 20 20;
+  --card-foreground: 255 255 255;
+  --popover: 20 20 20;
+  --popover-foreground: 255 255 255;
+  --primary: 146 46 164;
+  --primary-foreground: 255 255 255;
+  --secondary: 30 30 30;
+  --secondary-foreground: 255 255 255;
+  --muted: 30 30 30;
+  --muted-foreground: 180 180 180;
+  --accent: 30 30 30;
+  --accent-foreground: 255 255 255;
+  --destructive: 220 53 69;
+  --destructive-foreground: 255 255 255;
+  --border: 50 50 50;
+  --input: 50 50 50;
+  --ring: 146 46 164;
+}
+
+/* Keyframe animations for shine effects */
+@keyframes shineRight {
+  0% { right: 100%; }
+  15% { right: -50%; }
+  100% { right: -50%; }
+}
+@keyframes shineDown {
+  0% { top: -100%; }
+  15% { top: 100%; }
+  100% { top: 100%; }
+}
+@keyframes shineLeft {
+  0% { left: 100%; }
+  15% { left: -50%; }
+  100% { left: -50%; }
+}
+@keyframes shineUp {
+  0% { bottom: -100%; }
+  15% { bottom: 100%; }
+  100% { bottom: 100%; }
+}
+
+.shine-right {
+  animation: shineRight 2.5s infinite;
+}
+.shine-down {
+  animation: shineDown 2.5s 0.6s infinite;
+}
+.shine-left {
+  animation: shineLeft 2.5s 1.2s infinite;
+}
+.shine-up {
+  animation: shineUp 2.5s 1.8s infinite;
+}
+
+/* Enhanced shimmer button animations */
+@keyframes shimmer-slide {
+  0% {
+    transform: translateY(0%);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-40%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin-around {
+  0% {
+    transform: rotate(0turn) scale(1);
+  }
+  50% {
+    transform: rotate(0.5turn) scale(1.2);
+  }
+  100% {
+    transform: rotate(1turn) scale(1);
+  }
+}
+
+.animate-shimmer-slide {
+  animation: shimmer-slide 2.5s ease-in-out infinite;
+}
+
+.animate-spin-around {
+  animation: spin-around var(--speed, 2.5s) ease-in-out infinite;
+} 
