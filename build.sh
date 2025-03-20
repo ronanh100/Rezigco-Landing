@@ -1,27 +1,41 @@
 #!/bin/bash
+# Cloudflare Pages build script
 
-# Exit on error
-set -e
+echo "Starting Cloudflare Pages build process..."
 
-echo "🚀 Starting Cloudflare Pages optimized build..."
-
-# Clean any previous builds
-echo "🧹 Cleaning previous builds..."
+# Clean previous build artifacts
 rm -rf .next out
+echo "Removed previous build artifacts"
 
-# Build the Next.js app
-echo "🔨 Building Next.js app..."
-NODE_ENV=production npx next build
+# Install dependencies if needed
+if [ ! -d "node_modules" ]; then
+  echo "Installing dependencies..."
+  npm ci
+fi
 
-# Delete all cache files
-echo "🗑️ Removing cache files..."
-rm -rf .next/cache
-find .next -name "*.pack" -delete 2>/dev/null || true
+# Run Next.js build
+echo "Running Next.js build..."
+npx next build
 
-echo "✓ Build completed successfully!"
+# Handle cache directories safely
+rm -rf .next/cache 2>/dev/null || true
+echo "Removed cache directories"
 
-# List sizes of all files in .next
-echo "📊 Checking for any remaining large files..."
-find .next -type f -size +10M | sort -n
+# Generate static export
+echo "Generating static export..."
+npx next export
 
-echo "🎉 Deploy build is ready!" 
+# Check for large files
+echo "Checking for large files..."
+find out -type f -size +20M | while read file; do
+  echo "Warning: Large file detected: $file"
+done
+
+# Check if build was successful
+if [ -d "out" ] && [ -f "out/index.html" ]; then
+  echo "Build completed successfully!"
+  exit 0
+else
+  echo "Build failed: output directory is missing or incomplete"
+  exit 1
+fi 

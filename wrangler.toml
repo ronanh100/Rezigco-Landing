@@ -10,11 +10,12 @@ bucket = "./out"
 entry-point = "./.cloudflare/workers-site"
 
 [build]
-command = "./build.sh"
+command = "npm run build:cf"
 upload.format = "service-worker"
 
+# Asset exclusions
 [build.upload]
-format = "service-worker"
+exclude = [".next/cache/**", ".next/cache", "**/*.pack"]
 
 [env.production]
 route = "" 

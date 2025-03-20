@@ -1,7 +1,7 @@
 # Cloudflare Pages Configuration
 # Updated: 2025-03-20
 [build]
-  command = "./build.sh"
+  command = "npm run build:cf"
   publish = "out"
 
 [build.environment]
