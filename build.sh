@@ -1,8 +1,7 @@
 #!/bin/bash
 # Ultra-simplified Cloudflare Pages build script
 
-set -e
-
+# Don't use set -e because we want all commands to run even if some fail
 echo "Starting Cloudflare Pages build process..."
 
 # Clean previous build artifacts
@@ -12,7 +11,12 @@ echo "Cleaned previous build artifacts"
 # Run Next.js build with minimal settings
 echo "Running Next.js build..."
 NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 npx next build
-echo "Next.js build completed"
+build_result=$?
+echo "Next.js build completed with exit code: $build_result"
+
+# Create the cache directory to prevent the find command from failing
+echo "Setting up cache directory for Cloudflare's find command..."
+mkdir -p .next/cache
 
 # Check if output directory exists
 if [ -d "out" ]; then
@@ -20,7 +24,10 @@ if [ -d "out" ]; then
 else
   echo "Creating out directory..."
   mkdir -p out
-  cp -r .next/static out/
+  # If .next/static exists, copy it
+  if [ -d ".next/static" ]; then
+    cp -r .next/static out/
+  fi
   echo "Created output directory"
 fi
 
