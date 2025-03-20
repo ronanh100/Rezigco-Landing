@@ -11,7 +11,7 @@ rm -rf .next out
 
 # Build the Next.js app
 echo "🔨 Building Next.js app..."
-NODE_ENV=production next build
+NODE_ENV=production npx next build
 
 # Delete all cache files
 echo "🗑️ Removing cache files..."
