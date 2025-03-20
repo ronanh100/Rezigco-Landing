@@ -1,0 +1,10 @@
+{
+  "build": {
+    "command": "./build.sh",
+    "output_directory": "out",
+    "environment": {
+      "NODE_VERSION": "20.9.0",
+      "NEXT_TELEMETRY_DISABLED": "1"
+    }
+  }
+} 
