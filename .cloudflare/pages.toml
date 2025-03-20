@@ -1,5 +1,6 @@
 [build]
-  command = "npm run build:cloudflare"
+  command = "./build.sh"
+  publish = "./out"
   [build.environment]
     NODE_VERSION = "20.0.0"
     NEXT_MINIMAL = "1"

@@ -10,7 +10,7 @@ bucket = "./out"
 entry-point = "./.cloudflare/workers-site"
 
 [build]
-command = "npm run build:cf"
+command = "./build.sh"
 
 # Asset exclusions (files that shouldn't be uploaded)
 [build.upload]
