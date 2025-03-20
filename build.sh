@@ -21,10 +21,6 @@ npx next build
 rm -rf .next/cache 2>/dev/null || true
 echo "Removed cache directories"
 
-# Generate static export
-echo "Generating static export..."
-npx next export
-
 # Check for large files
 echo "Checking for large files..."
 find out -type f -size +20M | while read file; do
