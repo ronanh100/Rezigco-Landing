@@ -1,18 +1,24 @@
-import { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
+import { setupLazyLoadingObserver } from '@/lib/optimize-bundle';
 
-// Critical components loaded immediately (above the fold)
+// Only the absolute critical components loaded immediately (above the fold)
 import FloatingNavbar from '@/components/FloatingNavbar';
-import Hero from '@/components/Hero';
 
-// Dynamically import components (below the fold or not initially visible)
+// Load Hero with priority but still dynamically
+const Hero = dynamic(() => import('@/components/Hero'), {
+  ssr: true,
+  loading: () => <div className="min-h-[85vh] bg-white flex items-center justify-center"><div className="animate-pulse">Loading...</div></div>
+});
+
+// Dynamically import all other components with aggressive code splitting
 const Features = dynamic(() => import('@/components/Features'), {
-  ssr: true, // Important component still SSR'd
+  ssr: false, 
 });
 
 const RotatingWords = dynamic(() => import('@/components/RotatingWords'), {
-  ssr: true,
+  ssr: false,
 });
 
 const Setup = dynamic(() => import('@/components/Setup'), {
@@ -61,70 +67,89 @@ const SectionLoader = () => (
 );
 
 export default function Home() {
+  // Set up intersection observers after mount
+  useEffect(() => {
+    setupLazyLoadingObserver();
+  }, []);
+
   return (
     <>
       <Head>
         <title>Rezigco | AI-Powered Real Estate Solutions</title>
         <meta name="description" content="Revolutionizing property management and real estate transactions with cutting-edge artificial intelligence." />
         <meta name="keywords" content="real estate, AI, property management, real estate technology, proptech" />
-        {/* Preload critical CSS */}
-        <link rel="preload" href="/_next/static/css/styles.css" as="style" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      
       <main className="min-h-screen">
         <FloatingNavbar />
         <Hero />
         
-        <Suspense fallback={<SectionLoader />}>
-          <Features />
-        </Suspense>
+        <div data-component="Features">
+          <Suspense fallback={<SectionLoader />}>
+            <Features />
+          </Suspense>
+        </div>
         
-        <Suspense fallback={<SectionLoader />}>
-          <RotatingWords />
-        </Suspense>
+        <div data-component="RotatingWords">
+          <Suspense fallback={<SectionLoader />}>
+            <RotatingWords />
+          </Suspense>
+        </div>
         
-        <Suspense fallback={<SectionLoader />}>
-          <Setup />
-        </Suspense>
+        <div data-component="Setup">
+          <Suspense fallback={<SectionLoader />}>
+            <Setup />
+          </Suspense>
+        </div>
         
-        <Suspense fallback={<SectionLoader />}>
-          <AIIntelligence />
-        </Suspense>
+        <div data-component="AIIntelligence">
+          <Suspense fallback={<SectionLoader />}>
+            <AIIntelligence />
+          </Suspense>
+        </div>
         
-        <Suspense fallback={<SectionLoader />}>
-          <div className="container mx-auto px-4 py-24">
+        <div data-component="ChatEngagerBenefits" className="container mx-auto px-4 py-24">
+          <Suspense fallback={<SectionLoader />}>
             <ChatEngagerBenefits />
-          </div>
-        </Suspense>
+          </Suspense>
+        </div>
         
-        <Suspense fallback={<SectionLoader />}>
-          <div className="container mx-auto px-4 pt-0 pb-24">
+        <div data-component="InboundAutomatorBenefits" className="container mx-auto px-4 pt-0 pb-24">
+          <Suspense fallback={<SectionLoader />}>
             <InboundAutomatorBenefits />
-          </div>
-        </Suspense>
+          </Suspense>
+        </div>
         
-        <Suspense fallback={<SectionLoader />}>
-          <div className="container mx-auto px-4 pt-0 pb-24">
+        <div data-component="DataOrganizerBenefits" className="container mx-auto px-4 pt-0 pb-24">
+          <Suspense fallback={<SectionLoader />}>
             <DataOrganizerBenefits />
-          </div>
-        </Suspense>
+          </Suspense>
+        </div>
         
-        <Suspense fallback={<SectionLoader />}>
-          <div className="container mx-auto px-4 pt-0 pb-24">
+        <div data-component="InsightsBenefits" className="container mx-auto px-4 pt-0 pb-24">
+          <Suspense fallback={<SectionLoader />}>
             <InsightsBenefits />
-          </div>
-        </Suspense>
+          </Suspense>
+        </div>
         
-        <Suspense fallback={<SectionLoader />}>
-          <ZiggySetupTimeline />
-        </Suspense>
+        <div data-component="ZiggySetupTimeline">
+          <Suspense fallback={<SectionLoader />}>
+            <ZiggySetupTimeline />
+          </Suspense>
+        </div>
         
-        <Suspense fallback={<SectionLoader />}>
-          <GetDemo />
-        </Suspense>
+        <div data-component="GetDemo">
+          <Suspense fallback={<SectionLoader />}>
+            <GetDemo />
+          </Suspense>
+        </div>
         
-        <Suspense fallback={<div className="h-20 bg-gray-100"></div>}>
-          <Footer />
-        </Suspense>
+        <div data-component="Footer">
+          <Suspense fallback={<div className="h-20 bg-gray-100"></div>}>
+            <Footer />
+          </Suspense>
+        </div>
       </main>
     </>
   );

@@ -32,14 +32,33 @@ const bricolage = Bricolage_Grotesque({
 export default function App({ Component, pageProps }: AppProps) {
   // Preload critical components on client-side navigation
   useEffect(() => {
-    // Prefetch critical components
-    import('@/components/Features');
-    import('@/components/RotatingWords');
-    
-    // Disable Next.js analytics for Cloudflare optimization
+    // Disable analytics for Cloudflare optimization
     if (process.env.NODE_ENV === 'production') {
       // @ts-ignore
       window.nextAnalytics = false;
+    }
+    
+    // Only prefetch visible components on viewport entry
+    if ('IntersectionObserver' in window) {
+      const lazyLoadComponents = () => {
+        // These will only load when user scrolls, not on initial render
+        const importPromises = [
+          import('@/lib/dynamic-components'),
+        ];
+        
+        // Don't await - let them load in background
+        Promise.all(importPromises).catch(() => {
+          // Silently fail on preload error
+        });
+      };
+      
+      // Wait until idle to trigger component preloads
+      if ('requestIdleCallback' in window) {
+        // @ts-ignore
+        window.requestIdleCallback(lazyLoadComponents, { timeout: 2000 });
+      } else {
+        setTimeout(lazyLoadComponents, 2000);
+      }
     }
   }, []);
   
