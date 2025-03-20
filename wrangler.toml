@@ -1,0 +1,20 @@
+name = "rezigco-landing-page"
+type = "webpack"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+[site]
+bucket = "./out"
+entry-point = "./.cloudflare/workers-site"
+
+[build]
+command = "./build.sh"
+upload.format = "service-worker"
+
+[build.upload]
+format = "service-worker"
+
+[env.production]
+route = "" 

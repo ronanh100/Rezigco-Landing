@@ -1,6 +1,6 @@
 # Cloudflare Pages Configuration
 [build]
-  command = "npm run build:pages"
+  command = "./build.sh"
   publish = "out"
 
 [build.environment]
