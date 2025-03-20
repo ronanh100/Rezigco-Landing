@@ -4,9 +4,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedList } from "@/registry/magicui/animated-list";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faWhatsapp, faFacebookMessenger } from "@/lib/fontawesome";
 
 interface Item {
   name: string;

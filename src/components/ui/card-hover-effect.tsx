@@ -72,7 +72,7 @@ export function HoverEffect({
                 {idx === 0 ? (
                   <div className="mb-2">
                     <Link 
-                      href="/chat-engager" 
+                      href="https://cal.com/rezigco/hireziggy" 
                       className="inline-block"
                     >
                       <button 

@@ -1,4 +1,6 @@
 [build]
-  command = "npm run build"
+  command = "npm run build:cloudflare"
   [build.environment]
-    NODE_VERSION = "20.0.0" 
+    NODE_VERSION = "20.0.0"
+    NEXT_MINIMAL = "1"
+    NODE_OPTIONS = "--max_old_space_size=4096" 

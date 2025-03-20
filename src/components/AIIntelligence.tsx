@@ -26,7 +26,7 @@ export default function AIIntelligence() {
           >
             <div className="max-w-[200px] w-full">
               <ShimmerButton 
-                href="/demo"
+                href="https://cal.com/rezigco/hireziggy"
                 shimmerColor="rgba(146, 46, 164, 0.4)"
                 shimmerDuration="2s"
                 className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md"
