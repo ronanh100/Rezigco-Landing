@@ -7,16 +7,11 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "rm -rf .next && NODE_ENV=production next build && rm -rf .next/cache 2>/dev/null || true && find .next -name '*.pack' -delete 2>/dev/null || true",
-    "build:cloudflare": "node cloudflare-build.js && rm -rf .next/cache 2>/dev/null || true && find .next -name '*.pack' -delete 2>/dev/null || true",
-    "build:pages": "rm -rf .next && NODE_ENV=production next build && rm -rf .next/cache 2>/dev/null || true",
-    "build:cf": "./build.sh",
-    "build:optimized": "rm -rf .next && NODE_ENV=production NEXT_MINIMIZE_USAGE=1 NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
-    "cloudflare": "node cloudflare.js",
+    "build": "rm -rf .next && NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=true next build",
-    "analyze:optimized": "ANALYZE=true NODE_ENV=production NEXT_MINIMIZE_USAGE=1 NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS=\"--max-old-space-size=4096\" next build"
+    "build:cf": "./build.sh",
+    "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
