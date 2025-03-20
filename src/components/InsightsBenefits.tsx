@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaDollarSign, FaBolt, FaHome } from "react-icons/fa";
+import { FaChartLine, FaRegLightbulb, FaBrain } from "react-icons/fa";
 import Image from "next/image";
 
 interface BenefitProps {
@@ -33,7 +33,7 @@ export default function InsightsBenefits() {
       onMouseLeave={() => setIsHovered(false)}
     >
       <section 
-        className="py-12 px-6 md:px-10 font-bricolage rounded-3xl relative overflow-hidden z-20 min-h-[420px]" 
+        className="py-16 px-6 md:px-10 font-bricolage rounded-3xl relative overflow-hidden z-20 min-h-[420px]" 
         style={{ 
           fontFamily: "'Bricolage Grotesque', sans-serif",
           background: "#922ea4",
@@ -45,7 +45,7 @@ export default function InsightsBenefits() {
         }}
       >
         {/* Ziggy Image - Desktop (bottom left) */}
-        <div className="absolute bottom-6 left-6 hidden md:flex bg-white/10 p-4 rounded-full items-center justify-center z-10" style={{ width: '100px', height: '100px' }}>
+        <div className="absolute bottom-16 left-6 hidden md:flex bg-white/10 p-4 rounded-full items-center justify-center z-10" style={{ width: '100px', height: '100px' }}>
           <Image
             src="/ziggy_mobile.png"
             alt="Ziggy"
@@ -57,7 +57,7 @@ export default function InsightsBenefits() {
         </div>
         
         {/* Ziggy Image - Mobile (top left) */}
-        <div className="absolute top-4 left-4 md:hidden z-10 bg-white/10 p-2 rounded-full flex items-center justify-center" style={{ width: '60px', height: '60px' }}>
+        <div className="absolute top-16 left-4 md:hidden z-10 bg-white/10 p-2 rounded-full flex items-center justify-center" style={{ width: '60px', height: '60px' }}>
           <Image
             src="/ziggy_mobile.png"
             alt="Ziggy"
@@ -68,10 +68,10 @@ export default function InsightsBenefits() {
           />
         </div>
         
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto relative z-10 py-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
             {/* Left side: Heading */}
-            <div className="md:col-span-1 flex flex-col items-center md:items-start">
+            <div className="md:col-span-1 flex flex-col items-center md:items-start mt-8 md:mt-0">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center md:text-left leading-tight">
                 Insights
               </h2>
@@ -86,19 +86,19 @@ export default function InsightsBenefits() {
             <div className="md:col-span-3">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-full">
                 <Benefit 
-                  icon={<FaDollarSign className="text-2xl" />}
-                  title="More Insights, More Deals"
-                  description="Give buyers and sellers the data they need to make confident decisions, keeping them engaged and ready to act."
+                  icon={<FaChartLine className="text-2xl" />}
+                  title="Data-Driven Decisions"
+                  description="Unlock patterns, trends, and insights from your real estate data to optimize pricing, marketing, and investment strategies."
                 />
                 <Benefit 
-                  icon={<FaBolt className="text-2xl" />}
-                  title="Instant Research"
-                  description="Generate area insights in seconds, eliminating hours of manual research and helping you focus on closing more deals."
+                  icon={<FaRegLightbulb className="text-2xl" />}
+                  title="Strategic Forecasting"
+                  description="Accurately predict market trends, identify investment opportunities, and prepare for upcoming shifts with AI-powered analytics."
                 />
                 <Benefit 
-                  icon={<FaHome className="text-2xl" />}
-                  title="Stronger Listing Engagement"
-                  description="Provide rich neighborhood details that keep buyers interested, increase engagement, and make your listings stand out."
+                  icon={<FaBrain className="text-2xl" />}
+                  title="AI-Enhanced Analysis"
+                  description="Leverage advanced algorithms to analyze years of property data, market trends, and transaction histories in seconds."
                 />
               </div>
             </div>

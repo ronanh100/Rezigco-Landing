@@ -33,7 +33,7 @@ export default function DataOrganizerBenefits() {
       onMouseLeave={() => setIsHovered(false)}
     >
       <section 
-        className="py-12 px-6 md:px-10 font-bricolage rounded-3xl relative overflow-hidden z-20 min-h-[420px]" 
+        className="py-16 px-6 md:px-10 font-bricolage rounded-3xl relative overflow-hidden z-20 min-h-[420px]" 
         style={{ 
           fontFamily: "'Bricolage Grotesque', sans-serif",
           background: "#922ea4",
@@ -45,7 +45,7 @@ export default function DataOrganizerBenefits() {
         }}
       >
         {/* Ziggy Image - Desktop (bottom left) */}
-        <div className="absolute bottom-6 left-6 hidden md:flex bg-white/10 p-4 rounded-full items-center justify-center z-10" style={{ width: '100px', height: '100px' }}>
+        <div className="absolute bottom-16 left-6 hidden md:flex bg-white/10 p-4 rounded-full items-center justify-center z-10" style={{ width: '100px', height: '100px' }}>
           <Image
             src="/ziggy_mobile.png"
             alt="Ziggy"
@@ -57,7 +57,7 @@ export default function DataOrganizerBenefits() {
         </div>
         
         {/* Ziggy Image - Mobile (top left) */}
-        <div className="absolute top-4 left-4 md:hidden z-10 bg-white/10 p-2 rounded-full flex items-center justify-center" style={{ width: '60px', height: '60px' }}>
+        <div className="absolute top-16 left-4 md:hidden z-10 bg-white/10 p-2 rounded-full flex items-center justify-center" style={{ width: '60px', height: '60px' }}>
           <Image
             src="/ziggy_mobile.png"
             alt="Ziggy"
@@ -68,10 +68,10 @@ export default function DataOrganizerBenefits() {
           />
         </div>
         
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto relative z-10 py-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
             {/* Left side: Heading */}
-            <div className="md:col-span-1 flex flex-col items-center md:items-start">
+            <div className="md:col-span-1 flex flex-col items-center md:items-start mt-8 md:mt-0">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center md:text-left leading-tight">
                 Data Organizer
               </h2>
