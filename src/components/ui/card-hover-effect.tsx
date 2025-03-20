@@ -3,11 +3,29 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { AnimatedListDemo } from "./animated-list-demo";
-import { ChatEngagerDemo } from "./chat-engager-demo";
-import { DataOrganizerDemo } from "./data-organizer-demo";
-import { InsightsDemo } from "./insights-demo";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+// Dynamically import animation components to reduce bundle size
+const ChatEngagerDemo = dynamic(() => import("./chat-engager-demo").then(mod => mod.ChatEngagerDemo), {
+  ssr: false,
+  loading: () => <div className="h-full w-full flex items-center justify-center bg-gray-50 animate-pulse rounded-md">Loading...</div>
+});
+
+const AnimatedListDemo = dynamic(() => import("./animated-list-demo").then(mod => mod.AnimatedListDemo), {
+  ssr: false,
+  loading: () => <div className="h-full w-full flex items-center justify-center bg-gray-50 animate-pulse rounded-md">Loading...</div>
+});
+
+const DataOrganizerDemo = dynamic(() => import("./data-organizer-demo").then(mod => mod.DataOrganizerDemo), {
+  ssr: false,
+  loading: () => <div className="h-full w-full flex items-center justify-center bg-gray-50 animate-pulse rounded-md">Loading...</div>
+});
+
+const InsightsDemo = dynamic(() => import("./insights-demo").then(mod => mod.InsightsDemo), {
+  ssr: false,
+  loading: () => <div className="h-full w-full flex items-center justify-center bg-gray-50 animate-pulse rounded-md">Loading...</div>
+});
 
 // Add keyframe animation for shimmer
 const shimmerAnimation = `

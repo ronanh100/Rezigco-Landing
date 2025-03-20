@@ -2,7 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ShimmerButton } from "@/registry/magicui/shimmer-button";
+import dynamic from "next/dynamic";
+
+// Dynamically import ShimmerButton to reduce bundle size
+const ShimmerButton = dynamic(() => import("@/registry/magicui/shimmer-button").then(mod => mod.ShimmerButton), {
+  ssr: false,
+  loading: () => <div className="max-w-[200px] w-full h-10 bg-gray-100 rounded-md animate-pulse"></div>
+});
 
 export default function GetDemo() {
   return (

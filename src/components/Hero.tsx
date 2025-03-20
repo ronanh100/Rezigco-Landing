@@ -2,9 +2,23 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from "framer-motion";
-import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import { useState } from 'react';
-import { ShimmerButton } from "@/registry/magicui/shimmer-button";
+import { useState, Suspense, lazy } from 'react';
+import dynamic from 'next/dynamic';
+
+// Dynamically import components to reduce bundle size
+const HeroHighlight = dynamic(() => import("@/components/ui/hero-highlight").then(mod => mod.HeroHighlight), {
+  ssr: false,
+  loading: () => <div className="py-8 md:py-10 bg-gray-50 rounded-lg">Loading...</div>
+});
+
+const Highlight = dynamic(() => import("@/components/ui/hero-highlight").then(mod => mod.Highlight), {
+  ssr: false
+});
+
+const ShimmerButton = dynamic(() => import("@/registry/magicui/shimmer-button").then(mod => mod.ShimmerButton), {
+  ssr: false,
+  loading: () => <div className="max-w-[200px] w-full h-10 bg-gray-100 rounded-md animate-pulse"></div>
+});
 
 export default function Hero() {
   const [hovering, setHovering] = useState(false);

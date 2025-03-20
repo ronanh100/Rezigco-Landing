@@ -8,10 +8,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "rm -rf .next && NODE_ENV=production next build",
-    "build:cloudflare": "rm -rf .next && NODE_ENV=production NEXT_MINIMAL=1 NODE_OPTIONS=--max_old_space_size=4096 next build",
+    "build:cloudflare": "rm -rf .next && NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
+    "build:optimized": "rm -rf .next && NODE_ENV=production NEXT_MINIMIZE_USAGE=1 NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
+    "cloudflare": "node cloudflare.js",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=true next build",
+    "analyze:optimized": "ANALYZE=true NODE_ENV=production NEXT_MINIMIZE_USAGE=1 NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS=\"--max-old-space-size=4096\" next build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -21,6 +24,7 @@
     "@tabler/icons-react": "^3.31.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.5.0",
     "lucide-react": "^0.479.0",
     "motion": "^12.5.0",
     "next": "15.2.2",
