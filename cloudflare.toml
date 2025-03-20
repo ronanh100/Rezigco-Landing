@@ -1,0 +1,15 @@
+# Cloudflare Pages Configuration
+[build]
+  command = "npm run build:pages"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20.9.0"
+
+# Asset exclusions (files that shouldn't be uploaded)
+[build.upload]
+  exclude = [
+    ".next/cache/**",
+    ".next/cache",
+    "**/*.pack"
+  ] 
