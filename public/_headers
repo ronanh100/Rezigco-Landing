@@ -1,0 +1,23 @@
+# Cloudflare Pages _headers file
+# Global headers for all paths
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Cache static assets aggressively
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache favicons
+/favicon.ico
+  Cache-Control: public, max-age=86400
+
+# Cache images
+/images/*
+  Cache-Control: public, max-age=604800
+
+# Cache fonts
+/_next/static/media/*
+  Cache-Control: public, max-age=31536000, immutable 
