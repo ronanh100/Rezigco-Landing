@@ -11,10 +11,10 @@ entry-point = "./.cloudflare/workers-site"
 
 [build]
 command = "npm run build:cf"
-upload.format = "service-worker"
 
-# Asset exclusions
+# Asset exclusions (files that shouldn't be uploaded)
 [build.upload]
+format = "service-worker"
 exclude = [".next/cache/**", ".next/cache", "**/*.pack"]
 
 [env.production]

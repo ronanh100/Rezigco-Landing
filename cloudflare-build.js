@@ -29,7 +29,13 @@ async function main() {
     // Step 3: Explicitly delete cache files
     console.log('🗑️ Removing cache files...');
     if (fs.existsSync(CACHE_DIR)) {
-      execSync(`find ${CACHE_DIR} -name "*.pack" -delete`, { stdio: 'inherit' });
+      try {
+        execSync(`find ${CACHE_DIR} -name "*.pack" -delete`, { stdio: 'inherit' });
+      } catch (e) {
+        console.log('Note: No .pack files found in cache directory');
+      }
+    } else {
+      console.log('Note: Cache directory does not exist, skipping');
     }
     
     // Step 4: Check for any remaining large files
