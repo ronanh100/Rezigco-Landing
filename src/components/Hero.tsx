@@ -20,18 +20,25 @@ export default function Hero() {
           className="absolute left-0 top-[35%] -translate-x-[500%] hidden lg:block"
           style={{ zIndex: 30 }}
         >
-          <Image
-            src="/ziggy_new.png"
-            alt="Ziggy"
-            width={200}
-            height={200}
-            className="object-contain"
-            style={{ 
-              background: 'transparent', 
-              mixBlendMode: 'darken',
-            }}
-            priority
-          />
+          <div className="relative">
+            <Image
+              src="/ziggy_new.png"
+              alt="Ziggy"
+              width={200}
+              height={200}
+              className="object-contain"
+              style={{ 
+                background: 'transparent', 
+                mixBlendMode: 'darken',
+              }}
+              priority
+              loading="eager"
+              onLoadingComplete={(img) => {
+                // Image has loaded completely
+                img.style.opacity = "1";
+              }}
+            />
+          </div>
         </motion.div>
           
         <HeroHighlight containerClassName="h-auto py-8 md:py-10 bg-transparent">
@@ -71,12 +78,12 @@ export default function Hero() {
               </motion.div>
               
               <div className="flex justify-center items-center mt-4 md:mt-6 relative">
-                <div className="max-w-[200px] w-full">
+                <div className="max-w-[200px] w-full mx-auto">
                   <ShimmerButton 
                     href="https://cal.com/rezigco/hireziggy"
                     shimmerColor="rgba(146, 46, 164, 0.4)"
                     shimmerDuration="2s"
-                    className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md"
+                    className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md w-full"
                     style={{ 
                       fontFamily: "'Bricolage Grotesque', sans-serif",
                     }}
@@ -91,7 +98,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-                className="mt-6 lg:hidden flex justify-center"
+                className="mt-2 lg:hidden flex justify-center"
               >
                 <Image
                   src="/ziggy_new.png"
@@ -104,6 +111,7 @@ export default function Hero() {
                     mixBlendMode: 'darken',
                   }}
                   priority
+                  loading="eager"
                 />
               </motion.div>
             </div>

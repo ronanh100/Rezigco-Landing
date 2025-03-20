@@ -30,12 +30,12 @@ export default function GetDemo() {
             viewport={{ once: true }}
             className="w-full flex justify-center"
           >
-            <div className="max-w-[200px] w-full">
+            <div className="max-w-[200px] w-full mx-auto">
               <ShimmerButton 
                 href="https://cal.com/rezigco/hireziggy"
                 shimmerColor="rgba(146, 46, 164, 0.4)"
                 shimmerDuration="2s"
-                className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md"
+                className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md w-full"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
                 GET DEMO
