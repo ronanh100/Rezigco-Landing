@@ -2,35 +2,25 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from "framer-motion";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { HeroHighlight, Highlight, ShimmerButton } from '@/lib/dynamic-components';
 
 export default function Hero() {
   const [hovering, setHovering] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  
-  // Only show Ziggy after component is fully mounted
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMounted(true);
-    }, 500);
-    
-    return () => clearTimeout(timer);
-  }, []);
   
   return (
     <section className="relative bg-white text-black min-h-[85vh] font-bricolage pb-0" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
       {/* Hero content */}
       <div className="container mx-auto px-4 pt-12 md:pt-16 pb-0 relative z-10">
         {/* Ziggy Image - Desktop - Positioned far left */}
-        {mounted && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="absolute left-0 top-[35%] -translate-x-[500%] hidden lg:block"
-            style={{ zIndex: 30 }}
-          >
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="absolute left-0 top-[35%] -translate-x-[500%] hidden lg:block"
+          style={{ zIndex: 30 }}
+        >
+          <div className="relative">
             <Image
               src="/ziggy_new.png"
               alt="Ziggy"
@@ -42,9 +32,14 @@ export default function Hero() {
                 mixBlendMode: 'darken',
               }}
               priority
+              loading="eager"
+              onLoadingComplete={(img) => {
+                // Image has loaded completely
+                img.style.opacity = "1";
+              }}
             />
-          </motion.div>
-        )}
+          </div>
+        </motion.div>
           
         <HeroHighlight containerClassName="h-auto py-8 md:py-10 bg-transparent">
           <div className="flex flex-col items-center">
@@ -98,23 +93,27 @@ export default function Hero() {
                 </div>
               </div>
               
-              {/* Mobile Ziggy */}
-              {mounted && (
-                <div className="mt-2 lg:hidden flex justify-center h-[120px]">
-                  <Image
-                    src="/ziggy_new.png"
-                    alt="Mobile Ziggy"
-                    width={120}
-                    height={120}
-                    className="object-contain"
-                    style={{ 
-                      background: 'transparent', 
-                      mixBlendMode: 'darken',
-                    }}
-                    priority
-                  />
-                </div>
-              )}
+              {/* Ziggy Image - Mobile (Under Button) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+                className="mt-2 lg:hidden flex justify-center"
+              >
+                <Image
+                  src="/ziggy_new.png"
+                  alt="Ziggy"
+                  width={120}
+                  height={120}
+                  className="object-contain"
+                  style={{ 
+                    background: 'transparent', 
+                    mixBlendMode: 'darken',
+                  }}
+                  priority
+                  loading="eager"
+                />
+              </motion.div>
             </div>
           </div>
         </HeroHighlight>

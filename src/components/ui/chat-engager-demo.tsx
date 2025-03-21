@@ -36,50 +36,45 @@ const chatMessages: ChatMessage[] = [
 
 export function ChatEngagerDemo({ className }: { className?: string }) {
   const [visibleMessages, setVisibleMessages] = useState<ChatMessage[]>([]);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [animationCycle, setAnimationCycle] = useState(0);
   const [isRestarting, setIsRestarting] = useState(false);
-
-  // Function to add messages one by one
+  
+  // Add messages one by one
   useEffect(() => {
     if (isRestarting) return;
-
+    
+    // Function to add a message
     const addMessage = (index: number) => {
       if (index >= chatMessages.length) {
-        // All messages have been added, restart after a delay
+        // All messages added, restart after delay
         setTimeout(() => {
           setIsRestarting(true);
           setTimeout(() => {
             setVisibleMessages([]);
             setIsRestarting(false);
+            setAnimationCycle(prev => prev + 1); // Increment cycle for unique keys
           }, 1000);
         }, 2000);
         return;
       }
-
-      setIsAnimating(true);
-      setVisibleMessages(prev => {
-        // Keep only the last 4 messages to ensure they fit in the container
-        const newMessages = [...prev, chatMessages[index]];
-        if (newMessages.length > 4) {
-          return newMessages.slice(newMessages.length - 4);
-        }
-        return newMessages;
-      });
       
-      // Schedule the next message
+      // Add the next message
+      setVisibleMessages(prev => [...prev, chatMessages[index]]);
+      
+      // Schedule next message
       setTimeout(() => {
-        setIsAnimating(false);
-        setTimeout(() => {
-          addMessage(index + 1);
-        }, 300);
+        addMessage(index + 1);
       }, 1500);
     };
-
-    if (visibleMessages.length === 0 && !isAnimating) {
-      // Start the sequence
+    
+    // Start sequence if no messages are visible
+    if (visibleMessages.length === 0 && !isRestarting) {
       addMessage(0);
     }
-  }, [visibleMessages, isAnimating, isRestarting]);
+    
+    // Clean up timeouts on unmount
+    return () => {};
+  }, [visibleMessages, isRestarting]);
 
   return (
     <div
@@ -91,73 +86,74 @@ export function ChatEngagerDemo({ className }: { className?: string }) {
       <div className="flex flex-col h-full p-2 overflow-hidden">
         <div className="flex-1 overflow-hidden relative">
           <div className="absolute inset-0 flex flex-col justify-end p-1 gap-2 overflow-hidden">
-            <AnimatePresence mode="popLayout" initial={false}>
-              {visibleMessages.map((message, index) => (
-                <motion.div
-                  key={message.id}
-                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0, 
-                    scale: 1,
-                    transition: {
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 20
-                    }
-                  }}
-                  exit={{ 
-                    opacity: 0,
-                    y: -20,
-                    transition: { 
-                      duration: 0.2 
-                    } 
-                  }}
-                  className={cn(
-                    "flex items-end gap-1 w-full",
-                    message.sender === "user" ? "flex-row-reverse" : "flex-row"
-                  )}
-                >
-                  {/* Profile Avatar */}
-                  <div 
+            <div className="flex flex-col gap-2">
+              {visibleMessages.map((message, index) => {
+                // Determine if this is the newest message to animate
+                const isNewestMessage = index === visibleMessages.length - 1;
+                
+                // Create a stable and unique key
+                const uniqueKey = `${message.id}-${index}-${animationCycle}`;
+                
+                return (
+                  <motion.div
+                    key={uniqueKey}
+                    initial={isNewestMessage ? { opacity: 0, y: 20, scale: 0.95 } : { opacity: 1, y: 0, scale: 1 }}
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0, 
+                      scale: 1,
+                      transition: {
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20
+                      }
+                    }}
                     className={cn(
-                      "flex-shrink-0 w-6 h-6 rounded-full overflow-hidden border",
-                      message.sender === "user" 
-                        ? "border-purple-200 bg-purple-100" 
-                        : "border-gray-200 bg-gray-100"
+                      "flex items-end gap-1 w-full",
+                      message.sender === "user" ? "flex-row-reverse" : "flex-row"
                     )}
                   >
-                    {message.sender === "user" ? (
-                      <div className="w-full h-full flex items-center justify-center text-[10px] font-bold text-purple-700">
-                        JD
-                      </div>
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <Image
-                          src="/ziggy_profile.png"
-                          alt="Ziggy"
-                          width={20}
-                          height={20}
-                          className="object-contain"
-                        />
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* Message Bubble */}
-                  <div 
-                    className={cn(
-                      "max-w-[75%] rounded-xl px-2 py-1.5 text-xs shadow-sm",
-                      message.sender === "user" 
-                        ? "bg-purple-100 text-purple-900 rounded-tr-none" 
-                        : "bg-gray-100 text-gray-800 rounded-tl-none"
-                    )}
-                  >
-                    {message.content}
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+                    {/* Profile Avatar */}
+                    <div 
+                      className={cn(
+                        "flex-shrink-0 w-6 h-6 rounded-full overflow-hidden border",
+                        message.sender === "user" 
+                          ? "border-purple-200 bg-purple-100" 
+                          : "border-gray-200 bg-gray-100"
+                      )}
+                    >
+                      {message.sender === "user" ? (
+                        <div className="w-full h-full flex items-center justify-center text-[10px] font-bold text-purple-700">
+                          JD
+                        </div>
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <Image
+                            src="/ziggy_profile.png"
+                            alt="Ziggy"
+                            width={20}
+                            height={20}
+                            className="object-contain"
+                          />
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Message Bubble */}
+                    <div 
+                      className={cn(
+                        "max-w-[75%] rounded-xl px-2 py-1.5 text-xs shadow-sm",
+                        message.sender === "user" 
+                          ? "bg-purple-100 text-purple-900 rounded-tr-none" 
+                          : "bg-gray-100 text-gray-800 rounded-tl-none"
+                      )}
+                    >
+                      {message.content}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
