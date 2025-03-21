@@ -5,11 +5,9 @@ import { setupLazyLoadingObserver } from '@/lib/optimize-bundle';
 
 // Only the absolute critical components loaded immediately (above the fold)
 import FloatingNavbar from '@/components/FloatingNavbar';
-
-// Load Hero with priority but still dynamically
+// Use dynamic import for Hero with ssr: false to match production behavior
 const Hero = dynamic(() => import('@/components/Hero'), {
-  ssr: true,
-  loading: () => <div className="min-h-[85vh] bg-white"></div>
+  ssr: false,
 });
 
 // Dynamically import all other components with aggressive code splitting
@@ -70,6 +68,10 @@ export default function Home() {
   // Set up intersection observers after mount
   useEffect(() => {
     setupLazyLoadingObserver();
+    
+    // Critical: Preload Ziggy image immediately on load
+    const preloadZiggy = new Image();
+    preloadZiggy.src = '/ziggy_static.png';
   }, []);
 
   return (
@@ -79,6 +81,8 @@ export default function Home() {
         <meta name="description" content="Revolutionizing property management and real estate transactions with cutting-edge artificial intelligence." />
         <meta name="keywords" content="real estate, AI, property management, real estate technology, proptech" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preload" as="image" href="/ziggy_static.png" fetchPriority="high" />
+        {/* Remove ziggy_new.png preload if it's not being used */}
       </Head>
       
       <main className="min-h-screen">

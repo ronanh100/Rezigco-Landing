@@ -34,8 +34,22 @@ class MyDocument extends Document {
           {/* Performance optimization headers */}
           <meta name="theme-color" content="#ffffff" />
           <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cal.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https:; font-src 'self' https://fonts.gstatic.com;" />
+
+          {/* Preload Ziggy image at document level for earliest possible loading */}
+          <link rel="preload" as="image" href="/ziggy_new.png" />
+          
+          {/* Inline script to start loading image as early as possible */}
+          <script dangerouslySetInnerHTML={{
+            __html: `
+              // Preload Ziggy image as early as possible
+              const img = new Image();
+              img.src = "/ziggy_new.png";
+            `
+          }} />
         </Head>
         <body>
+          {/* Add an extra preload link in the body, like in production */}
+          <link rel="preload" as="image" href="/ziggy_new.png" />
           <Main />
           <NextScript />
         </body>

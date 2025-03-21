@@ -30,12 +30,12 @@ export default function AIIntelligence() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="flex justify-center items-center mt-8"
           >
-            <div className="max-w-[200px] w-full">
+            <div className="flex justify-center max-w-[200px] w-full mx-auto">
               <ShimmerButton 
                 href="https://cal.com/rezigco/hireziggy"
                 shimmerColor="rgba(146, 46, 164, 0.4)"
                 shimmerDuration="2s"
-                className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md"
+                className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md w-full text-center"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
                 GET STARTED
