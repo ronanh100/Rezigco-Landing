@@ -9,7 +9,7 @@ import FloatingNavbar from '@/components/FloatingNavbar';
 // Load Hero with priority but still dynamically
 const Hero = dynamic(() => import('@/components/Hero'), {
   ssr: true,
-  loading: () => <div className="min-h-[85vh] bg-white flex items-center justify-center"><div className="animate-pulse">Loading...</div></div>
+  loading: () => <div className="min-h-[85vh] bg-white"></div>
 });
 
 // Dynamically import all other components with aggressive code splitting

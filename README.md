@@ -38,11 +38,32 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Technologies Used
 
-- Next.js (App Router)
+- Next.js (Pages Router)
 - TypeScript
 - Tailwind CSS
+- Framer Motion for animations
+- FontAwesome for icons
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses optimized animations and responsive design to create a modern user experience.
+
+## Deployment
+
+This project is optimized for deployment on Cloudflare Pages with the following features:
+
+- Optimized build process that removes cache files automatically
+- Custom webpack configuration for smaller bundle sizes
+- Static export with full animation support
+- Total bundle size reduced to under 120KB
+
+To deploy your own version:
+
+```bash
+# Build for production
+npm run build:cf
+
+# Check bundle size
+find .next -type f -size +10M
+```
 
 ## Learn More
 

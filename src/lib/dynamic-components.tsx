@@ -14,7 +14,7 @@ export const HeroHighlight = dynamic(
   () => import("@/components/ui/hero-highlight").then(mod => mod.HeroHighlight),
   {
     ssr: false,
-    loading: () => <div className="py-8 md:py-10 bg-gray-50 rounded-lg animate-pulse">Loading...</div>
+    loading: () => <div className="py-8 md:py-10 bg-white rounded-lg"></div>
   }
 );
 
