@@ -50,6 +50,8 @@ export default function Hero() {
             transform: 'translateX(-20%)',
             width: '200px',
             height: '200px',
+            visibility: imagesLoaded ? 'visible' : 'hidden',
+            position: 'absolute'
           }}
         >
           <Image
@@ -87,7 +89,7 @@ export default function Hero() {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-tight text-black font-bricolage"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
-                <span className="inline-block whitespace-nowrap">Your AI Agent, Streamlining the</span>{' '}
+                <span className="block sm:block md:inline-block whitespace-normal md:whitespace-nowrap">Your AI Agent, Streamlining the</span>{' '}
                 <span className="block mt-2">
                   <Highlight className="font-bold whitespace-nowrap inline-flex">Real Estate Workflow</Highlight>
                 </span>
@@ -120,7 +122,9 @@ export default function Hero() {
               </div>
               
               {/* Mobile Ziggy */}
-              <div className={`mt-2 lg:hidden flex justify-center h-[120px] transition-opacity duration-500 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`}>
+              <div className={`mt-2 lg:hidden flex justify-center h-[120px] transition-opacity duration-500 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`}
+                   style={{ visibility: imagesLoaded ? 'visible' : 'hidden' }}
+              >
                 <Image
                   src="/ziggy_static.png"
                   alt="Ziggy"
