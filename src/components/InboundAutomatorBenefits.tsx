@@ -73,7 +73,7 @@ export default function InboundAutomatorBenefits() {
             {/* Left side: Heading */}
             <div className="md:col-span-1 flex flex-col items-center md:items-start">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center md:text-left leading-tight">
-                Inbound Automator
+                Deal Navigator
               </h2>
               
               {/* Releasing Soon text */}

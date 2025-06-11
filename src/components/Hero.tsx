@@ -1,74 +1,16 @@
 "use client";
 import Link from 'next/link';
 import { motion } from "framer-motion";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { HeroHighlight, Highlight, ShimmerButton } from '@/lib/dynamic-components';
-import Image from 'next/image';
 
 export default function Hero() {
   const [hovering, setHovering] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  
-  // Preload images as soon as component mounts
-  useEffect(() => {
-    const preloadImages = async () => {
-      try {
-        // Create a promise that resolves when the image is loaded
-        const imagePromise = new Promise<boolean>((resolve) => {
-          const img = new window.Image();
-          img.onload = () => resolve(true);
-          img.src = '/ziggy_static.png';
-        });
-        
-        await imagePromise;
-        setImagesLoaded(true);
-      } catch (error) {
-        console.error('Failed to preload images:', error);
-        // Show content anyway after a timeout if loading fails
-        setTimeout(() => setImagesLoaded(true), 500);
-      }
-    };
-    
-    preloadImages();
-    
-    // Fallback to ensure content displays even if image loading fails
-    const timer = setTimeout(() => setImagesLoaded(true), 1000);
-    return () => clearTimeout(timer);
-  }, []);
   
   return (
     <section className="relative bg-white text-black min-h-[85vh] font-bricolage pb-0" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
       {/* Hero content */}
       <div className="container mx-auto px-4 pt-12 md:pt-16 pb-0 relative z-10">
-        {/* Desktop Ziggy - Absolute position */}
-        <div 
-          className={`absolute hidden lg:block transition-opacity duration-500 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`}
-          style={{ 
-            left: '5vw', 
-            top: '35%',
-            zIndex: 30,
-            transform: 'translateX(-20%)',
-            width: '200px',
-            height: '200px',
-            visibility: imagesLoaded ? 'visible' : 'hidden',
-            position: 'absolute'
-          }}
-        >
-          <Image
-            src="/ziggy_static.png"
-            alt="Ziggy"
-            width={200}
-            height={200}
-            priority={true}
-            onLoadingComplete={() => setImagesLoaded(true)}
-            style={{ 
-              objectFit: 'contain',
-              background: 'transparent', 
-              mixBlendMode: 'darken',
-            }}
-          />
-        </div>
-          
         <HeroHighlight containerClassName="h-auto py-8 md:py-10 bg-transparent">
           <div className="flex flex-col items-center">
             {/* Text content */}
@@ -102,7 +44,7 @@ export default function Hero() {
                 className="text-lg sm:text-xl md:text-2xl mb-10 md:mb-12 text-black font-bricolage max-w-3xl mx-auto"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
-                Ziggy works 24/7 handling inquiries, qualifying leads, and organizing data so you can build relationships and close more deals.
+                Your AI agent works 24/7 handling new inquiries, intelligently following up at every stage and moving sales forward so you can close deals effortlessly.
               </motion.div>
               
               <div className="flex justify-center items-center mt-4 md:mt-6 relative">
@@ -119,25 +61,6 @@ export default function Hero() {
                     GET STARTED
                   </ShimmerButton>
                 </div>
-              </div>
-              
-              {/* Mobile Ziggy */}
-              <div className={`mt-2 lg:hidden flex justify-center h-[120px] transition-opacity duration-500 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`}
-                   style={{ visibility: imagesLoaded ? 'visible' : 'hidden' }}
-              >
-                <Image
-                  src="/ziggy_static.png"
-                  alt="Ziggy"
-                  width={120}
-                  height={120}
-                  priority={true}
-                  onLoadingComplete={() => setImagesLoaded(true)}
-                  style={{ 
-                    objectFit: 'contain',
-                    background: 'transparent', 
-                    mixBlendMode: 'darken',
-                  }}
-                />
               </div>
             </div>
           </div>

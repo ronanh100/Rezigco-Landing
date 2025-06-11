@@ -31,15 +31,7 @@ const ChatEngagerBenefits = dynamic(() => import('@/components/ChatEngagerBenefi
   ssr: false,
 });
 
-const InboundAutomatorBenefits = dynamic(() => import('@/components/InboundAutomatorBenefits'), {
-  ssr: false,
-});
-
-const DataOrganizerBenefits = dynamic(() => import('@/components/DataOrganizerBenefits'), {
-  ssr: false,
-});
-
-const InsightsBenefits = dynamic(() => import('@/components/InsightsBenefits'), {
+const DealNavigatorBenefits = dynamic(() => import('@/components/InboundAutomatorBenefits'), {
   ssr: false,
 });
 
@@ -119,21 +111,9 @@ export default function Home() {
           </Suspense>
         </div>
         
-        <div data-component="InboundAutomatorBenefits" className="container mx-auto px-4 pt-0 pb-24">
+        <div data-component="DealNavigatorBenefits" className="container mx-auto px-4 pt-0 pb-24">
           <Suspense fallback={<SectionLoader />}>
-            <InboundAutomatorBenefits />
-          </Suspense>
-        </div>
-        
-        <div data-component="DataOrganizerBenefits" className="container mx-auto px-4 pt-0 pb-24">
-          <Suspense fallback={<SectionLoader />}>
-            <DataOrganizerBenefits />
-          </Suspense>
-        </div>
-        
-        <div data-component="InsightsBenefits" className="container mx-auto px-4 pt-0 pb-24">
-          <Suspense fallback={<SectionLoader />}>
-            <InsightsBenefits />
+            <DealNavigatorBenefits />
           </Suspense>
         </div>
         

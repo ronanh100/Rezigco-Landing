@@ -25,17 +25,6 @@ export default function Footer() {
             </p>
           </div>
           
-          <div className="hidden md:flex justify-center items-center mb-6 md:mb-0">
-            <Image
-              src="/ziggy_new.png"
-              alt="Ziggy"
-              width={80}
-              height={80}
-              className="object-contain"
-              priority
-            />
-          </div>
-          
           <div className="flex flex-col md:flex-row gap-8">
             <div>
               <h3 className="font-semibold text-gray-800 mb-3">Products</h3>

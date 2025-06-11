@@ -11,19 +11,9 @@ export default function Features() {
       emoji: "💬"
     },
     {
-      title: "Inbound Automator",
+      title: "Deal Navigator",
       description: "Ziggy manages inquiries, pre-qualifies leads, and delivers instant, intelligent responses tailored to your business. Engage prospects efficiently and ensure no opportunity is missed, even when you're unavailable.",
       emoji: "✉️"
-    },
-    {
-      title: "Data Organiser",
-      description: "Ziggy makes data instantly searchable, structured, and retrievable, turning documents into interactive resources. Remove scattered information and gain smarter data insights effortlessly.",
-      emoji: "📁"
-    },
-    {
-      title: "Insights",
-      description: "Ziggy instantly compiles rich area insights and listing data, making property profiles more informative and engaging, providing buyers and sellers with meaningful information.",
-      emoji: "💡"
     },
   ];
 
