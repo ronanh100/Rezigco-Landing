@@ -5,14 +5,14 @@ import { setupLazyLoadingObserver } from '@/lib/optimize-bundle';
 
 // Only the absolute critical components loaded immediately (above the fold)
 import FloatingNavbar from '@/components/FloatingNavbar';
-// Use dynamic import for Hero with ssr: false to match production behavior
+// Hero should render on server to prevent layout shift
 const Hero = dynamic(() => import('@/components/Hero'), {
-  ssr: false,
+  ssr: true,
 });
 
-// Dynamically import all other components with aggressive code splitting
+// Features component should render on server to prevent layout shift
 const Features = dynamic(() => import('@/components/Features'), {
-  ssr: false, 
+  ssr: true, 
 });
 
 const RotatingWords = dynamic(() => import('@/components/RotatingWords'), {
@@ -81,7 +81,7 @@ export default function Home() {
         <FloatingNavbar />
         <Hero />
         
-        <div data-component="Features">
+        <div data-component="Features" style={{ minHeight: '400px' }}>
           <Suspense fallback={<SectionLoader />}>
             <Features />
           </Suspense>
