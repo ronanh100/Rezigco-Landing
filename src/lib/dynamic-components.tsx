@@ -23,6 +23,8 @@ export const Highlight = dynamic(
   { ssr: false }
 );
 
+
+
 export const WordRotate = dynamic(
   () => import("@/registry/magicui/word-rotate").then(mod => mod.WordRotate),
   {

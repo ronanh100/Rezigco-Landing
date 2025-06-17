@@ -64,6 +64,16 @@ html {
   --ring: 146 46 164;
 }
 
+/* RetroGrid animation */
+@keyframes grid {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-80px); }
+}
+
+.animate-grid {
+  animation: grid 25s linear infinite;
+}
+
 /* Keyframe animations for shine effects */
 @keyframes shineRight {
   0% { right: 100%; }

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaClock, FaChartBar, FaHourglass } from "react-icons/fa";
+import { FaClock, FaChartBar, FaHourglass, FaBrain, FaEnvelope, FaEye } from "react-icons/fa";
 import Image from "next/image";
 
 interface BenefitProps {
@@ -86,19 +86,19 @@ export default function InboundAutomatorBenefits() {
             <div className="md:col-span-3">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-full">
                 <Benefit 
-                  icon={<FaHourglass className="text-2xl" />}
-                  title="Save Time"
-                  description="Ziggy automates initial inquiries, pre-qualifies leads, and manages repetitive tasks, so you can focus on meaningful opportunities before the first call or meeting."
+                  icon={<FaBrain className="text-2xl" />}
+                  title="Context Aware"
+                  description="Understands the full picture, from offer to completion, and adapts to the nuances of each deal to respond in the right way at the right time."
                 />
                 <Benefit 
-                  icon={<FaChartBar className="text-2xl" />}
-                  title="Smarter Follow Ups"
-                  description="Get detailed insights and analytics to refine your strategy and boost conversion rates."
+                  icon={<FaEnvelope className="text-2xl" />}
+                  title="Personal Follow Ups"
+                  description="Communicates with clients and third parties like a real team member, not a template bot, so nothing gets stuck."
                 />
                 <Benefit 
-                  icon={<FaClock className="text-2xl" />}
-                  title="24/7 Availability"
-                  description="Ensure every inquiry is managed promptly, even when you're unavailable."
+                  icon={<FaEye className="text-2xl" />}
+                  title="Client Transparency"
+                  description="Buyers and sellers can view a live timeline of the sale, including what stage it is at and who is responsible, giving them clarity without needing to chase you."
                 />
               </div>
             </div>

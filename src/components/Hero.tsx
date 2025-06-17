@@ -8,7 +8,7 @@ export default function Hero() {
   const [hovering, setHovering] = useState(false);
   
   return (
-    <section className="relative bg-white text-black min-h-[85vh] font-bricolage pb-8" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+    <section className="relative bg-white text-black min-h-[85vh] font-bricolage pb-8 overflow-hidden" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
       {/* Hero content */}
       <div className="container mx-auto px-4 pt-12 md:pt-16 pb-0 relative z-10">
         <HeroHighlight containerClassName="h-auto py-8 md:py-10 bg-transparent">
