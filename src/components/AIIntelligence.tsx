@@ -21,7 +21,7 @@ export default function AIIntelligence() {
             transition={{ duration: 0.5 }}
             className="text-xl md:text-2xl lg:text-3xl font-medium text-black mb-10"
           >
-            Ziggy's AI intelligence works as an <span className="text-[#922ea4] whitespace-nowrap">extension of you or your team,</span> learning from your workflow and materials to respond, organize, and retrieve what matters. Your leads, data, and documents <span className="text-[#922ea4] whitespace-nowrap">become smarter,</span> helping you broker more deals and build a <span className="text-[#922ea4] whitespace-nowrap">powerhouse real estate brand.</span>
+            Your AI agent works as an <span className="text-[#922ea4] whitespace-nowrap">extension of you or your team,</span> engaging leads in your voice and progressing deals with <span className="text-[#922ea4] whitespace-nowrap">intelligent follow ups.</span> It learns your workflow and <span className="text-[#922ea4] whitespace-nowrap">responds with context,</span> making every stage smarter and helping you build a <span className="text-[#922ea4] whitespace-nowrap">powerhouse real estate brand.</span>
           </motion.p>
           
           <motion.div 
