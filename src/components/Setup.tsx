@@ -12,7 +12,7 @@ export default function Setup() {
             {/* Left side: Subheading */}
             <div className="order-2 md:order-1">
               <p className="text-xl md:text-2xl text-black font-medium">
-                <span className="text-[#922ea4]">For teams and individual agents,</span> Ziggy works alongside your tools and is easily set up in minutes.
+                <span className="text-[#922ea4]">For teams and individual agents,</span> your AI agent works seamlessly with your existing tools and is ready to set up in minutes.
               </p>
             </div>
             
