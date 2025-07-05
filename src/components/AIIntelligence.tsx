@@ -12,7 +12,7 @@ const ShimmerButton = dynamic(() => import("@/registry/magicui/shimmer-button").
 
 export default function AIIntelligence() {
   return (
-    <section className="bg-white py-16 font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+    <section className="bg-white py-16 font-manrope">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto text-center">
           <motion.p 
@@ -21,7 +21,7 @@ export default function AIIntelligence() {
             transition={{ duration: 0.5 }}
             className="text-xl md:text-2xl lg:text-3xl font-medium text-black mb-10"
           >
-            Your AI agent works as an <span className="text-[#922ea4] whitespace-nowrap">extension of you or your team,</span> engaging leads in your voice and progressing deals with <span className="text-[#922ea4] whitespace-nowrap">intelligent follow ups.</span> It learns your workflow and <span className="text-[#922ea4] whitespace-nowrap">responds with context,</span> making every stage smarter and helping you build a <span className="text-[#922ea4] whitespace-nowrap">powerhouse real estate brand.</span>
+            Your AI agent works as an <span className="text-[#7F00FF] whitespace-nowrap">extension of you or your team,</span> engaging leads in your voice and progressing deals with <span className="text-[#7F00FF] whitespace-nowrap">intelligent follow ups.</span> It learns your workflow and <span className="text-[#7F00FF] whitespace-nowrap">responds with context,</span> making every stage smarter and helping you build a <span className="text-[#7F00FF] whitespace-nowrap">powerhouse real estate brand.</span>
           </motion.p>
           
           <motion.div 

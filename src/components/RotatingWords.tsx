@@ -16,7 +16,7 @@ export default function RotatingWords() {
   ];
 
   return (
-    <section className="bg-white py-8 md:py-16 font-bricolage relative" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+    <section className="bg-white py-8 md:py-16 font-manrope relative">
       <div className="container mx-auto px-4">
         <div className="flex justify-center items-center relative">
           <WordRotate

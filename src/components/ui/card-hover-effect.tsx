@@ -96,7 +96,7 @@ export function HoverEffect({
                       <button 
                         className="relative inline-flex h-8 overflow-hidden rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-slate-50 transition-all duration-300 hover:scale-105"
                         aria-label="Learn more about Chat Engager"
-                        style={{ backgroundColor: '#8a3ab9' }}
+                        style={{ backgroundColor: '#7F00FF' }}
                       >
                         <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md px-3 py-0 font-bold text-white">
                           {item.title} <span className="ml-1">→</span>
@@ -206,7 +206,7 @@ export function CardTitle({
   children: React.ReactNode;
 }) {
   return (
-    <h4 className={cn("text-[#922ea4] font-bold text-lg tracking-wide", className)}>
+    <h4 className={cn("text-[#7F00FF] font-bold text-lg tracking-wide", className)}>
       {children}
     </h4>
   );

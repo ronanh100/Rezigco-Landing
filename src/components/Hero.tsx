@@ -2,19 +2,24 @@
 import Link from 'next/link';
 import { motion } from "framer-motion";
 import { useState } from 'react';
-import { HeroHighlight, Highlight, ShimmerButton } from '@/lib/dynamic-components';
+import { Highlight } from "@/components/ui/highlight";
+import { ShimmerButton } from '@/lib/dynamic-components';
+import dynamic from 'next/dynamic';
+const WaveDivider = dynamic(() => import('@/components/WaveDivider'), { ssr: false });
 
 export default function Hero() {
   const [hovering, setHovering] = useState(false);
-  
   return (
-    <section className="relative bg-white text-black min-h-[85vh] font-bricolage pb-8 overflow-hidden" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+    <section
+      id="hero"
+      className="relative bg-[#7F00FF] text-white min-h-screen font-manrope pb-0"
+    >
       {/* Hero content */}
-      <div className="container mx-auto px-4 pt-12 md:pt-16 pb-0 relative z-10">
-        <HeroHighlight containerClassName="h-auto py-8 md:py-10 bg-transparent">
+      <div className="container mx-auto px-4 pt-20 sm:pt-24 md:pt-28 pb-0 relative z-10" style={{ zIndex: 10 }}>
+        <div className="h-auto py-8 md:py-10 bg-transparent">
           <div className="flex flex-col items-center">
             {/* Text content */}
-            <div className="relative text-center max-w-4xl mx-auto">              
+            <div className="relative text-center max-w-4xl mx-auto px-2 sm:px-4">              
               <motion.h1
                 initial={{
                   opacity: 0,
@@ -28,43 +33,38 @@ export default function Hero() {
                   duration: 0.5,
                   ease: [0.4, 0.0, 0.2, 1],
                 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-tight text-black font-bricolage"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-white font-manrope text-center leading-tight"
               >
-                <span className="block sm:block md:inline-block whitespace-normal md:whitespace-nowrap">Your AI Agent, Streamlining the</span>{' '}
-                <span className="block mt-2">
-                  <Highlight className="font-bold whitespace-nowrap inline-flex">Real Estate Workflow</Highlight>
-                </span>
+                <span className="block">Your AI agent driving real estate deals</span>
+                <span className="block mt-4">forward, <Highlight>saving hours on follow ups.</Highlight></span>
               </motion.h1>
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="text-lg sm:text-xl md:text-2xl mb-10 md:mb-12 text-black font-bricolage max-w-3xl mx-auto"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                className="text-base xs:text-lg sm:text-xl md:text-2xl mb-8 md:mb-12 text-white font-manrope max-w-3xl mx-auto"
               >
-                Your AI agent works 24/7 handling new inquiries, intelligently following up at every stage and moving sales forward so you can close deals effortlessly.
+                Working 24/7, it understands the nuances of every sale, communicates personally and keeps everyone in the loop.
               </motion.div>
               
               <div className="flex justify-center items-center mt-4 md:mt-6 relative">
-                <div className="max-w-[200px] w-full mx-auto">
-                  <ShimmerButton 
+                <div className="max-w-[220px] w-full mx-auto px-2">
+                  <a
                     href="https://cal.com/rezigco/hireziggy"
-                    shimmerColor="rgba(146, 46, 164, 0.4)"
-                    shimmerDuration="2s"
-                    className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md w-full"
-                    style={{ 
-                      fontFamily: "'Bricolage Grotesque', sans-serif",
-                    }}
+                    className="block w-full bg-white text-[#7F00FF] font-extrabold px-6 py-3 sm:px-8 rounded-full shadow-[0_8px_32px_0_rgba(127,0,255,0.25)] border border-[#e5d6fa] hover:shadow-[0_12px_40px_0_rgba(127,0,255,0.35)] hover:scale-105 hover:-translate-y-1 transition-all duration-200 text-center uppercase tracking-wider font-manrope text-base focus:outline-none focus:ring-2 focus:ring-[#7F00FF]/40 focus:ring-offset-2 relative before:absolute before:top-0 before:left-0 before:w-full before:h-1/2 before:rounded-t-full before:bg-white/60 before:opacity-60 before:pointer-events-none"
                   >
-                    GET STARTED
-                  </ShimmerButton>
+                    <span className="font-extrabold">GET STARTED</span>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-        </HeroHighlight>
+        </div>
+      </div>
+      {/* WAVE BACKGROUND - Place this just before closing the hero section */}
+      <div className="absolute left-0 right-0 bottom-0 w-full pointer-events-none z-0">
+        <WaveDivider />
       </div>
     </section>
   );

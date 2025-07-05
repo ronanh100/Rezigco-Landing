@@ -19,8 +19,7 @@ export default function Features() {
 
   return (
     <section 
-      className="relative bg-white pt-8 pb-12 font-bricolage" 
-      style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+      className="relative bg-white pt-8 pb-12 font-manrope" 
     >
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-8">

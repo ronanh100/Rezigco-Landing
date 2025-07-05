@@ -58,7 +58,7 @@ export function DataOrganizerDemo() {
             <FaFileAlt className="text-blue-500 w-4 h-4" />
           </Circle>
           <Circle ref={crmRef} className="size-9 flex items-center justify-center">
-            <span className="text-xs font-semibold text-[#922ea4]">CRM</span>
+            <span className="text-xs font-semibold text-[#7F00FF]">CRM</span>
           </Circle>
         </div>
         
@@ -79,7 +79,7 @@ export function DataOrganizerDemo() {
         {/* Right side - User - moved further right */}
         <div className="flex justify-end pr-2">
           <Circle ref={userRef} className="size-9 flex items-center justify-center">
-            <FaUser className="text-[#922ea4] w-4 h-4" />
+            <FaUser className="text-[#7F00FF] w-4 h-4" />
           </Circle>
         </div>
       </div>

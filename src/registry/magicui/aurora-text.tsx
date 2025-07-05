@@ -13,7 +13,7 @@ interface AuroraTextProps {
 export function AuroraText({
   children,
   className,
-  primaryColor = "#922ea4", // Brand purple as default
+  primaryColor = "#7F00FF", // Brand purple as default
   secondaryColor = "#ffffff",
 }: AuroraTextProps) {
   return (

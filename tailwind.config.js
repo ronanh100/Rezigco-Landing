@@ -121,6 +121,10 @@ module.exports = {
         "shimmer-slide": "shimmer-slide 2.5s ease-in-out infinite",
         "spin-around": "spin-around var(--speed, 2.5s) ease-in-out infinite",
       },
+      fontFamily: {
+        sans: ['Manrope', 'sans-serif'],
+        manrope: ['Manrope', 'sans-serif'],
+      },
     },
   },
   plugins: [],

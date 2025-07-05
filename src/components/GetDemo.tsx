@@ -17,7 +17,7 @@ export default function GetDemo() {
             viewport={{ once: true }}
             className="max-w-3xl mb-8"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black font-bricolage">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black font-manrope">
               Ready to streamline your <span className="text-[#922ea4] whitespace-nowrap">real estate workflow?</span>
             </h2>
           </motion.div>
@@ -35,8 +35,7 @@ export default function GetDemo() {
                 href="https://cal.com/rezigco/hireziggy"
                 shimmerColor="rgba(146, 46, 164, 0.4)"
                 shimmerDuration="2s"
-                className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md w-full"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                className="font-manrope text-base uppercase tracking-wider font-bold rounded-md w-full"
               >
                 GET DEMO
               </ShimmerButton>

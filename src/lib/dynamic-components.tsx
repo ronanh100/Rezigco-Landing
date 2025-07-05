@@ -10,21 +10,6 @@ export const ShimmerButton = dynamic(
   }
 );
 
-export const HeroHighlight = dynamic(
-  () => import("@/components/ui/hero-highlight").then(mod => mod.HeroHighlight),
-  {
-    ssr: false,
-    loading: () => <div className="py-8 md:py-10 bg-white rounded-lg"></div>
-  }
-);
-
-export const Highlight = dynamic(
-  () => import("@/components/ui/hero-highlight").then(mod => mod.Highlight),
-  { ssr: false }
-);
-
-
-
 export const WordRotate = dynamic(
   () => import("@/registry/magicui/word-rotate").then(mod => mod.WordRotate),
   {

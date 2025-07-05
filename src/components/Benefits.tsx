@@ -6,7 +6,7 @@ import { TextAnimate } from "@/registry/magicui/text-animate";
 
 export default function Benefits() {
   return (
-    <section className="relative bg-[#922ea4] text-white pt-32 pb-20 font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+    <section className="relative bg-[#922ea4] text-white pt-32 pb-20 font-manrope">
       <BackgroundLines containerClassName="absolute inset-0" lineClassName="via-white/10">
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-20">

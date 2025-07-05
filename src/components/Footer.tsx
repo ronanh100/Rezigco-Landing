@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-white py-16 border-t border-gray-100 font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+    <footer className="bg-white py-16 border-t border-gray-100 font-manrope">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div className="mb-6 md:mb-0">

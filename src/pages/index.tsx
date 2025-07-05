@@ -5,14 +5,14 @@ import { setupLazyLoadingObserver } from '@/lib/optimize-bundle';
 
 // Only the absolute critical components loaded immediately (above the fold)
 import FloatingNavbar from '@/components/FloatingNavbar';
-// Hero should render on server to prevent layout shift
+// Hero should render only on the client to avoid hydration mismatch
 const Hero = dynamic(() => import('@/components/Hero'), {
-  ssr: true,
+  ssr: false,
 });
 
 // Features component should render on server to prevent layout shift
 const Features = dynamic(() => import('@/components/Features'), {
-  ssr: true, 
+  ssr: false, 
 });
 
 const RotatingWords = dynamic(() => import('@/components/RotatingWords'), {

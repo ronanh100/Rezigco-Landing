@@ -44,7 +44,6 @@ export const COMPONENT_PATHS: Record<string, string> = {
   'Footer': '@/components/Footer',
   
   // UI components
-  'HeroHighlight': '@/components/ui/hero-highlight',
   'ShimmerButton': '@/registry/magicui/shimmer-button',
   'FlipWords': '@/components/ui/flip-words',
   'AnimatedList': '@/registry/magicui/animated-list',

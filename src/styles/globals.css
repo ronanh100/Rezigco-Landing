@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
-
+@import '@fontsource/manrope/index.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Set Manrope as the default font */
 body {
-  background-color: white;
+  font-family: 'Manrope', sans-serif;
+  background-color: #7F00FF;
   color: black;
   margin: 0;
   padding: 0;
@@ -22,7 +23,7 @@ html {
   --card-foreground: 37 37 37;
   --popover: 255 255 255;
   --popover-foreground: 37 37 37;
-  --primary: 146 46 164;
+  --primary: 127 0 255;
   --primary-foreground: 255 255 255;
   --secondary: 248 248 248;
   --secondary-foreground: 37 37 37;
@@ -34,7 +35,7 @@ html {
   --destructive-foreground: 255 255 255;
   --border: 230 230 230;
   --input: 230 230 230;
-  --ring: 146 46 164;
+  --ring: 127 0 255;
   --radius: 0.625rem;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

@@ -1,119 +1,154 @@
 "use client";
 
-import React from 'react';
+import React, { useRef, useEffect } from "react";
 
-export default function WaveDivider() {
+const waves = [
+  {
+    amplitude: 22,
+    period: 4000,
+    gradient: "url(#violet-gradient)",
+    opacity: 1,
+    phase: 0,
+    direction: 1,
+  },
+  {
+    amplitude: 16,
+    period: 6000,
+    gradient: "url(#light-violet-gradient)",
+    opacity: 0.5,
+    phase: Math.PI / 2,
+    direction: 1,
+  },
+  {
+    amplitude: 12,
+    period: 8000,
+    gradient: "url(#fade-violet-gradient)",
+    opacity: 0.3,
+    phase: Math.PI,
+    direction: 1,
+  },
+  // Reverse direction waves
+  {
+    amplitude: 18,
+    period: 5000,
+    gradient: "url(#violet-gradient)",
+    opacity: 0.7,
+    phase: Math.PI / 3,
+    direction: -1,
+  },
+  {
+    amplitude: 13,
+    period: 7000,
+    gradient: "url(#light-violet-gradient)",
+    opacity: 0.4,
+    phase: Math.PI / 1.5,
+    direction: -1,
+  },
+  {
+    amplitude: 9,
+    period: 9000,
+    gradient: "url(#fade-violet-gradient)",
+    opacity: 0.25,
+    phase: Math.PI / 1.2,
+    direction: -1,
+  },
+];
+
+const NUM_POINTS = 6;
+const WIDTH = 1440;
+const HEIGHT = 200;
+const baseY = 50;
+
+// Catmull-Rom to Bezier conversion helper
+function catmullRom2bezier(points: { x: number; y: number }[]) {
+  let d = `M${points[0].x},${points[0].y}`;
+  for (let i = 0; i < points.length - 1; i++) {
+    const p0 = points[i - 1] || points[0];
+    const p1 = points[i];
+    const p2 = points[i + 1];
+    const p3 = points[i + 2] || p2;
+    const cp1x = p1.x + (p2.x - p0.x) / 6;
+    const cp1y = p1.y + (p2.y - p0.y) / 6;
+    const cp2x = p2.x - (p3.x - p1.x) / 6;
+    const cp2y = p2.y - (p3.y - p1.y) / 6;
+    d += ` C${cp1x},${cp1y} ${cp2x},${cp2y} ${p2.x},${p2.y}`;
+  }
+  return d;
+}
+
+const WaveDivider = () => {
+  const pathRefs = useRef<(SVGPathElement | null)[]>([]);
+  const animationRef = useRef<number>();
+
+  useEffect(() => {
+    let start: number | null = null;
+    function animate(ts: number) {
+      if (!start) start = ts;
+      const elapsed = ts - start;
+      waves.forEach((wave, wIdx) => {
+        const points = [];
+        for (let i = 0; i <= NUM_POINTS; i++) {
+          const x = (WIDTH / NUM_POINTS) * i;
+          const offset =
+            Math.sin(
+              (elapsed / wave.period) * 2 * Math.PI +
+                (i / NUM_POINTS) * 2 * Math.PI * wave.direction +
+                wave.phase
+            ) * wave.amplitude * 1.7;
+          points.push({ x, y: baseY + offset });
+        }
+        let d = catmullRom2bezier(points);
+        d += ` V${HEIGHT} H0 Z`;
+        if (pathRefs.current[wIdx]) {
+          pathRefs.current[wIdx]!.setAttribute("d", d);
+        }
+      });
+      animationRef.current = requestAnimationFrame((ts) => animate(ts));
+    }
+    animationRef.current = requestAnimationFrame((ts) => animate(ts));
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="relative w-full h-24 md:h-32 lg:h-40 overflow-hidden bg-[#922ea4] -mt-16">
-      {/* Wave SVG */}
-      <svg 
-        className="absolute bottom-0 w-full h-full" 
-        xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 1440 320" 
+    <div className="w-full h-[120px] md:h-[180px] lg:h-[240px] overflow-hidden">
+      <svg
+        width="100%"
+        height="100%"
+        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full"
       >
-        <path 
-          fill="#ffffff" 
-          fillOpacity="1" 
-          d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
+        <defs>
+          <linearGradient id="violet-gradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#B266FF" />
+            <stop offset="100%" stopColor="#7F00FF" />
+          </linearGradient>
+          <linearGradient id="light-violet-gradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#E0C3FC" />
+            <stop offset="100%" stopColor="#B266FF" />
+          </linearGradient>
+          <linearGradient id="fade-violet-gradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#F8F8FF" />
+            <stop offset="100%" stopColor="#E0C3FC" />
+          </linearGradient>
+        </defs>
+        {waves.map((wave, i) => (
+          <path
+            key={i}
+            ref={el => { pathRefs.current[i] = el; }}
+            fill={wave.gradient}
+            opacity={wave.opacity}
+            d=""
+          />
+        ))}
       </svg>
-      
-      {/* House Icons - positioned to appear behind the wave */}
-      <div className="absolute w-full h-full">
-        {/* Modern House 1 */}
-        <svg 
-          className="absolute left-[8%] bottom-[20%] w-12 h-12 md:w-16 md:h-16 text-white opacity-80" 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="1.5" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-        >
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-          <rect x="9" y="13" width="6" height="9"></rect>
-          <line x1="4" y1="10" x2="20" y2="10"></line>
-        </svg>
-        
-        {/* Townhouse */}
-        <svg 
-          className="absolute left-[22%] bottom-[15%] w-14 h-14 md:w-20 md:h-20 text-white opacity-75" 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="1.5" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-        >
-          <rect x="3" y="8" width="18" height="14" rx="1"></rect>
-          <path d="M7 22v-4h4v4"></path>
-          <path d="M13 22v-4h4v4"></path>
-          <path d="M3 8l9-6 9 6"></path>
-        </svg>
-        
-        {/* Apartment Building */}
-        <svg 
-          className="absolute left-[40%] bottom-[10%] w-16 h-16 md:w-24 md:h-24 text-white opacity-70" 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="1.5" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-        >
-          <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
-          <line x1="9" y1="22" x2="9" y2="2"></line>
-          <line x1="15" y1="22" x2="15" y2="2"></line>
-          <line x1="4" y1="12" x2="20" y2="12"></line>
-          <line x1="4" y1="7" x2="20" y2="7"></line>
-          <line x1="4" y1="17" x2="20" y2="17"></line>
-        </svg>
-        
-        {/* Modern Villa */}
-        <svg 
-          className="absolute left-[60%] bottom-[18%] w-14 h-14 md:w-20 md:h-20 text-white opacity-85" 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="1.5" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-        >
-          <path d="M3 10h18"></path>
-          <path d="M3 10v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V10"></path>
-          <path d="M6 21v-7"></path>
-          <path d="M18 21v-7"></path>
-          <path d="M6 14h12"></path>
-          <path d="M3 10 12 3l9 7"></path>
-        </svg>
-        
-        {/* Skyscraper */}
-        <svg 
-          className="absolute left-[78%] bottom-[5%] w-16 h-16 md:w-24 md:h-24 text-white opacity-65" 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="1.5" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-        >
-          <rect x="8" y="2" width="8" height="20" rx="1"></rect>
-          <path d="M4 6h4"></path>
-          <path d="M4 10h4"></path>
-          <path d="M4 14h4"></path>
-          <path d="M4 18h4"></path>
-          <path d="M16 6h4"></path>
-          <path d="M16 10h4"></path>
-          <path d="M16 14h4"></path>
-          <path d="M16 18h4"></path>
-        </svg>
-      </div>
     </div>
   );
-} 
+};
+
+export default WaveDivider; 

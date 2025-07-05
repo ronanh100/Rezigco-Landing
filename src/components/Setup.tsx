@@ -5,7 +5,7 @@ import { SetupDemo } from "@/components/ui/setup-demo";
 
 export default function Setup() {
   return (
-    <section className="bg-white py-16 font-bricolage" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+    <section className="bg-white py-16 font-manrope">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

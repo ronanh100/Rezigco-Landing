@@ -53,46 +53,28 @@ export const FloatingNav = ({
   return (
     <div 
       className={cn(
-        "flex w-full fixed top-4 sm:top-4 inset-x-0 max-w-[calc(100%-2rem)] sm:max-w-2xl mx-auto bg-[#922ea4] shadow-xl z-[5000] px-3 sm:px-4 md:px-8 py-2 sm:py-4 items-center justify-between rounded-full relative overflow-hidden backdrop-blur-sm transition-all duration-300 ease-in-out",
+        "flex w-full fixed top-4 sm:top-4 inset-x-0 max-w-[calc(100%-2rem)] sm:max-w-2xl mx-auto bg-white/90 shadow-xl z-[5000] px-3 sm:px-4 md:px-8 py-2 sm:py-4 items-center justify-between rounded-full relative overflow-hidden backdrop-blur-md transition-all duration-300 ease-in-out",
         hovering ? "shadow-2xl translate-y-[2px]" : "shadow-xl",
         visible ? "translate-y-0 opacity-100" : "translate-y-[-150%] opacity-0",
         className
       )}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      style={{ backgroundColor: "#922ea4" }}
+      style={{ backgroundColor: "white" }}
     >
       {/* Enhanced shimmer effect */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="absolute inset-x-0 bottom-0 h-px w-full bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-        <div className="absolute inset-x-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-        <div className="absolute inset-y-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-white/50 to-transparent" />
-        <div className="absolute inset-y-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-white/50 to-transparent" />
-        <div 
-          className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent" 
-          style={{
-            backgroundSize: "200% 100%",
-            animation: "shimmer 3s infinite",
-          }}
-        />
+        <div className="absolute inset-x-0 bottom-0 h-px w-full bg-gradient-to-r from-transparent via-[#7F00FF]/50 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#7F00FF]/50 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-[#7F00FF]/50 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-[#7F00FF]/50 to-transparent" />
       </div>
-      
-      <style jsx global>{`
-        @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(200%);
-          }
-        }
-      `}</style>
       
       {/* Logo on the left */}
       <div className="flex items-center z-10 pl-2 sm:pl-0">
         {logo || (
           <Link href="/" className="flex items-center">
-            <span className="text-xl sm:text-2xl font-bold text-white" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Rezigco</span>
+            <span className="text-xl sm:text-2xl font-bold text-[#7F00FF] font-manrope">Rezigco</span>
           </Link>
         )}
       </div>
@@ -110,13 +92,13 @@ export const FloatingNav = ({
               href={navItem.link}
               className={cn(
                 "relative flex items-center justify-center w-[80px] sm:w-auto font-medium px-2 sm:px-4 py-1 sm:py-2 rounded-lg transition-colors duration-200 text-center",
-                isSignUp ? "bg-white text-[#922ea4] hover:bg-white/90" : "",
-                isLogin ? "border border-white text-white hover:bg-white/10" : "",
-                !isSignUp && !isLogin ? "text-white hover:text-white/80" : ""
+                isSignUp ? "bg-[#7F00FF] text-white hover:bg-[#6B00E6]" : "",
+                isLogin ? "border border-[#7F00FF] text-[#7F00FF] hover:bg-[#7F00FF]/10" : "",
+                !isSignUp && !isLogin ? "text-[#7F00FF] hover:text-[#6B00E6]" : ""
               )}
             >
               <span className="block sm:hidden">{navItem.icon}</span>
-              <span className="text-xs sm:text-sm font-medium text-center whitespace-nowrap" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{navItem.name}</span>
+              <span className="text-xs sm:text-sm font-medium text-center whitespace-nowrap font-manrope">{navItem.name}</span>
             </Link>
           );
         })}
