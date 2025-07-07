@@ -46,7 +46,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0 w-full bg-[#922ea4]"
+            className="absolute inset-x-0 top-0 w-full bg-[#7F00FF]"
           />
         </div>
 
@@ -59,10 +59,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="relative min-w-[40px] md:min-w-[200px]">
                 <div className="sticky top-24 flex flex-col md:flex-row items-center">
                   <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center z-10">
-                    <div className="h-5 w-5 rounded-full bg-[#922ea4]" />
+                    <div className="h-5 w-5 rounded-full bg-[#7F00FF]" />
                   </div>
                   <div className="hidden md:block md:w-[300px]">
-                    <h3 className="text-xl md:text-3xl font-bold text-[#922ea4] md:pl-6">
+                    <h3 className="text-xl md:text-3xl font-bold text-[#7F00FF] md:pl-6">
                       {item.title}
                     </h3>
                   </div>
@@ -70,7 +70,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               </div>
 
               <div className="flex-1 pl-6 md:pl-0">
-                <h3 className="md:hidden text-2xl mb-4 text-left font-bold text-[#922ea4]">
+                <h3 className="md:hidden text-2xl mb-4 text-left font-bold text-[#7F00FF]">
                   {item.title}
                 </h3>
                 <div className="max-w-2xl">

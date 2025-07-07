@@ -106,7 +106,7 @@ export function Card({
       className={cn(
         "rounded-xl h-full w-full overflow-hidden relative z-20 transition-all duration-500",
         isHovered ? 
-          "shadow-[0_20px_50px_-15px_rgba(146,46,164,0.5)] translate-y-[-8px]" : 
+          "shadow-[0_20px_50px_-15px_rgba(127,0,255,0.5)] translate-y-[-8px]" : 
           "shadow-lg",
         className
       )}
@@ -114,10 +114,10 @@ export function Card({
         background: isHovered ? 
           'linear-gradient(to bottom right, white, #f9f5ff)' : 
           'linear-gradient(to bottom right, white, #fcfaff)',
-        border: '1px solid rgba(146,46,164,0.3)',
+        border: '1px solid rgba(127,0,255,0.3)',
         boxShadow: isHovered ?
-          '0 10px 30px -5px rgba(146,46,164,0.3), 0 0 0 1px rgba(146,46,164,0.2), 0 2px 0 rgba(255,255,255,1), 0 -1px 0 rgba(255,255,255,1), inset 0 0 20px rgba(146,46,164,0.05)' :
-          '0 8px 20px -5px rgba(146,46,164,0.15), 0 0 0 1px rgba(146,46,164,0.15), 0 1px 0 rgba(255,255,255,1), inset 0 0 15px rgba(146,46,164,0.03)',
+          '0 10px 30px -5px rgba(127,0,255,0.3), 0 0 0 1px rgba(127,0,255,0.2), 0 2px 0 rgba(255,255,255,1), 0 -1px 0 rgba(255,255,255,1), inset 0 0 20px rgba(127,0,255,0.05)' :
+          '0 8px 20px -5px rgba(127,0,255,0.15), 0 0 0 1px rgba(127,0,255,0.15), 0 1px 0 rgba(255,255,255,1), inset 0 0 15px rgba(127,0,255,0.03)',
         transform: isHovered ?
           'translateY(-8px) perspective(1000px) rotateX(2deg)' :
           'translateY(0) perspective(1000px) rotateX(1deg)',
@@ -127,7 +127,7 @@ export function Card({
       <div 
         className="relative z-50 rounded-lg overflow-hidden h-full"
         style={{
-          boxShadow: 'inset 0 0 0 1px rgba(146,46,164,0.1)',
+          boxShadow: 'inset 0 0 0 1px rgba(127,0,255,0.1)',
           background: 'white',
         }}
       >
@@ -138,8 +138,8 @@ export function Card({
       <div 
         className="absolute inset-0 rounded-xl z-10 opacity-30 transition-opacity duration-300"
         style={{
-          boxShadow: 'inset 0 0 0 1px rgba(146,46,164,0.2)',
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(146,46,164,0.05) 50%, rgba(255,255,255,0.1) 100%)',
+          boxShadow: 'inset 0 0 0 1px rgba(127,0,255,0.2)',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(127,0,255,0.05) 50%, rgba(255,255,255,0.1) 100%)',
         }}
       />
       
@@ -155,8 +155,8 @@ export function Card({
           <div 
             className="absolute inset-0 rounded-xl z-10 transition-opacity duration-300"
             style={{
-              boxShadow: 'inset 0 0 0 1px rgba(146,46,164,0.4)',
-              background: 'linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(146,46,164,0.05))',
+              boxShadow: 'inset 0 0 0 1px rgba(127,0,255,0.4)',
+              background: 'linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(127,0,255,0.05))',
             }}
           />
         </>

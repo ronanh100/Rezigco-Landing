@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
         {/* Header */}
         <header className="bg-white border-b border-gray-100 py-4">
           <div className="container mx-auto px-4">
-            <Link href="/" className="text-2xl font-bold text-[#922ea4] hover:text-[#7F00FF] transition-colors">
+            <Link href="/" className="text-2xl font-bold text-[#7F00FF] hover:text-[#7F00FF] transition-colors">
               ← Back to Rezigco
             </Link>
           </div>

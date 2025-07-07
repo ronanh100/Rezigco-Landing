@@ -55,7 +55,7 @@ export function SetupDemo() {
         {/* Left side - Input sources */}
         <div className="flex flex-col space-y-4">
           <Circle ref={websiteRef}>
-            <BsGlobe className="text-[#922ea4] w-4 h-4" />
+            <BsGlobe className="text-[#7F00FF] w-4 h-4" />
           </Circle>
           <Circle ref={whatsappRef}>
             <FaWhatsapp className="text-green-500 w-4 h-4" />
@@ -82,13 +82,13 @@ export function SetupDemo() {
         {/* Right side - Output sources */}
         <div className="flex flex-col space-y-4">
           <Circle ref={crmRef}>
-            <span className="text-xs font-semibold text-[#922ea4]">CRM</span>
+            <span className="text-xs font-semibold text-[#7F00FF]">CRM</span>
           </Circle>
           <Circle ref={emailRef}>
             <FaEnvelope className="text-red-600 w-4 h-4" />
           </Circle>
           <Circle ref={mlsRef}>
-            <span className="text-xs font-semibold text-[#922ea4]">MLS</span>
+            <span className="text-xs font-semibold text-[#7F00FF]">MLS</span>
           </Circle>
         </div>
       </div>

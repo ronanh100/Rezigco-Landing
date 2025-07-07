@@ -21,7 +21,7 @@ export default function Features() {
           <div className="lg:col-span-5 lg:flex lg:items-center lg:justify-end lg:pr-8">
             <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 max-w-xl">
               <p className="leading-tight">
-                Your <span className="text-[#922ea4] font-bold">AI agent</span> captures <span className="text-[#922ea4] font-bold">interest</span> the moment it happens and <span className="text-[#922ea4] font-bold">moves deals</span> forward by reading <span className="text-[#922ea4] font-bold">emails</span>, understanding the <span className="text-[#922ea4] font-bold">stage</span>, and sending <span className="text-[#922ea4] font-bold">intelligent follow ups</span>, putting your <span className="text-[#922ea4] font-bold">growth on autopilot</span>.
+                Your <span className="text-[#7F00FF] font-bold">AI agent</span> captures <span className="text-[#7F00FF] font-bold">interest</span> the moment it happens and <span className="text-[#7F00FF] font-bold">moves deals</span> forward by reading <span className="text-[#7F00FF] font-bold">emails</span>, understanding the <span className="text-[#7F00FF] font-bold">stage</span>, and sending <span className="text-[#7F00FF] font-bold">intelligent follow ups</span>, putting your <span className="text-[#7F00FF] font-bold">growth on autopilot</span>.
               </p>
             </div>
           </div>

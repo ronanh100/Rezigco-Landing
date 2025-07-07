@@ -110,9 +110,9 @@ export function AnimatedBeam({
     >
       <defs>
         <linearGradient id="beamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#922ea4" stopOpacity="0.4" />
-          <stop offset="50%" stopColor="#922ea4" stopOpacity="0.6" />
-          <stop offset="100%" stopColor="#922ea4" stopOpacity="0.4" />
+          <stop offset="0%" stopColor="#7F00FF" stopOpacity="0.4" />
+          <stop offset="50%" stopColor="#7F00FF" stopOpacity="0.6" />
+          <stop offset="100%" stopColor="#7F00FF" stopOpacity="0.4" />
         </linearGradient>
       </defs>
       {/* Subtle background line with reduced opacity */}
@@ -128,7 +128,7 @@ export function AnimatedBeam({
         <path
           d={path}
           fill="none"
-          stroke="#922ea4"
+          stroke="#7F00FF"
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeDasharray="15 20"
