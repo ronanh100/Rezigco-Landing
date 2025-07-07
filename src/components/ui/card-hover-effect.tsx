@@ -7,11 +7,6 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 // Dynamically import animation components to reduce bundle size
-const ChatEngagerDemo = dynamic(() => import("./chat-engager-demo").then(mod => mod.ChatEngagerDemo), {
-  ssr: false,
-  loading: () => <div className="h-full w-full flex items-center justify-center bg-gray-50 animate-pulse rounded-md">Loading...</div>
-});
-
 const AnimatedListDemo = dynamic(() => import("./animated-list-demo").then(mod => mod.AnimatedListDemo), {
   ssr: false,
   loading: () => <div className="h-full w-full flex items-center justify-center bg-gray-50 animate-pulse rounded-md">Loading...</div>
@@ -50,7 +45,6 @@ export function HoverEffect({
 
   // Define animations for each card
   const cardAnimations = [
-    <ChatEngagerDemo key="chat-engager" />, // Chat Engager animation
     <AnimatedListDemo key="inbound-automator" />, // Inbound Automator animation
     <DataOrganizerDemo key="data-organizer" />, // Data Organizer animation
     <InsightsDemo key="insights" />, // Insights animation
@@ -87,34 +81,7 @@ export function HoverEffect({
                 "flex-1 p-3 min-h-[125px] flex flex-col",
                 "bg-white"
               )}>
-                {idx === 0 ? (
-                  <div className="mb-2">
-                    <Link 
-                      href="https://cal.com/rezigco/hireziggy" 
-                      className="inline-block"
-                    >
-                      <button 
-                        className="relative inline-flex h-8 overflow-hidden rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-slate-50 transition-all duration-300 hover:scale-105"
-                        aria-label="Learn more about Chat Engager"
-                        style={{ backgroundColor: '#7F00FF' }}
-                      >
-                        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md px-3 py-0 font-bold text-white">
-                          {item.title} <span className="ml-1">→</span>
-                        </span>
-                        <span 
-                          className="absolute inset-0 pointer-events-none"
-                          style={{
-                            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
-                            animation: 'shimmer 2s infinite',
-                          }}
-                        />
-                      </button>
-                      <style jsx>{shimmerAnimation}</style>
-                    </Link>
-                  </div>
-                ) : (
-                  <CardTitle>{item.title}</CardTitle>
-                )}
+                <CardTitle>{item.title}</CardTitle>
                 <CardDescription className="flex-1">{item.description}</CardDescription>
               </div>
             </div>

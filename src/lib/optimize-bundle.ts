@@ -35,7 +35,6 @@ export const COMPONENT_PATHS: Record<string, string> = {
   'RotatingWords': '@/components/RotatingWords',
   'Setup': '@/components/Setup',
   'AIIntelligence': '@/components/AIIntelligence',
-  'ChatEngagerBenefits': '@/components/ChatEngagerBenefits',
   'InboundAutomatorBenefits': '@/components/InboundAutomatorBenefits',
   'DataOrganizerBenefits': '@/components/DataOrganizerBenefits',
   'InsightsBenefits': '@/components/InsightsBenefits',

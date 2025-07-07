@@ -51,14 +51,6 @@ export const OrbitingCircles = dynamic(
 );
 
 // UI Components demos with dynamic imports
-export const ChatEngagerDemo = dynamic(
-  () => import("@/components/ui/chat-engager-demo").then(mod => mod.ChatEngagerDemo),
-  {
-    ssr: false,
-    loading: () => <div className="h-full w-full flex items-center justify-center bg-gray-50 animate-pulse rounded-md">Loading...</div>
-  }
-);
-
 export const AnimatedListDemo = dynamic(
   () => import("@/components/ui/animated-list-demo").then(mod => mod.AnimatedListDemo),
   {

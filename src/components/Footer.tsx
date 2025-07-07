@@ -29,7 +29,6 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold text-gray-800 mb-3">Products</h3>
               <ul className="space-y-2">
-                <li><Link href="/chat-engager" className="text-gray-600 hover:text-[#922ea4]">Chat Engager</Link></li>
                 <li><span className="text-gray-600">Inbound Automator</span></li>
                 <li><span className="text-gray-600">Data Organizer</span></li>
                 <li><span className="text-gray-600">Insights</span></li>

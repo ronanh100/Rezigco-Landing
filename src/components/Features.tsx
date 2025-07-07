@@ -6,11 +6,6 @@ import React, { useRef } from "react";
 export default function Features() {
   const features = [
     {
-      title: "Chat Engager",
-      description: "Start engaging with your website visitors today! Our AI-powered chat widget captures leads 24/7 with tailored responses, property filtering, and your brand's unique tone.",
-      emoji: "💬"
-    },
-    {
       title: "Deal Navigator",
       description: "Understands the full context of a sale and follows up intelligently and personally, without templates. It keeps things moving and saves you hours of chasing and checking in.",
       emoji: "✉️"

@@ -27,11 +27,15 @@ const AIIntelligence = dynamic(() => import('@/components/AIIntelligence'), {
   ssr: false,
 });
 
-const ChatEngagerBenefits = dynamic(() => import('@/components/ChatEngagerBenefits'), {
+const DealNavigatorBenefits = dynamic(() => import('@/components/InboundAutomatorBenefits'), {
   ssr: false,
 });
 
-const DealNavigatorBenefits = dynamic(() => import('@/components/InboundAutomatorBenefits'), {
+const DataOrganizerBenefits = dynamic(() => import('@/components/DataOrganizerBenefits'), {
+  ssr: false,
+});
+
+const InsightsBenefits = dynamic(() => import('@/components/InsightsBenefits'), {
   ssr: false,
 });
 
@@ -105,17 +109,16 @@ export default function Home() {
           </Suspense>
         </div>
         
-        <div data-component="ChatEngagerBenefits" className="container mx-auto px-4 py-24">
-          <Suspense fallback={<SectionLoader />}>
-            <ChatEngagerBenefits />
-          </Suspense>
-        </div>
-        
-        <div data-component="DealNavigatorBenefits" className="container mx-auto px-4 pt-0 pb-24">
-          <Suspense fallback={<SectionLoader />}>
-            <DealNavigatorBenefits />
-          </Suspense>
-        </div>
+        {/* BENEFITS SECTION - unified white background */}
+        <section className="w-full bg-white py-16">
+          <div className="container mx-auto px-4">
+            <div className="mb-24">
+              <Suspense fallback={<SectionLoader />}>
+                <DealNavigatorBenefits />
+              </Suspense>
+            </div>
+          </div>
+        </section>
         
         <div data-component="ZiggySetupTimeline">
           <Suspense fallback={<SectionLoader />}>
