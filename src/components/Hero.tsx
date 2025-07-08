@@ -36,7 +36,7 @@ export default function Hero() {
                 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-white font-manrope text-center leading-tight"
               >
                 <span className="block">Your AI agent driving real estate deals</span>
-                <span className="block mt-4">forward, <Highlight>saving hours on follow ups.</Highlight></span>
+                <span className="block mt-1 md:mt-2">forward, <Highlight>saving hours on follow ups.</Highlight></span>
               </motion.h1>
               
               <motion.div
@@ -63,8 +63,14 @@ export default function Hero() {
         </div>
       </div>
       {/* WAVE BACKGROUND - Place this just before closing the hero section */}
-      <div className="absolute left-0 right-0 bottom-0 w-full pointer-events-none z-0">
+      <div className="absolute left-0 right-0 bottom-0 w-full pointer-events-none z-10">
         <WaveDivider />
+      </div>
+      {/* ROUND DIVIDER - white semi-circle at the bottom */}
+      <div className="absolute left-0 right-0 bottom-[-1px] w-full pointer-events-none z-20">
+        <svg width="100%" height="60" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-[60px]">
+          <path d="M0,60 Q720,0 1440,60 V60 H0 Z" fill="white" />
+        </svg>
       </div>
     </section>
   );

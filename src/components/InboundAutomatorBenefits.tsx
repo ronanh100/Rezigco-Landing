@@ -2,7 +2,6 @@
 
 import React from "react";
 import { FaClock, FaChartBar, FaHourglass, FaBrain, FaEnvelope, FaEye } from "react-icons/fa";
-import Image from "next/image";
 
 interface BenefitProps {
   icon: React.ReactNode;
@@ -44,30 +43,6 @@ export default function InboundAutomatorBenefits() {
             : '0 10px 30px -5px rgba(127,0,255,0.2), 0 0 0 1px rgba(127,0,255,0.1)'
         }}
       >
-        {/* Ziggy Image - Desktop (bottom left) */}
-        <div className="absolute bottom-6 left-6 hidden md:flex bg-[#7F00FF]/10 p-4 rounded-full items-center justify-center z-10" style={{ width: '100px', height: '100px' }}>
-          <Image
-            src="/ziggy_mobile.png"
-            alt="Ziggy"
-            width={70}
-            height={70}
-            className="object-contain"
-            priority
-          />
-        </div>
-        
-        {/* Ziggy Image - Mobile (top left) */}
-        <div className="absolute top-4 left-4 md:hidden z-10 bg-[#7F00FF]/10 flex items-center justify-center rounded-full" style={{ width: '50px', height: '50px' }}>
-          <Image
-            src="/ziggy_mobile.png"
-            alt="Ziggy"
-            width={32}
-            height={32}
-            className="object-contain"
-            priority
-          />
-        </div>
-        
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
             {/* Left side: Heading */}
