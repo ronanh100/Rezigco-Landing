@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { setupLazyLoadingObserver } from '@/lib/optimize-bundle';
+import Image from 'next/image';
 
 // Only the absolute critical components loaded immediately (above the fold)
 import FloatingNavbar from '@/components/FloatingNavbar';
@@ -64,7 +65,7 @@ export default function Home() {
     setupLazyLoadingObserver();
     
     // Critical: Preload Ziggy image immediately on load
-    const preloadZiggy = new Image();
+    const preloadZiggy = new (window as any).Image();
     preloadZiggy.src = '/ziggy_static.png';
   }, []);
 
@@ -87,16 +88,14 @@ export default function Home() {
         <section className="relative bg-white pt-16 pb-32 md:pt-20 md:pb-40 lg:pt-24 lg:pb-48">
           <div className="container mx-auto px-4">
             <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-[0_8px_32px_0_rgba(127,0,255,0.15)] max-w-6xl mx-auto transition-shadow transition-transform duration-300 ease-in-out hover:shadow-[0_20px_60px_-10px_rgba(127,0,255,0.28)] hover:-translate-y-1">
-              <div className="aspect-[16/6] bg-white flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-[#7F00FF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-[#7F00FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-700 mb-2">Dashboard Preview</h3>
-                  <p className="text-gray-500 text-sm">Demo video or screenshot coming soon</p>
-                </div>
+              <div className="aspect-[16/8] bg-white flex items-center justify-center relative overflow-hidden">
+                <Image
+                  src="/Test_dashboard_screengrab.jpeg"
+                  alt="Rezigco Dashboard Preview"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
             </div>
           </div>

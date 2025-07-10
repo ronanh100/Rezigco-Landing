@@ -68,7 +68,7 @@ export default function Hero() {
       </div>
       {/* ROUND DIVIDER - white semi-circle at the bottom */}
       <div className="absolute left-0 right-0 bottom-[-1px] w-full pointer-events-none z-20">
-        <svg width="100%" height="60" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-[60px]">
+        <svg width="100%" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-[40px] sm:h-[60px] md:h-[80px]" preserveAspectRatio="none">
           <path d="M0,60 Q720,0 1440,60 V60 H0 Z" fill="white" />
         </svg>
       </div>
