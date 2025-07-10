@@ -16,7 +16,7 @@ export default function Hero() {
     >
       {/* Hero content */}
       <div className="container mx-auto px-4 pt-20 sm:pt-24 md:pt-28 pb-0 relative z-10" style={{ zIndex: 10 }}>
-        <div className="h-auto py-8 md:py-10 bg-transparent">
+        <div className="h-auto py-8 pb-4 md:py-10 bg-transparent">
           <div className="flex flex-col items-center">
             {/* Text content */}
             <div className="relative text-center max-w-4xl mx-auto px-2 sm:px-4">              
