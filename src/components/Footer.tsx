@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-white py-16 border-t border-gray-100 font-manrope">
+    <footer className="bg-white py-16 pb-24 border-t border-gray-100 font-manrope">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div className="mb-6 md:mb-0">
@@ -14,7 +14,7 @@ export default function Footer() {
               <span className="text-2xl font-bold text-[#7F00FF]">Finsho</span>
             </Link>
             <p className="mt-2 text-gray-600 max-w-md">
-              Your AI agent to streamline the real estate workflow.
+              Your AI agent driving real estate deals forward.
             </p>
           </div>
           

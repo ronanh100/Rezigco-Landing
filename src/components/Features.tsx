@@ -1,33 +1,33 @@
 "use client";
 
-import { HoverEffect } from "@/components/ui/card-hover-effect";
-import React, { useRef } from "react";
+import React from "react";
+import dynamic from "next/dynamic";
+
+// Dynamically import the notification animation
+const AnimatedListDemo = dynamic(() => import("./ui/animated-list-demo").then(mod => mod.AnimatedListDemo), {
+  ssr: false,
+  loading: () => <div className="h-full w-full flex items-center justify-center bg-gray-50 animate-pulse rounded-md">Loading...</div>
+});
 
 export default function Features() {
-  const features = [
-    {
-      title: "Deal Navigator",
-      description: "Understands the full context of a sale and follows up intelligently and personally, without templates. It keeps things moving and saves you hours of chasing and checking in.",
-      emoji: "✉️"
-    },
-  ];
-
   return (
     <section 
       className="relative bg-white pt-8 pb-12 font-manrope" 
     >
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-8">
-          <div className="lg:col-span-5 lg:flex lg:items-center lg:justify-end lg:pr-8">
-            <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 max-w-xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-8 lg:flex lg:items-center">
+            <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
               <p className="leading-tight">
-                Your <span className="text-[#7F00FF] font-bold">AI agent</span> captures <span className="text-[#7F00FF] font-bold">interest</span> the moment it happens and <span className="text-[#7F00FF] font-bold">moves deals</span> forward by reading <span className="text-[#7F00FF] font-bold">emails</span>, understanding the <span className="text-[#7F00FF] font-bold">stage</span>, and sending <span className="text-[#7F00FF] font-bold">intelligent follow ups</span>, putting your <span className="text-[#7F00FF] font-bold">growth on autopilot</span>.
+                <span className="text-[#7F00FF] font-bold">For teams and individual agents</span>, your AI agent <span className="text-[#7F00FF] font-bold">lives within your email</span> and does not require solicitors or other parties in a deal to onboard or change anything in their current workflow. Just think of Finsho as your assistant putting <span className="text-[#7F00FF] font-bold">growth on autopilot</span>.
               </p>
             </div>
           </div>
           
-          <div className="lg:col-span-7">
-            <HoverEffect items={features} className="h-full" />
+          <div className="lg:col-span-4">
+            <div className="h-64">
+              <AnimatedListDemo />
+            </div>
           </div>
         </div>
       </div>
