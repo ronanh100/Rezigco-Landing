@@ -1,6 +1,6 @@
-# Rezigco Landing Page Deployment Guide
+# Finsho Landing Page Deployment Guide
 
-This guide outlines how to deploy the Rezigco Landing Page to Cloudflare Pages.
+This guide outlines how to deploy the Finsho Landing Page to Cloudflare Pages.
 
 ## Configuration Files
 

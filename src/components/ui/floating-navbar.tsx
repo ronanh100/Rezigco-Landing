@@ -74,7 +74,7 @@ export const FloatingNav = ({
       <div className="flex items-center z-10 pl-2 sm:pl-0">
         {logo || (
           <Link href="/" className="flex items-center">
-            <span className="text-xl sm:text-2xl font-bold text-[#7F00FF] font-manrope">Rezigco</span>
+            <span className="text-xl sm:text-2xl font-bold text-[#7F00FF] font-manrope">Finsho</span>
           </Link>
         )}
       </div>

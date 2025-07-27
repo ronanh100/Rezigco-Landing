@@ -1,6 +1,6 @@
-# Rezigco Landing Page
+# Finsho Landing Page
 
-This is the landing page for Rezigco, an AI-powered real estate solutions company.
+This is the landing page for Finsho, an AI-powered real estate solutions company.
 
 ## Getting Started
 

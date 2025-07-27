@@ -23,7 +23,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Rezigco | AI-Powered Real Estate Solutions",
+      title: "Finsho | AI-Powered Real Estate Solutions",
   description: "Revolutionizing property management and real estate transactions with cutting-edge artificial intelligence.",
   keywords: ["real estate", "AI", "property management", "real estate technology", "proptech"],
 };

@@ -7,8 +7,8 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Head>
-        <title>Privacy Policy - Rezigco</title>
-        <meta name="description" content="Rezigco Privacy Policy - Learn how we collect, use, and protect your personal data." />
+            <title>Privacy Policy - Finsho</title>
+    <meta name="description" content="Finsho Privacy Policy - Learn how we collect, use, and protect your personal data." />
         <meta name="robots" content="noindex" />
       </Head>
       
@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
         <header className="bg-white border-b border-gray-100 py-4">
           <div className="container mx-auto px-4">
             <Link href="/" className="text-2xl font-bold text-[#7F00FF] hover:text-[#7F00FF] transition-colors">
-              ← Back to Rezigco
+              ← Back to Finsho
             </Link>
           </div>
         </header>
@@ -102,10 +102,10 @@ export default function PrivacyPolicy() {
                     <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
                     <div className="bg-blue-50 p-6 rounded-lg">
                       <p className="text-gray-700 mb-2">
-                        <strong>Email:</strong> info@rezigco.com
+                        <strong>Email:</strong> info@finsho.com
                       </p>
                       <p className="text-gray-700 mb-2">
-                        <strong>Address:</strong> Finsho Limited (Rezigco)<br />
+                        <strong>Address:</strong> Finsho Limited<br />
                         13 Steeple Crescent, Abbey View<br />
                         Trim, Co. Meath, Ireland
                       </p>

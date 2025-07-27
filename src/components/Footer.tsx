@@ -10,15 +10,8 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div className="mb-6 md:mb-0">
-            <Link href="/" className="flex items-center gap-1">
-              <Image 
-                src="/rezigco_logo.png" 
-                alt="Rezigco Logo" 
-                width={32} 
-                height={32} 
-                className="object-contain"
-              />
-              <span className="text-2xl font-bold text-[#7F00FF]">Rezigco</span>
+            <Link href="/" className="flex items-center">
+              <span className="text-2xl font-bold text-[#7F00FF]">Finsho</span>
             </Link>
             <p className="mt-2 text-gray-600 max-w-md">
               Your AI agent to streamline the real estate workflow.
@@ -26,15 +19,6 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-col md:flex-row gap-8">
-            <div>
-              <h3 className="font-semibold text-gray-800 mb-3">Products</h3>
-              <ul className="space-y-2">
-                <li><span className="text-gray-600">Inbound Automator</span></li>
-                <li><span className="text-gray-600">Data Organizer</span></li>
-                <li><span className="text-gray-600">Insights</span></li>
-              </ul>
-            </div>
-            
             <div>
               <h3 className="font-semibold text-gray-800 mb-3">Company</h3>
               <ul className="space-y-2">

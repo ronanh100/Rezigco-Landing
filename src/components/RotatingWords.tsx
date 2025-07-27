@@ -12,11 +12,11 @@ export default function RotatingWords() {
     "24/7 Performance",
     "Time Back",
     "Simplicity",
-    "Rezigco"
+    "Finsho"
   ];
 
   return (
-    <section className="bg-white py-8 md:py-16 font-manrope relative">
+    <section className="bg-white pt-6 pb-16 md:pt-12 md:pb-24 font-manrope relative">
       <div className="container mx-auto px-4">
         <div className="flex justify-center items-center relative">
           <WordRotate
