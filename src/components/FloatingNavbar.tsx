@@ -8,8 +8,8 @@ import Image from "next/image";
 export default function FloatingNavbar() {
   const navItems = [
     {
-      name: "Sign Up",
-      link: "/signup",
+      name: "Get Started",
+      link: "https://cal.com/finsho/demo",
     },
     {
       name: "Login",

@@ -21,23 +21,16 @@ export const FloatingNav = ({
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    // Set initial state
+    // Set initial state - navbar always visible
     setVisible(true);
     setLastScrollY(window.scrollY);
     
-    // Define the scroll handler
+    // Keep navbar permanently visible - no scroll-based hiding
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Show navbar when scrolling up or at the top
-      if (currentScrollY < lastScrollY || currentScrollY <= 10) {
-        setVisible(true);
-      } else {
-        // Hide navbar when scrolling down (but not at the top)
-        setVisible(false);
-      }
-      
-      // Update last scroll position AFTER the comparison
+      // Always keep navbar visible
+      setVisible(true);
+      // Update last scroll position
       setLastScrollY(currentScrollY);
     };
     
@@ -53,22 +46,14 @@ export const FloatingNav = ({
   return (
     <div 
       className={cn(
-        "flex w-full fixed top-4 sm:top-4 inset-x-0 max-w-[calc(100%-2rem)] sm:max-w-2xl mx-auto bg-white/90 shadow-xl z-[5000] px-3 sm:px-4 md:px-8 py-2 sm:py-4 items-center justify-between rounded-full relative overflow-hidden backdrop-blur-md transition-all duration-300 ease-in-out",
-        hovering ? "shadow-2xl translate-y-[2px]" : "shadow-xl",
-        visible ? "translate-y-0 opacity-100" : "translate-y-[-150%] opacity-0",
+        "flex w-full fixed top-4 sm:top-4 inset-x-0 max-w-[calc(100%-2rem)] sm:max-w-2xl mx-auto bg-white shadow-xl z-[5000] px-3 sm:px-4 md:px-8 py-2 sm:py-4 items-center justify-between rounded-full backdrop-blur-sm transition-all duration-300 ease-in-out border border-[#7F00FF]/20",
+        hovering ? "shadow-2xl translate-y-[2px] border-[#7F00FF]/30" : "shadow-xl",
         className
       )}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      style={{ backgroundColor: "white" }}
     >
-      {/* Enhanced shimmer effect */}
-      <div className="absolute inset-0 w-full h-full">
-        <div className="absolute inset-x-0 bottom-0 h-px w-full bg-gradient-to-r from-transparent via-[#7F00FF]/50 to-transparent" />
-        <div className="absolute inset-x-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#7F00FF]/50 to-transparent" />
-        <div className="absolute inset-y-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-[#7F00FF]/50 to-transparent" />
-        <div className="absolute inset-y-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-[#7F00FF]/50 to-transparent" />
-      </div>
+
       
       {/* Logo on the left */}
       <div className="flex items-center z-10 pl-2 sm:pl-0">
@@ -83,7 +68,7 @@ export const FloatingNav = ({
       <div className="flex items-center space-x-2 sm:space-x-4 z-10 pr-2 sm:pr-0">
         {navItems.map((navItem, idx) => {
           // Style the buttons differently based on their name
-          const isSignUp = navItem.name === "Sign Up";
+          const isGetStarted = navItem.name === "Get Started";
           const isLogin = navItem.name === "Login";
           
           return (
@@ -92,9 +77,9 @@ export const FloatingNav = ({
               href={navItem.link}
               className={cn(
                 "relative flex items-center justify-center w-[80px] sm:w-auto font-medium px-2 sm:px-4 py-1 sm:py-2 rounded-lg transition-colors duration-200 text-center",
-                isSignUp ? "bg-[#7F00FF] text-white hover:bg-[#6B00E6]" : "",
+                isGetStarted ? "bg-[#7F00FF] text-white hover:bg-[#6B00E6] font-semibold shadow-lg hover:shadow-xl transform hover:scale-105" : "",
                 isLogin ? "border border-[#7F00FF] text-[#7F00FF] hover:bg-[#7F00FF]/10" : "",
-                !isSignUp && !isLogin ? "text-[#7F00FF] hover:text-[#6B00E6]" : ""
+                !isGetStarted && !isLogin ? "text-[#7F00FF] hover:text-[#6B00E6]" : ""
               )}
             >
               <span className="block sm:hidden">{navItem.icon}</span>

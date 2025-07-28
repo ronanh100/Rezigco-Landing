@@ -32,7 +32,7 @@ export default function AIIntelligence() {
           >
             <div className="flex justify-center max-w-[200px] w-full mx-auto">
               <ShimmerButton 
-                href="https://cal.com/rezigco/hireziggy"
+                href="https://cal.com/finsho/demo"
                 shimmerColor="rgba(146, 46, 164, 0.4)"
                 shimmerDuration="2s"
                 className="font-bricolage text-base uppercase tracking-wider font-bold rounded-md w-full text-center"
