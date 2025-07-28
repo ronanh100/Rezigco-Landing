@@ -6,7 +6,7 @@ import { ShimmerButton } from "@/lib/dynamic-components";
 
 export default function GetDemo() {
   return (
-    <section className="w-full bg-white py-16">
+    <section className="w-full bg-white py-16 font-manrope">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center text-center">
           {/* Heading */}

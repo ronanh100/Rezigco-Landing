@@ -33,9 +33,9 @@ export default function DataOrganizerBenefits() {
       onMouseLeave={() => setIsHovered(false)}
     >
       <section 
-        className="py-12 px-6 md:px-10 font-bricolage rounded-3xl relative overflow-hidden z-20 min-h-[420px]" 
+        className="py-12 px-6 md:px-10 font-manrope rounded-3xl relative overflow-hidden z-20 min-h-[420px]" 
         style={{ 
-          fontFamily: "'Bricolage Grotesque', sans-serif",
+          fontFamily: "'Manrope', sans-serif",
           background: "#922ea4",
           transition: "transform 0.5s ease, box-shadow 0.5s ease",
           transform: isHovered ? 'translateY(-12px) perspective(1000px) rotateX(2deg)' : 'translateY(0) perspective(1000px) rotateX(1deg)',

@@ -26,9 +26,9 @@ export default function InboundAutomatorBenefits() {
   return (
     <div className="relative">
       <section 
-        className="py-12 px-6 md:px-10 font-bricolage rounded-3xl relative overflow-hidden z-20 min-h-[420px] bg-white" 
+        className="py-12 px-6 md:px-10 font-manrope rounded-3xl relative overflow-hidden z-20 min-h-[420px] bg-white" 
         style={{ 
-          fontFamily: "'Bricolage Grotesque', sans-serif",
+          fontFamily: "'Manrope', sans-serif",
           background: "white",
           boxShadow: '0 10px 30px -5px rgba(127,0,255,0.2), 0 0 0 1px rgba(127,0,255,0.1)'
         }}

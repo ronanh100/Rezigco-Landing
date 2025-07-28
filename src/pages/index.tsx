@@ -85,7 +85,7 @@ export default function Home() {
         <Hero />
         
         {/* New: White background section for dashboard/demo placeholder */}
-        <section className="relative bg-white pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24">
+        <section className="relative bg-white pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24 font-manrope">
           <div className="container mx-auto px-4">
             <div className="bg-white rounded-3xl overflow-hidden border-2 border-[#7F00FF] max-w-6xl mx-auto" style={{boxShadow: '0 25px 50px -12px rgba(127, 0, 255, 0.25)'}}>
               <div className="aspect-[16/8] bg-white flex items-center justify-center relative overflow-hidden">
@@ -108,7 +108,7 @@ export default function Home() {
         </div>
         
         {/* New Benefits Section */}
-        <section className="bg-white py-8 md:py-12 pb-20 md:pb-24">
+        <section className="bg-white py-8 md:py-12 pb-20 md:pb-24 font-manrope">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               {/* Time Icon */}
@@ -193,7 +193,7 @@ export default function Home() {
         </section>
         
         {/* White background section - starts underneath placeholder */}
-        <section className="relative bg-white -mt-16 pt-16">
+        <section className="relative bg-white -mt-16 pt-16 font-manrope">
           <div data-component="Features" style={{ minHeight: '400px' }}>
             <Suspense fallback={<SectionLoader />}>
               <Features />
@@ -202,7 +202,7 @@ export default function Home() {
         </section>
         
         {/* Timeline section with white background */}
-        <section className="w-full bg-white">
+        <section className="w-full bg-white font-manrope">
           <div data-component="ZiggySetupTimeline">
             <Suspense fallback={<SectionLoader />}>
               <ZiggySetupTimeline />
@@ -221,7 +221,7 @@ export default function Home() {
 
         
         {/* BENEFITS SECTION - unified white background */}
-        <section className="w-full bg-white py-16">
+        <section className="w-full bg-white py-16 font-manrope">
           <div className="container mx-auto px-4">
             <div className="mb-24">
               <Suspense fallback={<SectionLoader />}>
@@ -232,7 +232,7 @@ export default function Home() {
         </section>
         
         {/* GetDemo section with white background */}
-        <section className="w-full bg-white">
+        <section className="w-full bg-white font-manrope">
           <div data-component="GetDemo">
             <Suspense fallback={<SectionLoader />}>
               <GetDemo />

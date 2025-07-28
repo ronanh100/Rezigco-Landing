@@ -14,6 +14,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
+        manrope: ['Manrope', 'sans-serif'],
         bricolage: ['var(--font-bricolage)'],
       },
       backgroundImage: {

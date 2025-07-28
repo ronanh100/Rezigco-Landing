@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function FunctionParts() {
   return (
-    <section className="relative bg-white py-8 md:py-16">
+    <section className="relative bg-white py-8 md:py-16 font-manrope">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
