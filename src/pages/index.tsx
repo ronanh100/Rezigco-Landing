@@ -108,85 +108,57 @@ export default function Home() {
         </div>
         
         {/* New Benefits Section */}
-        <section className="bg-white py-8 md:py-12 pb-20 md:pb-24 font-manrope">
+        <section className="bg-white py-16 md:py-24 pb-32 md:pb-40 font-manrope">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-              {/* Time Icon */}
-              <div className="text-center group">
-                <div className="relative w-24 h-24 mx-auto mb-6">
-                  {/* Animated background rings */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#B266FF] to-[#E0C3FC] rounded-3xl animate-pulse opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-                  <div className="absolute inset-2 bg-gradient-to-br from-[#7F00FF] to-[#B266FF] rounded-2xl animate-pulse opacity-30 group-hover:opacity-50 transition-opacity duration-500" style={{animationDelay: '0.5s'}}></div>
+            
+            <div className="max-w-6xl mx-auto">
+              <div className="bg-white rounded-3xl p-8 md:p-12 transition-all duration-500 transform hover:-translate-y-2 border-2 border-[#7F00FF]/20 hover:border-[#7F00FF]/40" style={{boxShadow: '0 10px 25px -5px rgba(127, 0, 255, 0.1), 0 4px 6px -2px rgba(127, 0, 255, 0.05)'}}>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                  {/* Time Icon */}
+                  <div className="text-center group">
+                    <div className="relative w-20 h-20 mx-auto mb-6">
+                      {/* Main icon container */}
+                      <div className="relative w-full h-full bg-[#7F00FF] rounded-2xl flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 hover:shadow-3xl hover:bg-[#6B00E6] border-2 border-white/20">
+                        <svg className="w-10 h-10 text-white relative z-10 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3 className="text-lg md:text-xl text-gray-900 mb-2 group-hover:text-[#7F00FF] transition-colors duration-300">
+                      Spend more time building relationships and closing deals
+                    </h3>
+                  </div>
                   
-                  {/* Main icon container */}
-                  <div className="relative w-full h-full bg-gradient-to-br from-[#7F00FF] via-[#B266FF] to-[#E0C3FC] rounded-2xl flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500" 
-                       style={{
-                         boxShadow: '0 20px 40px -10px rgba(127, 0, 255, 0.4), 0 0 20px rgba(178, 102, 255, 0.3)',
-                         background: 'linear-gradient(135deg, #7F00FF 0%, #B266FF 50%, #E0C3FC 100%)'
-                       }}>
-                    {/* Glowing effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                    
-                    <svg className="w-12 h-12 text-white drop-shadow-lg relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                  {/* Growth/Money Icon */}
+                  <div className="text-center group">
+                    <div className="relative w-20 h-20 mx-auto mb-6">
+                      {/* Main icon container */}
+                      <div className="relative w-full h-full bg-[#7F00FF] rounded-2xl flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500 hover:shadow-3xl hover:bg-[#6B00E6] border-2 border-white/20">
+                        <svg className="w-10 h-10 text-white relative z-10 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3 className="text-lg md:text-xl text-gray-900 mb-2 group-hover:text-[#7F00FF] transition-colors duration-300">
+                      Handle more sales without adding extra costs
+                    </h3>
+                  </div>
+                  
+                  {/* Happy Icon */}
+                  <div className="text-center group">
+                    <div className="relative w-20 h-20 mx-auto mb-6">
+                      {/* Main icon container */}
+                      <div className="relative w-full h-full bg-[#7F00FF] rounded-2xl flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 hover:shadow-3xl hover:bg-[#6B00E6] border-2 border-white/20">
+                        <svg className="w-10 h-10 text-white relative z-10 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3 className="text-lg md:text-xl text-gray-900 mb-2 group-hover:text-[#7F00FF] transition-colors duration-300">
+                      Keep every client happy and informed with ease
+                    </h3>
                   </div>
                 </div>
-                <h3 className="text-lg md:text-xl text-gray-900 mb-2 group-hover:text-[#7F00FF] transition-colors duration-300">
-                  Spend more time building relationships and closing deals
-                </h3>
-              </div>
-              
-              {/* Growth/Money Icon */}
-              <div className="text-center group">
-                <div className="relative w-24 h-24 mx-auto mb-6">
-                  {/* Animated background rings */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#B266FF] to-[#E0C3FC] rounded-3xl animate-pulse opacity-20 group-hover:opacity-40 transition-opacity duration-500" style={{animationDelay: '0.3s'}}></div>
-                  <div className="absolute inset-2 bg-gradient-to-br from-[#7F00FF] to-[#B266FF] rounded-2xl animate-pulse opacity-30 group-hover:opacity-50 transition-opacity duration-500" style={{animationDelay: '0.8s'}}></div>
-                  
-                  {/* Main icon container */}
-                  <div className="relative w-full h-full bg-gradient-to-br from-[#7F00FF] via-[#B266FF] to-[#E0C3FC] rounded-2xl flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500" 
-                       style={{
-                         boxShadow: '0 20px 40px -10px rgba(127, 0, 255, 0.4), 0 0 20px rgba(178, 102, 255, 0.3)',
-                         background: 'linear-gradient(135deg, #7F00FF 0%, #B266FF 50%, #E0C3FC 100%)'
-                       }}>
-                    {/* Glowing effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                    
-                    <svg className="w-12 h-12 text-white drop-shadow-lg relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-lg md:text-xl text-gray-900 mb-2 group-hover:text-[#7F00FF] transition-colors duration-300">
-                  Handle more sales without adding extra costs
-                </h3>
-              </div>
-              
-              {/* Happy Icon */}
-              <div className="text-center group">
-                <div className="relative w-24 h-24 mx-auto mb-6">
-                  {/* Animated background rings */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#B266FF] to-[#E0C3FC] rounded-3xl animate-pulse opacity-20 group-hover:opacity-40 transition-opacity duration-500" style={{animationDelay: '0.6s'}}></div>
-                  <div className="absolute inset-2 bg-gradient-to-br from-[#7F00FF] to-[#B266FF] rounded-2xl animate-pulse opacity-30 group-hover:opacity-50 transition-opacity duration-500" style={{animationDelay: '0.1s'}}></div>
-                  
-                  {/* Main icon container */}
-                  <div className="relative w-full h-full bg-gradient-to-br from-[#7F00FF] via-[#B266FF] to-[#E0C3FC] rounded-2xl flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500" 
-                       style={{
-                         boxShadow: '0 20px 40px -10px rgba(127, 0, 255, 0.4), 0 0 20px rgba(178, 102, 255, 0.3)',
-                         background: 'linear-gradient(135deg, #7F00FF 0%, #B266FF 50%, #E0C3FC 100%)'
-                       }}>
-                    {/* Glowing effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                    
-                    <svg className="w-12 h-12 text-white drop-shadow-lg relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-lg md:text-xl text-gray-900 mb-2 group-hover:text-[#7F00FF] transition-colors duration-300">
-                  Keep every client happy and informed with ease
-                </h3>
               </div>
             </div>
           </div>

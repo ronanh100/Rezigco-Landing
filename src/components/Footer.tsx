@@ -23,8 +23,7 @@ export default function Footer() {
               <h3 className="font-semibold text-gray-800 mb-3">Company</h3>
               <ul className="space-y-2">
                 <li><Link href="/login" className="text-gray-600 hover:text-[#7F00FF]">Login</Link></li>
-                <li><Link href="/pricing" className="text-gray-600 hover:text-[#7F00FF]">Pricing</Link></li>
-                <li><Link href="/contact" className="text-gray-600 hover:text-[#7F00FF]">Contact</Link></li>
+                <li><a href="mailto:info@finsho.com" className="text-gray-600 hover:text-[#7F00FF]">info@finsho.com</a></li>
                 <li><Link href="/privacy" className="text-gray-600 hover:text-[#7F00FF]">Privacy Policy</Link></li>
                 <li><Link href="/terms" className="text-gray-600 hover:text-[#7F00FF]">Terms of Service</Link></li>
               </ul>

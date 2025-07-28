@@ -18,7 +18,7 @@ export default function GetDemo() {
             className="max-w-3xl mb-8"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black font-manrope">
-              Ready to streamline your <span className="text-[#7F00FF] whitespace-nowrap">real estate workflow?</span>
+              Ready to focus on clients, <span className="text-[#7F00FF] whitespace-nowrap">not chasing emails?</span>
             </h2>
           </motion.div>
           

@@ -70,14 +70,22 @@ export default function FunctionParts() {
                
                {/* Floating Email Icons - Outside the overflow-hidden container */}
                <div className="absolute -bottom-3 md:-bottom-5 -left-3 md:-left-5 bg-white rounded-lg p-1.5 md:p-2 shadow-lg z-50">
-                 <div className="w-6 md:w-8 h-6 md:h-8 bg-gradient-to-br from-red-400 to-red-600 rounded flex items-center justify-center">
-                   <span className="text-white text-xs font-bold">G</span>
-                 </div>
+                 <Image 
+                   src="/Gmail_Logo.svg" 
+                   alt="Gmail" 
+                   width={32} 
+                   height={32} 
+                   className="w-6 md:w-8 h-6 md:h-8"
+                 />
                </div>
                <div className="absolute -top-3 md:-top-5 -right-3 md:-right-5 bg-white rounded-lg p-1.5 md:p-2 shadow-lg z-50">
-                 <div className="w-6 md:w-8 h-6 md:h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded flex items-center justify-center">
-                   <span className="text-white text-xs font-bold">O</span>
-                 </div>
+                 <Image 
+                   src="/Microsoft_Office_Outlook_Logo.svg" 
+                   alt="Microsoft Outlook" 
+                   width={32} 
+                   height={32} 
+                   className="w-6 md:w-8 h-6 md:h-8"
+                 />
                </div>
             </div>
           </div>
