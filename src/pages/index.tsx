@@ -20,9 +20,7 @@ const RotatingWords = dynamic(() => import('@/components/RotatingWords'), {
 
 
 
-const AIIntelligence = dynamic(() => import('@/components/AIIntelligence'), {
-  ssr: false,
-});
+
 
 const DealNavigatorBenefits = dynamic(() => import('@/components/InboundAutomatorBenefits'), {
   ssr: false,
@@ -203,6 +201,15 @@ export default function Home() {
           </div>
         </section>
         
+        {/* Timeline section with white background */}
+        <section className="w-full bg-white">
+          <div data-component="ZiggySetupTimeline">
+            <Suspense fallback={<SectionLoader />}>
+              <ZiggySetupTimeline />
+            </Suspense>
+          </div>
+        </section>
+        
         <div data-component="RotatingWords">
           <Suspense fallback={<SectionLoader />}>
             <RotatingWords />
@@ -211,11 +218,7 @@ export default function Home() {
         
 
         
-        <div data-component="AIIntelligence">
-          <Suspense fallback={<SectionLoader />}>
-            <AIIntelligence />
-          </Suspense>
-        </div>
+
         
         {/* BENEFITS SECTION - unified white background */}
         <section className="w-full bg-white py-16">
@@ -228,17 +231,14 @@ export default function Home() {
           </div>
         </section>
         
-        <div data-component="ZiggySetupTimeline">
-          <Suspense fallback={<SectionLoader />}>
-            <ZiggySetupTimeline />
-          </Suspense>
-        </div>
-        
-        <div data-component="GetDemo">
-          <Suspense fallback={<SectionLoader />}>
-            <GetDemo />
-          </Suspense>
-        </div>
+        {/* GetDemo section with white background */}
+        <section className="w-full bg-white">
+          <div data-component="GetDemo">
+            <Suspense fallback={<SectionLoader />}>
+              <GetDemo />
+            </Suspense>
+          </div>
+        </section>
         
         <div data-component="Footer">
           <Suspense fallback={<div className="h-20 bg-gray-100"></div>}>

@@ -4,26 +4,34 @@ import { Timeline } from "@/components/ui/timeline";
 export default function ZiggySetupTimeline() {
   const data = [
     {
-      title: "Choose Your Capabilities",
+      title: "Connect Email",
       content: (
-        <p className="text-black text-base md:text-lg leading-relaxed mt-0">
-          Pick the tools that suit your workflow, whether that means engaging leads, progressing deals, or both.
+        <p className="text-black text-lg md:text-xl leading-relaxed mt-0">
+          Securely link your Gmail or Outlook so Finsho can access and manage all deal-related communication.
         </p>
       ),
     },
     {
-      title: "Set Up Your Account",
+      title: "Create Deal",
       content: (
-        <p className="text-black text-base md:text-lg leading-relaxed mt-0">
-          Create your account, connect what matters, and get started quickly without any complexity.
+        <p className="text-black text-lg md:text-xl leading-relaxed mt-0">
+          Add property details and include all parties involved, such as the buyers, sellers, and solicitors.
         </p>
       ),
     },
     {
-      title: "Go Live!",
+      title: "Add Stages",
       content: (
-        <p className="text-black text-base md:text-lg leading-relaxed mt-0">
-          Your AI agent is ready to work. Start capturing leads, moving deals forward, and saving valuable time.
+        <p className="text-black text-lg md:text-xl leading-relaxed mt-0">
+          Lay out the stages in order and include details for each step so your AI agent knows how you work.
+        </p>
+      ),
+    },
+    {
+      title: "Begin Automation",
+      content: (
+        <p className="text-black text-lg md:text-xl leading-relaxed mt-0">
+          Finsho scans your emails, identifies the first stage, and within minutes drafts a suggested follow-up email to keep things moving.
         </p>
       ),
     },

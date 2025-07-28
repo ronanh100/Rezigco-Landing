@@ -23,24 +23,14 @@ const Benefit = ({ icon, title, description, iconClassName = "" }: BenefitProps)
 };
 
 export default function InboundAutomatorBenefits() {
-  const [isHovered, setIsHovered] = React.useState(false);
-  
   return (
-    <div 
-      className="relative cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="relative">
       <section 
         className="py-12 px-6 md:px-10 font-bricolage rounded-3xl relative overflow-hidden z-20 min-h-[420px] bg-white" 
         style={{ 
           fontFamily: "'Bricolage Grotesque', sans-serif",
           background: "white",
-          transition: "transform 0.5s ease, box-shadow 0.5s ease",
-          transform: isHovered ? 'translateY(-12px) perspective(1000px) rotateX(2deg)' : 'translateY(0) perspective(1000px) rotateX(1deg)',
-          boxShadow: isHovered 
-            ? '0 30px 70px -10px rgba(127,0,255,0.3), 0 0 0 1px rgba(127,0,255,0.2), 0 4px 0 rgba(255,255,255,0.4), inset 0 0 30px rgba(127,0,255,0.05), 0 10px 20px -5px rgba(0,0,0,0.1)' 
-            : '0 10px 30px -5px rgba(127,0,255,0.2), 0 0 0 1px rgba(127,0,255,0.1)'
+          boxShadow: '0 10px 30px -5px rgba(127,0,255,0.2), 0 0 0 1px rgba(127,0,255,0.1)'
         }}
       >
         <div className="max-w-6xl mx-auto relative z-10">
